@@ -81,6 +81,30 @@
         <h2>About</h2>
         <p>ようこそ。ここは私のポートフォリオサイトのトップページです。</p>
     </div>
+<script>
+    // ページが読み込まれたら動く処理
+    console.log("JavaScriptが動いています");
 
+    // h1タグの文字を書き換える関数
+    function changeTitle() {
+        const titleElement = document.querySelector('h1');
+        
+        if (titleElement.innerText === "Welcome to My Website") {
+            titleElement.innerText = "Hello, World!";
+            titleElement.style.color = "red"; // 色も変えてみる
+        } else {
+            titleElement.innerText = "Welcome to My Website";
+            titleElement.style.color = "#333"; // 元に戻す
+        }
+    }
+
+    // h1タグをクリックしたら changeTitle 関数を実行する設定
+    document.querySelector('h1').addEventListener('click', changeTitle);
+    
+    // カーソルをポインター（指）にする
+    document.querySelector('h1').style.cursor = "pointer";
+</script>
+</body>
+</html>
 </body>
 </html>
