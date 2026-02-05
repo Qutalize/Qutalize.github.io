@@ -3,114 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>My Website</title>
     <style>
+        :root {
+            --main-color: #00BFFF;
+            --hover-color: #009ACD;
+            --text-color: #333;
+        }
+
         body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            font-family: "Helvetica Neue", Arial, sans-serif;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            color: var(--text-color);
             line-height: 1.6;
-            color: #333;
-            background-color: #e0f7fa;
-        }
-        header {
-            text-align: center;
-            padding: 20px 0;
-            border-bottom: 2px solid #eee;
-            margin-bottom: 30px;
-        }
-        h1 {
-            margin: 0;
-            color: #333;
         }
 
+        header {
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* ナビゲーションメニュー */
         nav ul {
             list-style: none;
             padding: 0;
-            margin: 20px 0 0 0;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
             gap: 10px;
+            flex-wrap: wrap;
         }
         nav ul li a {
-            display: inline-block;
             text-decoration: none;
-            background-color: #00bfff;
-            color: #fff; 
+            background-color: var(--main-color);
+            color: white;
             padding: 10px 20px;
             border-radius: 5px;
-            transition: background-color 0.3s;
             font-weight: bold;
-        
+            display: inline-block;
+            transition: background-color 0.3s;
         }
         nav ul li a:hover {
-            background-color: #009acd;
+            background-color: var(--hover-color);
+        }
+        .current {
+            background-color: var(--hover-color);
+            pointer-events: none;
         }
 
-        .section {
-            margin-bottom: 50px; 
-            padding-top: 20px;
-            border-bottom: 1px solid #f0f0f0;
-            padding-bottom: 20px;
-        }
         h2 {
-            border-left: 5px solid #00bfff;
+            border-left: 6px solid var(--main-color); 
             padding-left: 10px;
-            margin-bottom: 20px;
-        }
-        .contact-link {
-            color: #00bfff;
-            text-decoration: underline;
+            background-color: #f0f8ff;
+            padding: 5px 10px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>My Portfolio</h1>
+        <h1>Welcome to My Website</h1>
         <nav>
             <ul>
-                <li><a href="#works">業績</a></li>
-                <li><a href="#history">経歴</a></li>
-                <li><a href="#hobby">趣味</a></li>
-                <li><a href="#contact">リンク</a></li>
+                <li><a href="index.html" class="current">ホーム</a></li>
+                <li><a href="works.html">業績</a></li>
+                <li><a href="history.html">経歴</a></li>
+                <li><a href="hobby.html">趣味</a></li>
+                <li><a href="contact.html">リンク</a></li>
             </ul>
         </nav>
     </header>
 
-    <div id="works" class="section">
-        <h2>業績 (Works)</h2>
-        <p>これまでに取り組んだプロジェクトや成果物をご紹介します</p>
-        <ul>
-            <li><strong>プロジェクトA:</strong> XXを使用したWebアプリ開発</li>
-            <li><strong>論文発表:</strong> 「テーマ名」について (202X年)</li>
-        </ul>
+    <div class="section">
+        <h2>About</h2>
+        <p>ようこそ。ここは私のポートフォリオサイトのトップページです。</p>
     </div>
-
-    <div id="history" class="section">
-        <h2>経歴 (Experience)</h2>
-        <p>これまでの経歴です。</p>
-        <ul>
-            <li>202X年 X月：〇〇大学 入学</li>
-            <li>202X年 X月：株式会社△△ インターン参加</li>
-        </ul>
-    </div>
-
-    <div id="hobby" class="section">
-        <h2>趣味 (Hobbies)</h2>
-        <p>普段の活動や興味のある分野です。</p>
-        <p>例：プログラミング、旅行、映画鑑賞など</p>
-    </div>
-
-    <div id="contact" class="section">
-        <p>GitHub: <a href="https://github.com/yourusername" target="_blank" class="contact-link">github.com/yourusername</a></p>
-    </div>
-
-    <footer style="text-align: center; margin-top: 50px; color: #777; font-size: 0.9em;">
-        &copy; 2024 My Portfolio
-    </footer>
 
 </body>
 </html>
