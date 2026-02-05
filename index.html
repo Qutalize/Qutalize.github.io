@@ -70,13 +70,14 @@
         /* 画面を横切るアニメーションの定義 */
         @keyframes chaseAcrossScreen {
             0% {
-                /* 開始点：特に指定なし（初期位置） */
-                transform: translateX(0);
+            /* 開始点：画面の右端(100vw)の少し外側 */
+            transform: translateX(calc(100vw + 100px)) scaleX(1);
             }
             100% {
-                /* 終了点：画面の右端(100vw)を超えて見えなくなる位置まで移動 */
-                transform: translateX(calc(100vw + 200px)); 
+            /* 終了点：画面の左端よりさらに左へ移動して消える */
+            transform: translateX(-200px) scaleX(1);
             }
+    }
         }
         /* --- アニメーション追加用CSSここまで --- */
 
