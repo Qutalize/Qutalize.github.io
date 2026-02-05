@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
     <style>
+        /* 水色テーマの設定 */
         :root {
             --main-color: #00BFFF;
             --hover-color: #009ACD;
@@ -18,6 +19,7 @@
             padding: 20px;
             color: var(--text-color);
             line-height: 1.6;
+            overflow-x: hidden; /* 横スクロールバーが出ないようにする */
         }
 
         header {
@@ -25,9 +27,60 @@
             border-bottom: 2px solid #eee;
             padding-bottom: 20px;
             margin-bottom: 30px;
+            position: relative; /* アニメーションの基準点にする */
         }
 
-        /* ナビゲーションメニュー */
+        /* --- ここからアニメーション追加用のCSS --- */
+
+        /* アニメーションが走る道路のようなエリア */
+        .animation-stage {
+            width: 100%;
+            height: 60px; /* キャラクターが走る高さ */
+            position: relative;
+            overflow: hidden; /* 画面外に出たキャラを隠す */
+            margin-bottom: 20px;
+            border-bottom: 2px dashed #add8e6; /* 地面っぽい線 */
+        }
+
+        /* キャラクター共通設定 */
+        .character {
+            position: absolute;
+            bottom: 0; /* 地面に着地させる */
+            font-size: 40px; /* 絵文字の大きさ（画像にする場合はwidth/heightに変更） */
+            /* chaseAcrossScreen: アニメーション名
+               8s: 8秒かけて画面を横切る（速度）
+               linear: 一定の速度で
+               infinite: 無限に繰り返す
+            */
+            animation: chaseAcrossScreen 8s linear infinite;
+        }
+
+        /* スライムの設定 */
+        .slime {
+            left: -60px; /* スタート地点（画面の少し左外） */
+            z-index: 2; /* 猫より手前に表示 */
+        }
+
+        /* 猫の設定 */
+        .cat {
+            left: -180px; /* スライムより後ろからスタート */
+            z-index: 1;
+        }
+
+        /* 画面を横切るアニメーションの定義 */
+        @keyframes chaseAcrossScreen {
+            0% {
+                /* 開始点：特に指定なし（初期位置） */
+                transform: translateX(0);
+            }
+            100% {
+                /* 終了点：画面の右端(100vw)を超えて見えなくなる位置まで移動 */
+                transform: translateX(calc(100vw + 200px)); 
+            }
+        }
+        /* --- アニメーション追加用CSSここまで --- */
+
+
         nav ul {
             list-style: none;
             padding: 0;
@@ -49,13 +102,14 @@
         nav ul li a:hover {
             background-color: var(--hover-color);
         }
+        
         .current {
             background-color: var(--hover-color);
             pointer-events: none;
         }
 
         h2 {
-            border-left: 6px solid var(--main-color); 
+            border-left: 6px solid var(--main-color);
             padding-left: 10px;
             background-color: #f0f8ff;
             padding: 5px 10px;
@@ -66,6 +120,12 @@
 
     <header>
         <h1>Welcome to My Website</h1>
+
+        <div class="animation-stage">
+            <div class="character slime">💧</div>
+            <div class="character cat">🐈💨</div>
+        </div>
+
         <nav>
             <ul>
                 <li><a href="index.html" class="current">ホーム</a></li>
@@ -79,32 +139,8 @@
 
     <div class="section">
         <h2>About</h2>
-        <p>ようこそ。ここは私のポートフォリオサイトのトップページです。</p>
+        <p>ようこそ。</p>
     </div>
-<script>
-    // ページが読み込まれたら動く処理
-    console.log("JavaScriptが動いています");
 
-    // h1タグの文字を書き換える関数
-    function changeTitle() {
-        const titleElement = document.querySelector('h1');
-        
-        if (titleElement.innerText === "Welcome to My Website") {
-            titleElement.innerText = "Hello, World!";
-            titleElement.style.color = "red"; // 色も変えてみる
-        } else {
-            titleElement.innerText = "Welcome to My Website";
-            titleElement.style.color = "#333"; // 元に戻す
-        }
-    }
-
-    // h1タグをクリックしたら changeTitle 関数を実行する設定
-    document.querySelector('h1').addEventListener('click', changeTitle);
-    
-    // カーソルをポインター（指）にする
-    document.querySelector('h1').style.cursor = "pointer";
-</script>
-</body>
-</html>
 </body>
 </html>
