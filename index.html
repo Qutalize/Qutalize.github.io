@@ -7,8 +7,8 @@
     <style>
         /* 水色テーマの設定 */
         :root {
-            --main-color: #00BFFF;
-            --hover-color: #009ACD;
+            --main-color: #00BFFF; /* 鮮やかな水色 */
+            --hover-color: #009ACD; /* ホバー時の少し濃い色 */
             --text-color: #333;
         }
 
@@ -19,7 +19,6 @@
             padding: 20px;
             color: var(--text-color);
             line-height: 1.6;
-            overflow-x: hidden; /* 横スクロールバーが出ないようにする */
         }
 
         header {
@@ -27,61 +26,9 @@
             border-bottom: 2px solid #eee;
             padding-bottom: 20px;
             margin-bottom: 30px;
-            position: relative; /* アニメーションの基準点にする */
         }
 
-        /* --- ここからアニメーション追加用のCSS --- */
-
-        /* アニメーションが走る道路のようなエリア */
-        .animation-stage {
-            width: 100%;
-            height: 60px; /* キャラクターが走る高さ */
-            position: relative;
-            overflow: hidden; /* 画面外に出たキャラを隠す */
-            margin-bottom: 20px;
-            border-bottom: 2px dashed #add8e6; /* 地面っぽい線 */
-        }
-
-        /* キャラクター共通設定 */
-        .character {
-            position: absolute;
-            bottom: 0; /* 地面に着地させる */
-            font-size: 40px; /* 絵文字の大きさ（画像にする場合はwidth/heightに変更） */
-            /* chaseAcrossScreen: アニメーション名
-               8s: 8秒かけて画面を横切る（速度）
-               linear: 一定の速度で
-               infinite: 無限に繰り返す
-            */
-            animation: chaseAcrossScreen 8s linear infinite;
-        }
-
-        /* スライムの設定 */
-        .slime {
-            left: -60px; /* スタート地点（画面の少し左外） */
-            z-index: 2; /* 猫より手前に表示 */
-        }
-
-        /* 猫の設定 */
-        .cat {
-            left: -180px; /* スライムより後ろからスタート */
-            z-index: 1;
-        }
-
-        /* 画面を横切るアニメーションの定義 */
-        @keyframes chaseAcrossScreen {
-            0% {
-            /* 開始点：画面の右端(100vw)の少し外側 */
-            transform: translateX(calc(100vw + 100px)) scaleX(1);
-            }
-            100% {
-            /* 終了点：画面の左端よりさらに左へ移動して消える */
-            transform: translateX(-200px) scaleX(1);
-            }
-    }
-        }
-        /* --- アニメーション追加用CSSここまで --- */
-
-
+        /* ナビゲーションメニュー */
         nav ul {
             list-style: none;
             padding: 0;
@@ -92,7 +39,7 @@
         }
         nav ul li a {
             text-decoration: none;
-            background-color: var(--main-color);
+            background-color: var(--main-color); /* 水色ボタン */
             color: white;
             padding: 10px 20px;
             border-radius: 5px;
@@ -104,15 +51,16 @@
             background-color: var(--hover-color);
         }
         
+        /* 現在のページのボタンを目立たせる（任意） */
         .current {
             background-color: var(--hover-color);
             pointer-events: none;
         }
 
         h2 {
-            border-left: 6px solid var(--main-color);
+            border-left: 6px solid var(--main-color); /* 水色の線 */
             padding-left: 10px;
-            background-color: #f0f8ff;
+            background-color: #f0f8ff; /* 薄い水色の背景 */
             padding: 5px 10px;
         }
     </style>
@@ -121,26 +69,21 @@
 
     <header>
         <h1>Welcome to My Website</h1>
-
-        <div class="animation-stage">
-            <div class="character slime">💧</div>
-            <div class="character cat">🐈💨</div>
-        </div>
-
         <nav>
             <ul>
                 <li><a href="index.html" class="current">ホーム</a></li>
                 <li><a href="works.html">業績</a></li>
                 <li><a href="history.html">経歴</a></li>
                 <li><a href="hobby.html">趣味</a></li>
-                <li><a href="contact.html">リンク</a></li>
+                <li><a href="link.html">リンク</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="section">
         <h2>About</h2>
-        <p>ようこそ。</p>
+        <p>ようこそ。ここは私のポートフォリオサイトのトップページです。</p>
+        <p>上のメニューボタンから各詳細ページへ移動してください。</p>
     </div>
 
 </body>
