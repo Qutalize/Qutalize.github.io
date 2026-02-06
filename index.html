@@ -23,13 +23,12 @@
             line-height: 1.8;
         }
 
-        /* ヘッダーコンテナの上下余白を短縮 */
         .header-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 30px;
-            padding: 10px 0 0 0; /* 下側のパディングを0に */
+            padding: 10px 0 0 0;
         }
         .header-text {
             flex: 1; 
@@ -47,8 +46,7 @@
             width: 80px;
             height: auto;
         }
-
-        /* ナビゲーションの上の余白を消し、下を少し詰める */
+        
         nav { 
             margin-top: 0;
             margin-bottom: 30px; 
@@ -58,7 +56,7 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 15px; /* ボタン同士の間隔は維持 */
+            gap: 15px; 
             flex-wrap: wrap;
         }
         nav ul li a {
@@ -106,7 +104,6 @@
             color: var(--main-navy);
         }
 
-        /* スマホでの文字折れ・崩れ対策 */
         .intro p {
             word-break: break-all;
             text-align: justify;
@@ -140,7 +137,6 @@
             mix-blend-mode: multiply;
         }
         
-        /* スマホ版の詳細修正 */
         @media (max-width: 600px) {
             .header-container {
                 flex-direction: column;
@@ -149,13 +145,12 @@
                 padding: 10px 0;
             }
 
-            /* ナビゲーションの折り返しを最適化 */
             nav ul {
                 gap: 10px;
             }
 
             .section {
-                padding: 25px 20px; /* 余白を減らして文字のスペースを確保 */
+                padding: 25px 20px;
             }
 
             .about-flex {
@@ -173,7 +168,7 @@
             }
 
             .header-text h1 {
-                font-size: 2.2rem; /* スマホでは少し小さくしてバランス調整 */
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -219,11 +214,11 @@
                 <h3>基本情報</h3>
                 <p>出身地: 富山</p>
                 <p>使用言語: Python,C,Java(2年以上使用) > HTML,SQL(ある程度の技能) > JavaScript,OCaml,C#,C++,Pascal,Rust,Go(場面に応じて調べて使用、勉強中)</p>
-                <p>アピールポイント: 3週間の留学経験あり、フランス語サークル学生代表（1年間）、5教科指導の塾講師（約3年間）
+                <p>アピールポイント: 3週間の留学経験あり, フランス語サークル学生代表(1年間), 5教科指導の塾講師(約3年間)
                 <h3>資格戦歴</h3>
-                <p>2025.10 TOIEC L&R Score:730(1年前から点数が下がったため、現在英語を再度勉強中)</p>
+                <p>2025.10 TOIEC L&R Score:730  (1年前から点数が下がったため、現在英語を再度勉強中)</p>
                 <p>2025.08 CGARTS検定 CGエンジニア検定エキスパート合格、画像処理エンジニア検定エキスパート合格</p>
-                <p>2025.10 応用情報技術者試験 午前試験83.75%|午後試験59.00% 不合格(午後試験の1％差で不合格だったため、次回は必ず受かるように勉強中)</p>
+                <p>2025.10 応用情報技術者試験 午前試験83.75%,午後試験59.00% 不合格 (午後試験の1％差で不合格だったため、次回は必ず受かるように勉強中)</p>
             </div>
         </div>
     </div>
