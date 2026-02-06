@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>業績 - Quta's Portfolio</title>
+    <title>取り組み - Quta's Portfolio</title>
     <style>
         :root {
             --bg-color: #e0f2f7;
             --main-navy: #1a3a5f;
             --accent-blue: #4682b4;
             --white: #ffffff;
-            --tag-web: #ff7f50;
-            --tag-arch: #6b8e23;
+            --tag-devlopment: #ff7f50;
+            --tag-research: #6b8e23;
             --tag-award: #daa520;
         }
 
@@ -41,14 +41,12 @@
             margin-bottom: 30px;
         }
 
-        /* カードのグリッド配置 */
         .works-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
 
-        /* 成果物カード本体 */
         .work-card {
             background: var(--white);
             border-radius: 15px;
@@ -56,7 +54,7 @@
             flex-direction: column;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: all 0.3s ease;
-            text-decoration: none; /* 全体をリンクにする場合 */
+            text-decoration: none;
             color: inherit;
         }
 
@@ -65,7 +63,6 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        /* カード内の中身 */
         .work-body {
             padding: 25px;
             flex-grow: 1;
@@ -82,8 +79,8 @@
             width: fit-content;
             margin-bottom: 15px;
         }
-        .bg-web { background-color: var(--tag-web); }
-        .bg-arch { background-color: var(--tag-arch); }
+        .bg-development { background-color: var(--tag-development); }
+        .bg-research { background-color: var(--tag-research); }
         .bg-award { background-color: var(--tag-award); }
 
         .work-body h3 {
@@ -98,7 +95,6 @@
             margin-bottom: 20px;
         }
 
-        /* 詳しく見るリンク（ボタン風） */
         .read-more {
             margin-top: auto;
             color: var(--accent-blue);
@@ -126,8 +122,8 @@
         <nav>
             <ul>
                 <li><a href="index.html">ホーム</a></li>
-                <li><a href="works.html" class="current">業績</a></li>
-                <li><a href="reading.html">読書履歴</a></li>
+                <li><a href="works.html" class="current">取り組み</a></li>
+                <li><a href="readinglog.html">読書履歴</a></li>
                 <li><a href="hobby.html">趣味</a></li>
                 <li><a href="link.html">リンク</a></li>
             </ul>
@@ -135,38 +131,37 @@
     </header>
 
     <div class="section">
-        <h2>研究・成果物</h2>
+        <h2>制作物・研究</h2>
         
         <div class="works-grid">
 
-            <a href="arch-details.html" class="work-card">
+            <a href="folder/202512.html" class="work-card">
                 <div class="work-body">
-                    <span class="label bg-arch">Architecture Research</span>
-                    <h3>次世代キャッシュ制御アルゴリズム</h3>
+                    <span class="label bg-development">Algorithm Development</span>
+                    <h3>経路探索アルゴリズムの比較システム(2025.12)</h3>
                     <p class="work-summary">
-                        コンピュータアーキテクチャの研究として、メモリアクセスの効率化に関する提案を行いました。
+                        アルゴリズムの授業の課題を拡張する形で、最短経路探索アルゴリズムの性質の比較を行いました。
+                    </p>
+                    <div class="read-more">詳しく解説を見る</div>
+                </div>
+            </a>
+            <a href="folder/cloud_jikken.pdf" target="_blank" class="work-card">
+                <div class="work-body">
+                    <span class="label bg-development">Web Application</span>
+                    <h3>AWSを用いた「ＳＮＳでバズった飲食店マップ」表示webアプリケーション</h3>
+                    <p class="work-summary">
+                        大学の授業の一環として、ＡＷＳとＳＮＳのＡＰＩを用いて、最近ＳＮＳでバズった飲食店の位置を地図上に表示するwebアプリケーションを開発しました。
                     </p>
                     <div class="read-more">詳しく解説を見る</div>
                 </div>
             </a>
 
-            <a href="web-details.html" class="work-card">
-                <div class="work-body">
-                    <span class="label bg-web">Web Application</span>
-                    <h3>ポートフォリオサイトの制作</h3>
-                    <p class="work-summary">
-                        HTML/CSSを用いて、個人の活動を集約するレスポンシブなサイトを制作しました。
-                    </p>
-                    <div class="read-more">詳しく解説を見る</div>
-                </div>
-            </a>
-
-            <a href="award-details.html" class="work-card">
+            <a href="folder/202601.html" class="work-card">
                 <div class="work-body">
                     <span class="label bg-award">Award</span>
-                    <h3>プログラミングコンテスト入賞</h3>
+                    <h3>学内のＡＩコンペティション、3位入賞(2026.1)</h3>
                     <p class="work-summary">
-                        2023年に開催された大学主催のアルゴリズムコンテストにおいて入賞しました。
+                        2025年12月から2026年1月に開催された大学機関主催第1回メディカルＡＩ開発コンペティションにおいて3位入賞しました。題材は脳波データから運動意図の判定を行うもので、データ拡張やアンサンブル学習を行いました。
                     </p>
                     <div class="read-more">詳しく解説を見る</div>
                 </div>
