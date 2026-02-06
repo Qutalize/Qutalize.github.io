@@ -12,8 +12,8 @@
             --accent-blue: #4682b4;
             --white: #ffffff;
             --tag-game: #ff4500;
-            --tag-photo: #20b2aa;
-            --tag-camp: #8b4513;
+            --tag-travel: #20b2aa;
+            --tag-other: #8b4513;
         }
 
         body {
@@ -24,10 +24,9 @@
             padding: 40px 20px;
             color: #333;
             line-height: 1.6;
-            /* 鬼ごっこ用に必須 */
             position: relative;
             min-height: 100vh;
-            overflow-x: hidden; /* 横スクロール防止 */
+            overflow-x: hidden;
         }
 
         header { text-align: center; margin-bottom: 40px; }
@@ -45,13 +44,13 @@
             margin-bottom: 30px;
         }
 
+        /* --- コンポーネントの重なり設定 --- */
         .works-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
-            /* 鬼ごっこ時にカードが前面に来るように */
             position: relative;
-            z-index: 10;
+            z-index: 10; /* お化け(5)より上 */
         }
 
         .work-card {
@@ -70,40 +69,24 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
-        .work-body {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .label {
-            display: inline-block;
-            padding: 2px 10px;
-            border-radius: 5px;
-            font-size: 0.75rem;
-            color: white;
-            width: fit-content;
-            margin-bottom: 15px;
-        }
+        .work-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .label { display: inline-block; padding: 2px 10px; border-radius: 5px; font-size: 0.75rem; color: white; width: fit-content; margin-bottom: 15px; }
         .bg-game { background-color: var(--tag-game); }
-        .bg-photo { background-color: var(--tag-photo); }
-        .bg-camp { background-color: var(--tag-camp); }
+        .bg-travel { background-color: var(--tag-travel); }
+        .bg-other { background-color: var(--tag-other); }
         .work-body h3 { margin: 0 0 12px 0; font-size: 1.25rem; color: var(--main-navy); }
         .work-summary { font-size: 0.9rem; color: #666; margin-bottom: 20px; }
-        
-        /* --- 趣味ページ固有の追加スタイル --- */
 
-        /* コントロールパネル */
+        /* コントロールパネルを最前面に */
         .control-panel {
-            background: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.9);
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 30px;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: relative;
-            z-index: 20; /* タイマーなどを前面に */
+            z-index: 100; 
         }
 
         .control-title { font-weight: bold; color: var(--main-navy); margin-bottom: 15px; display: block; }
@@ -124,27 +107,24 @@
             font-family: monospace;
             font-size: 1.2rem;
             color: var(--main-navy);
-            background: rgba(255, 255, 255, 0.9);
+            background: white;
             padding: 5px 15px;
             border-radius: 10px;
             display: inline-block;
             border: 2px solid var(--accent-blue);
+            transition: all 0.3s;
         }
-        .best-score {
-            font-size: 0.9rem; color: #666; margin-left: 10px;
-        }
+        .best-score { font-size: 0.9rem; color: #666; margin-left: 10px; }
 
-        /* --- 新しいお化けのスタイル --- */
+        /* お化けのスタイル */
         .ghost-chaser {
             position: fixed;
-            width: 60px; /* お化けのサイズ */
+            width: 60px;
             height: 60px;
-            pointer-events: none; /* マウスイベントを透過 */
-            z-index: 5; /* カードより後ろ */
+            pointer-events: none;
+            z-index: 5; /* カードより下 */
             transition: opacity 0.3s;
-            /* 初期状態は画面外へ */
             top: -100px; left: -100px;
-            /* ふわふわさせるアニメーション */
             animation: float 3s ease-in-out infinite;
         }
         @keyframes float {
@@ -152,28 +132,26 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* 線画SVGの色設定 */
         .ghost-svg path {
             fill: none;
-            stroke: #ff6b6b; /* お化けの線の色 */
+            stroke: #ff6b6b;
             stroke-width: 3;
             stroke-linecap: round;
             stroke-linejoin: round;
-            transition: stroke 0.3s;
         }
 
-        /* 隠れている状態 */
-        .ghost-chaser.is-hiding {
-            opacity: 0.4; /* 半透明に */
-        }
-        .ghost-chaser.is-hiding .ghost-svg path {
-             stroke: #888; /* 見失った色 */
-        }
+        .ghost-chaser.is-hiding { opacity: 0.3; }
+        .ghost-chaser.is-hiding .ghost-svg path { stroke: #888; }
 
+        /* ゲームオーバー時の演出 */
+        .game-over-flash { animation: flash 0.5s; }
+        @keyframes flash {
+            0% { background-color: rgba(255,0,0,0.5); }
+            100% { background-color: transparent; }
+        }
     </style>
 </head>
 <body>
-    
     <div id="ghost-container"></div>
 
     <header>
@@ -182,7 +160,7 @@
             <ul>
                 <li><a href="index.html">ホーム</a></li>
                 <li><a href="works.html">業績</a></li>
-                <li><a href="reading.html">読書履歴</a></li>
+                <li><a href="readinglog.html">読書履歴</a></li>
                 <li><a href="hobby.html" class="current">趣味</a></li>
                 <li><a href="link.html">リンク</a></li>
             </ul>
@@ -190,26 +168,26 @@
     </header>
 
     <div class="section">
-        <h2>趣味の紹介と実験場</h2>
+        <h2>趣味</h2>
 
         <div class="control-panel">
-            <span class="control-title">インタラクティブモード & タイムアタック</span>
+            <span class="control-title">モード切替</span>
             <div class="mode-buttons">
                 <button id="btn-normal" class="btn-mode active">通常モード (停止)</button>
-                <button id="btn-chase" class="btn-mode">👻 鬼ごっこモードON</button>
-                <button id="btn-iraira" class="btn-mode">💢 イライラモードON</button>
+                <button id="btn-chase" class="btn-mode">鬼ごっこモードON</button>
+                <button id="btn-iraira" class="btn-mode">イライラモードON</button>
             </div>
             
             <div class="timer-area">
-                <div class="timer-display">
+                <div class="timer-display" id="timer-box">
                     Time: <span id="current-time">0.00</span>s
                     <span class="best-score">Best: <span id="best-time">--</span>s</span>
                 </div>
             </div>
 
             <p style="font-size: 0.8rem; margin-top: 10px; color: #666;">
-                ※鬼ごっこ：カードの上は安全地帯です。できるだけ長く逃げてください。<br>
-                ※記録はあなたのブラウザに保存されます。
+                ※鬼ごっこ：カードの上は安全地帯ですが、<strong>その間タイムは進みません。</strong><br>
+                ※イライラ：ボタンを押してみてください。
             </p>
         </div>
         
@@ -254,95 +232,82 @@
                     </p>
                 </div>
             </div>
-
         </div>
     </div>
 
     <script>
-        // --- 設定 ---
-        const GHOST_COUNT = 5; // お化けの数
+        const GHOST_COUNT = 5;
+        const COLLISION_DISTANCE = 35;
 
-        // --- 要素の取得 ---
         const btnNormal = document.getElementById('btn-normal');
         const btnChase = document.getElementById('btn-chase');
         const btnIraira = document.getElementById('btn-iraira');
         const ghostContainer = document.getElementById('ghost-container');
         const currentTimeEl = document.getElementById('current-time');
         const bestTimeEl = document.getElementById('best-time');
+        const timerBox = document.getElementById('timer-box');
 
-        // --- 状態管理 ---
         let currentMode = 'normal';
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
         let isHiding = false;
-        let ghosts = []; // お化けオブジェクトを格納する配列
-        let animationId = null; // アニメーションループのID
-
-        // タイマー関連
-        let startTime = 0;
+        let ghosts = [];
+        let animationId = null;
         let timerInterval = null;
         let currentScore = 0;
-        let bestScore = parseFloat(localStorage.getItem('ghostChaseBestScore')) || 0; // ローカルストレージから読み込み
+        let bestScore = parseFloat(localStorage.getItem('ghostChaseBestScore')) || 0;
 
-        // 初期表示更新
         updateBestTimeDisplay();
 
-        // --- お化けの生成関数 ---
         function createGhosts() {
-            // 既存のお化けをクリア
             ghostContainer.innerHTML = '';
             ghosts = [];
-
-            // かわいいお化けの線画SVG
-            const ghostSvg = `
-                <svg class="ghost-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M50 5 C 30 5, 15 25, 15 50 C 15 75, 25 85, 15 95 C 25 95, 30 85, 40 90 C 50 85, 60 90, 70 85 C 80 90, 85 95, 95 95 C 85 85, 95 75, 95 50 C 95 25, 70 5, 50 5 Z M 35 40 C 35 35, 40 35, 40 40 C 40 45, 35 45, 35 40 Z M 65 40 C 65 35, 70 35, 70 40 C 70 45, 65 45, 65 40 Z M 50 65 C 45 60, 55 60, 50 65 Z" />
-                </svg>
-            `;
+            const ghostSvg = `<svg class="ghost-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 C 30 5, 15 25, 15 50 C 15 75, 25 85, 15 95 C 25 95, 30 85, 40 90 C 50 85, 60 90, 70 85 C 80 90, 85 95, 95 95 C 85 85, 95 75, 95 50 C 95 25, 70 5, 50 5 Z M 35 40 C 35 35, 40 35, 40 40 C 40 45, 35 45, 35 40 Z M 65 40 C 65 35, 70 35, 70 40 C 70 45, 65 45, 65 40 Z M 50 65 C 45 60, 55 60, 50 65 Z" /></svg>`;
 
             for (let i = 0; i < GHOST_COUNT; i++) {
                 const el = document.createElement('div');
                 el.classList.add('ghost-chaser');
                 el.innerHTML = ghostSvg;
                 ghostContainer.appendChild(el);
-
-                // 画面外のランダムな位置に初期配置
-                const startX = Math.random() < 0.5 ? -100 : window.innerWidth + 100;
-                const startY = Math.random() * window.innerHeight;
-
                 ghosts.push({
                     element: el,
-                    x: startX,
-                    y: startY,
-                    // 個体差をつける (スピードをランダムに)
-                    speed: Math.random() * 0.03 + 0.015
+                    x: Math.random() * window.innerWidth,
+                    y: -100,
+                    speed: Math.random() * 0.02 + 0.02
                 });
             }
         }
 
-        // --- タイマー関連関数 ---
         function startTimer() {
-            startTime = Date.now();
-            // 定期的に表示を更新
+            let lastTick = Date.now();
             timerInterval = setInterval(() => {
-                currentScore = (Date.now() - startTime) / 1000;
-                currentTimeEl.textContent = currentScore.toFixed(2);
-            }, 50); // 0.05秒ごとに更新
+                let now = Date.now();
+                let delta = (now - lastTick) / 1000;
+                lastTick = now;
+
+                if (!isHiding && currentMode === 'chase') {
+                    currentScore += delta;
+                    currentTimeEl.textContent = currentScore.toFixed(2);
+                    timerBox.style.color = "var(--main-navy)";
+                    timerBox.style.borderColor = "var(--accent-blue)";
+                    timerBox.style.opacity = "1";
+                } else if (isHiding && currentMode === 'chase') {
+                    timerBox.style.color = "#999";
+                    timerBox.style.borderColor = "#ccc";
+                    timerBox.style.opacity = "0.6";
+                }
+            }, 50);
         }
 
         function stopTimer() {
             if (timerInterval) {
                 clearInterval(timerInterval);
                 timerInterval = null;
-                // 自己ベスト更新判定と保存
                 if (currentScore > bestScore) {
                     bestScore = currentScore;
                     localStorage.setItem('ghostChaseBestScore', bestScore.toFixed(2));
                     updateBestTimeDisplay();
-                    alert(`🎉 新記録達成！ Time: ${bestScore.toFixed(2)}s`);
                 }
-                currentScore = 0;
-                currentTimeEl.textContent = "0.00";
             }
         }
 
@@ -350,100 +315,92 @@
             bestTimeEl.textContent = bestScore > 0 ? bestScore.toFixed(2) : '--';
         }
 
-        // --- モード切替処理 ---
+        function gameOver() {
+            document.body.classList.add('game-over-flash');
+            setTimeout(() => document.body.classList.remove('game-over-flash'), 500);
+            
+            const scoreText = currentScore.toFixed(2);
+            alert(`👻 捕まった！\n記録: ${scoreText}s`);
+            setMode('normal');
+        }
+
         function setMode(mode) {
-            // 前のモードの後始末
-            if (currentMode === 'chase' && mode !== 'chase') {
-                stopTimer();
-                cancelAnimationFrame(animationId);
-                ghostContainer.innerHTML = ''; // お化けを消す
-            }
+            cancelAnimationFrame(animationId);
+            stopTimer();
+            currentScore = 0;
+            currentTimeEl.textContent = "0.00";
             resetIrairaButton();
 
             currentMode = mode;
-            // ボタンの見た目更新
             [btnNormal, btnChase, btnIraira].forEach(btn => btn.classList.remove('active'));
             
             if (mode === 'normal') {
                 btnNormal.classList.add('active');
+                ghostContainer.innerHTML = '';
             } else if (mode === 'chase') {
                 btnChase.classList.add('active');
-                createGhosts(); // お化け生成
-                startTimer();   // タイマースタート
-                startChasingLoop(); // 追尾開始
-            } else if (mode === 'iraira') {
-                // イライラボタンは逃げるのでアクティブ表示しない
+                createGhosts();
+                startTimer();
+                startChasingLoop();
             }
         }
 
-        btnNormal.addEventListener('click', () => setMode('normal'));
-        btnChase.addEventListener('click', () => {
-            if (currentMode !== 'chase') setMode('chase');
-        });
-        btnIraira.addEventListener('click', () => {
-             alert('すごい！クリックできましたね！');
-             setMode('normal');
-        });
-
-        // --- 鬼ごっこモードの実装 ---
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            if (currentMode === 'chase') checkIfHiding(e.clientX, e.clientY);
-        });
-
-        // 隠れているか判定
-        function checkIfHiding(mx, my) {
-            isHiding = false;
-            const elementsUnderMouse = document.elementsFromPoint(mx, my);
-            for (let el of elementsUnderMouse) {
-                if (el.classList.contains('work-card')) {
-                    isHiding = true;
-                    break;
-                }
-            }
-        }
-
-        // 追尾アニメーションループ (複数体対応版)
         function startChasingLoop() {
             function animate() {
                 if (currentMode !== 'chase') return;
 
-                // すべてのお化けについて処理
+                const elementsUnderMouse = document.elementsFromPoint(mouseX, mouseY);
+                isHiding = Array.from(elementsUnderMouse).some(el => el.classList.contains('work-card'));
+
                 ghosts.forEach(ghost => {
                     if (isHiding) {
                         ghost.element.classList.add('is-hiding');
-                        // 隠れている間は動かない、またはゆっくりランダムに動くなどしても面白い
+                        ghost.x += (Math.random() - 0.5) * 2;
+                        ghost.y += (Math.random() - 0.5) * 2;
                     } else {
                         ghost.element.classList.remove('is-hiding');
-                        // マウスに向かって移動（線形補間）
                         ghost.x += (mouseX - ghost.x) * ghost.speed;
                         ghost.y += (mouseY - ghost.y) * ghost.speed;
-                        // お化けの中心が座標に来るように調整
-                        ghost.element.style.left = `${ghost.x - 30}px`;
-                        ghost.element.style.top = `${ghost.y - 30}px`;
+
+                        const dx = mouseX - ghost.x;
+                        const dy = mouseY - ghost.y;
+                        if (Math.sqrt(dx*dx + dy*dy) < COLLISION_DISTANCE) {
+                            gameOver();
+                            return;
+                        }
                     }
+                    ghost.element.style.left = `${ghost.x - 30}px`;
+                    ghost.element.style.top = `${ghost.y - 30}px`;
                 });
-                
                 animationId = requestAnimationFrame(animate);
             }
             animate();
         }
 
-        // --- イライラモードの実装 ---
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
         function resetIrairaButton() {
             btnIraira.style.transform = 'translate(0, 0)';
         }
-        btnIraira.addEventListener('mouseover', () => {
+
+        btnIraira.addEventListener('mouseenter', () => {
             if (currentMode !== 'iraira') return;
-            const moveX = (Math.random() - 0.5) * 250; // 移動範囲を少し広げた
-            const moveY = (Math.random() - 0.5) * 250;
-            btnIraira.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            const angle = Math.random() * Math.PI * 2;
+            const dist = 150 + Math.random() * 100;
+            btnIraira.style.transform = `translate(${Math.cos(angle)*dist}px, ${Math.sin(angle)*dist}px)`;
         });
 
-        // 初期モード設定
-        setMode('normal');
+        btnNormal.addEventListener('click', () => setMode('normal'));
+        btnChase.addEventListener('click', () => setMode('chase'));
+        btnIraira.addEventListener('click', () => {
+            if (currentMode === 'iraira') alert('捕まえた！');
+            setMode('iraira');
+        });
 
+        setMode('normal');
     </script>
 </body>
 </html>
