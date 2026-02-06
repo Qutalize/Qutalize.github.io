@@ -127,7 +127,7 @@ from braindecode import EEGClassifier
 from skorch.dataset import ValidSplit
 from skorch.callbacks import EarlyStopping
 
-# --- 設定 ---
+# 0.設定
 N_MODELS = 5        # アンサンブル数
 BATCH_SIZE = 32
 MAX_EPOCHS = 30
@@ -135,7 +135,7 @@ SFREQ = 100         # サンプリング周波数
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print(f"Using device: {device}")
 
-# 1. SMR-ERD特化フィルタリング (8-30 Hz)
+# 1.SMR-ERD特化フィルタリング
 # α波(8-13Hz)とβ波(13-30Hz)を通過させ、それ以外をカット
 print("Applying Bandpass Filter (8-30 Hz) for SMR-ERD...")
 
@@ -160,7 +160,7 @@ train_X_prep_new = standardize_data(train_X_filtered)
 test_X_prep_new = standardize_data(test_X_filtered)
 
 
-# 2. 時系列向けデータ拡張関数
+# 2.時系列向けデータ拡張関数
 def time_series_augmentation(X, y):
     """
     時系列の特徴を壊さずにデータを増やす
@@ -170,25 +170,26 @@ def time_series_augmentation(X, y):
     """
     n_samples, n_channels, n_time = X.shape
 
-    # --- A. Time Shift (時間シフト) ---
+    # A. Time Shift (時間シフト)
     # 最大 ±20サンプル (0.2秒) ずらす
     shift = np.random.randint(-20, 20, size=n_samples)
     X_shifted = np.zeros_like(X)
     for i in range(n_samples):
         X_shifted[i] = np.roll(X[i], shift[i], axis=1) 
-    # --- B. Amplitude Scaling (振幅スケーリング) ---
+    
+    # B. Amplitude Scaling (振幅スケーリング)
     # 0.8倍 〜 1.2倍 の範囲でランダムに強弱をつける
     scale = np.random.uniform(0.8, 1.2, size=(n_samples, 1, 1))
     X_scaled = X_shifted * scale
 
-    # --- C. Gaussian Noise (微小ノイズ) ---
+    # C. Gaussian Noise (微小ノイズ)
     # 信号の強弱を変えた後に、少しだけノイズを乗せる
     noise = np.random.normal(0, 0.005, X_scaled.shape)
     X_aug = X_scaled + noise
 
     return X_aug, y
 
-# 学習ループ
+# 3.学習ループ
 all_preds = []
 
 for i in range(N_MODELS):
@@ -237,7 +238,7 @@ for i in range(N_MODELS):
     if device == 'cuda':
         torch.cuda.empty_cache()
 
-# --- 集計 ---
+# 4.集計
 print("\nAggregating predictions...")
 avg_preds = np.mean(all_preds, axis=0)
 final_predictions = np.argmax(avg_preds, axis=1)
@@ -249,7 +250,7 @@ submit.to_csv(save_path, header=False, index=False)
 print(f"Done! Saved to: {save_path}")</code></pre>
         </div>
 
-        <a href="works.html" class="back-link">← 業績一覧へ戻る</a>
+        <a href="../works.html" class="back-link">← 業績一覧へ戻る</a>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
