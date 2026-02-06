@@ -197,8 +197,6 @@
                 </div>
             </div>
 
-
-
             
         </div>
     </div>
@@ -211,6 +209,7 @@
     const btnNormal = document.getElementById('btn-normal');
     const btnChase = document.getElementById('btn-chase');
     const btnReset = document.getElementById('btn-reset');
+    const slotBtn = document.getElementById('btn-slot');
     
     let currentMode = 'normal';
     let mouseX = 0, mouseY = 0;
@@ -219,7 +218,24 @@
     let currentScore = 0;
     let bestScore = parseFloat(localStorage.getItem('ghostBest')) || 0;
 
+    const emojis = ["🍒", "🔔", "💎", "⭐", "7️⃣"];
+    let slotIntervals = [null, null, null];
+    let stopCount = 0;
+
     bestTimeEl.textContent = bestScore.toFixed(2);
+
+    function initApp() {
+        stopCount = 0;
+        if (slotBtn) slotBtn.textContent = "START";
+        for (let i = 1; i <= 3; i++) {
+            const reel = document.getElementById(`reel${i}`);
+            if (reel) {
+                reel.classList.remove('spinning');
+                reel.textContent = "🎰";
+            }
+        }
+    }
+    initApp();
 
     function checkAndSaveBest() {
         if (currentScore > bestScore) {
@@ -238,12 +254,14 @@
 
         currentMode = mode;
         ghostContainer.innerHTML = '';
+        ghosts = [];
         currentScore = 0;
         currentTimeEl.textContent = "0.00";
         btnIraira.style.transform = 'translate(0,0)';
 
         document.querySelectorAll('.btn-mode').forEach(b => b.classList.remove('active'));
         if(mode === 'normal') btnNormal.classList.add('active');
+        
         if(mode === 'chase') {
             btnChase.classList.add('active');
             startChase();
@@ -251,8 +269,6 @@
     }
 
     function startChase() {
-        currentScore = 0;
-        ghosts = [];
         for(let i=0; i<5; i++) {
             const el = document.createElement('div');
             el.className = 'ghost-chaser';
@@ -276,15 +292,16 @@
                 
                 const d = Math.sqrt((mouseX-g.x)**2 + (mouseY-g.y)**2);
                 if(d < 35) {
-                    const newRecord = checkAndSaveBest();
-                    alert(newRecord ? `🎉 新記録！捕まった！\nTime: ${currentScore.toFixed(2)}s` : `捕まった！\nTime: ${currentScore.toFixed(2)}s`);
-                    setMode('normal'); 
+                    currentMode = 'normal';
+                    ghostContainer.innerHTML = '';
+                    const isNew = checkAndSaveBest();
+                    alert(isNew ? `🎉 新記録！捕まった！\nTime: ${currentScore.toFixed(2)}s` : `捕まった！\nTime: ${currentScore.toFixed(2)}s`);
+                    setMode('normal');
                     return;
                 }
                 currentScore += 0.016; 
                 currentTimeEl.textContent = currentScore.toFixed(2);
             }
-            
             g.el.style.left = g.x-30+'px'; 
             g.el.style.top = g.y-30+'px';
             g.el.classList.toggle('is-hiding', isHiding);
@@ -296,9 +313,9 @@
     btnIraira.onclick = () => {
         if(currentMode !== 'iraira') {
             setMode('iraira');
-            jumpButton(); 
+            jumpButton();
         } else {
-            alert("🎉 クリア！捕まえましたね！");
+            alert("🎉 クリア！お見事です！");
             setMode('normal');
         }
     };
@@ -310,28 +327,40 @@
     }
     btnIraira.onmouseenter = () => { if(currentMode === 'iraira') jumpButton(); };
 
-    const emojis = ["🍒", "🔔", "💎", "⭐", "7️⃣"];
-    let slotInterval;
-    const slotBtn = document.getElementById('btn-slot');
     if (slotBtn) {
         slotBtn.onclick = function() {
-            if(this.textContent === "STOP!") {
-                clearInterval(slotInterval);
-                this.textContent = "START";
-                checkSlot();
-            } else {
+            const currentState = this.textContent.trim();
+
+            if (currentState === "START") {
                 this.textContent = "STOP!";
-                slotInterval = setInterval(() => {
-                    const res = [emojis[Math.floor(Math.random()*5)], emojis[Math.floor(Math.random()*5)], emojis[Math.floor(Math.random()*5)]];
-                    document.getElementById('slot-result').textContent = res.join("");
-                }, 100);
+                stopCount = 0;
+                for (let i = 0; i < 3; i++) {
+                    const reel = document.getElementById(`reel${i+1}`);
+                    reel.classList.add('spinning');
+                    clearInterval(slotIntervals[i]);
+                    slotIntervals[i] = setInterval(() => {
+                        reel.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    }, 70 + (i * 30));
+                }
+            } else {
+                if (stopCount < 3) {
+                    clearInterval(slotIntervals[stopCount]);
+                    document.getElementById(`reel${stopCount+1}`).classList.remove('spinning');
+                    stopCount++;
+                    
+                    if (stopCount === 3) {
+                        this.textContent = "START";
+                        // 判定
+                        setTimeout(() => {
+                            const r1 = document.getElementById('reel1').textContent;
+                            const r2 = document.getElementById('reel2').textContent;
+                            const r3 = document.getElementById('reel3').textContent;
+                            if (r1 === r2 && r2 === r3) alert(`🎉 おめでとう！ [${r1}${r2}${r3}]`);
+                        }, 100);
+                    }
+                }
             }
         };
-    }
-
-    function checkSlot() {
-        const res = document.getElementById('slot-result').textContent;
-        if(res[0] === res[2] && res[2] === res[4]) alert("🎉 おめでとう！揃いました！");
     }
 
     document.addEventListener('mousemove', e => { 
