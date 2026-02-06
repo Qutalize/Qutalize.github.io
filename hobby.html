@@ -5,19 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>趣味 - Quta's Portfolio</title>
     <style>
-        /* --- 共通スタイル --- */
         :root {
             --bg-color: #e0f2f7;
             --main-navy: #1a3a5f;
             --accent-blue: #4682b4;
             --white: #ffffff;
             --tag-game: #ff4500;
-            --tag-travel: #20b2aa;
-            --tag-other: #8b4513;
         }
 
         body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+            font-family: "Helvetica Neue", Arial, sans-serif;
             background-color: var(--bg-color);
             max-width: 950px;
             margin: 0 auto;
@@ -36,48 +33,6 @@
         }
         .current { background-color: var(--accent-blue) !important; }
 
-        h2 {
-            border-left: 6px solid var(--main-navy);
-            padding: 5px 15px;
-            color: var(--main-navy);
-            background: rgba(255,255,255,0.5);
-            margin-bottom: 30px;
-        }
-
-        /* --- コンポーネントの重なり設定 --- */
-        .works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            position: relative;
-            z-index: 10; /* お化け(5)より上 */
-        }
-
-        .work-card {
-            background: var(--white);
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .work-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .work-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-        .label { display: inline-block; padding: 2px 10px; border-radius: 5px; font-size: 0.75rem; color: white; width: fit-content; margin-bottom: 15px; }
-        .bg-game { background-color: var(--tag-game); }
-        .bg-travel { background-color: var(--tag-travel); }
-        .bg-other { background-color: var(--tag-other); }
-        .work-body h3 { margin: 0 0 12px 0; font-size: 1.25rem; color: var(--main-navy); }
-        .work-summary { font-size: 0.9rem; color: #666; margin-bottom: 20px; }
-
-        /* コントロールパネルを最前面に */
         .control-panel {
             background: rgba(255,255,255,0.9);
             padding: 20px;
@@ -86,94 +41,61 @@
             text-align: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: relative;
-            z-index: 100; 
+            z-index: 100;
         }
 
-        .control-title { font-weight: bold; color: var(--main-navy); margin-bottom: 15px; display: block; }
-        .mode-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 15px;}
-        .btn-mode {
-            padding: 10px 20px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; transition: 0.2s; font-family: inherit; outline: none;
+        .instruction-text {
+            font-size: 0.85rem;
+            margin-top: 15px;
+            color: #666;
+            text-align: left;
+            display: inline-block;
+            line-height: 1.8;
         }
-        #btn-normal { background-color: #ccc; color: #333; }
+
+        .mode-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;}
+        .btn-mode {
+            padding: 12px 18px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; transition: 0.2s; font-family: inherit;
+        }
+        #btn-normal { background-color: #ccc; }
         #btn-normal.active { background-color: var(--main-navy); color: white; }
         #btn-chase { background-color: #ff6b6b; color: white; }
-        #btn-chase.active { background-color: #c92a2a; box-shadow: inset 0 3px 5px rgba(0,0,0,0.2); }
-        #btn-iraira {
-            background-color: #fcc419; color: #333; position: relative; transition: transform 0.1s ease-out;
-        }
+        #btn-iraira { background-color: #fcc419; color: #333; position: relative; }
 
-        /* タイム表示エリア */
-        .timer-display {
-            font-family: monospace;
-            font-size: 1.2rem;
-            color: var(--main-navy);
+        #mobile-slot-area {
+            display: none;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border: 3px solid var(--main-navy);
+        }
+        .slot-display {
+            font-size: 3rem;
+            margin: 10px 0;
+            letter-spacing: 10px;
             background: white;
-            padding: 5px 15px;
             border-radius: 10px;
-            display: inline-block;
-            border: 2px solid var(--accent-blue);
-            transition: all 0.3s;
-        }
-        .best-score { font-size: 0.9rem; color: #666; margin-left: 10px; }
-
-        #btn-reset {
-        background-color: transparent;
-        color: #999;
-        border: 1px solid #ccc;
-        font-size: 0.7rem;
-        padding: 2px 8px;
-        margin-left: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-        }
-        #btn-reset:hover {
-            background-color: #eee;
-            color: #666;
-        }
-        /* タイマー周辺の調整 */
-        .timer-area {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        /* お化けのスタイル */
-        .ghost-chaser {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            pointer-events: none;
-            z-index: 5; /* カードより下 */
-            transition: opacity 0.3s;
-            top: -100px; left: -100px;
-            animation: float 3s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            padding: 10px;
         }
 
-        .ghost-svg path {
-            fill: none;
-            stroke: #ff6b6b;
-            stroke-width: 3;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+        @media (max-width: 600px) {
+            #btn-chase, #btn-iraira { display: none; }
+            #mobile-slot-area { display: block; }
+            .pc-only-text { display: none; }
         }
 
-        .ghost-chaser.is-hiding { opacity: 0.3; }
-        .ghost-chaser.is-hiding .ghost-svg path { stroke: #888; }
+        .ghost-chaser { position: fixed; width: 60px; height: 60px; pointer-events: none; z-index: 5; transition: opacity 0.3s; }
+        .ghost-svg path { fill: none; stroke: #ff6b6b; stroke-width: 3; }
+        .is-hiding { opacity: 0.3; }
 
-        /* ゲームオーバー時の演出 */
-        .game-over-flash { animation: flash 0.5s; }
-        @keyframes flash {
-            0% { background-color: rgba(255,0,0,0.5); }
-            100% { background-color: transparent; }
-        }
+        .works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; position: relative; z-index: 10; }
+        .work-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+
     </style>
 </head>
 <body>
+
     <div id="ghost-container"></div>
 
     <header>
@@ -190,30 +112,31 @@
     </header>
 
     <div class="section">
-        <h2>趣味</h2>
-
         <div class="control-panel">
-            <span class="control-title">モード切替</span>
             <div class="mode-buttons">
-                <button id="btn-normal" class="btn-mode active">通常モード (停止)</button>
-                <button id="btn-chase" class="btn-mode">鬼ごっこモードON</button>
-                <button id="btn-iraira" class="btn-mode">イライラモードON</button>
+                <button id="btn-normal" class="btn-mode active">通常モード</button>
+                <button id="btn-chase" class="btn-mode">👻鬼ごっこ</button>
+                <button id="btn-iraira" class="btn-mode">💢イライラ</button>
             </div>
-            
-            <div class="timer-area">
-                <div class="timer-display" id="timer-box">
-                    Time: <span id="current-time">0.00</span>s
-                    <span class="best-score">Best: <span id="best-time">--</span>s</span>
+
+            <div id="mobile-slot-area">
+                <div class="slot-display" id="slot-result">🎰</div>
+                <button id="btn-slot" class="btn-mode" style="background: var(--main-navy); color: white;">STOP!</button>
+                <p style="font-size: 0.8rem; margin-top: 10px;">スマホ限定：絵柄を揃えてください！</p>
+            </div>
+
+            <div class="instruction-text">
+                <span class="pc-only-text">
+                    <strong>鬼ごっこ：</strong>お化けから逃げてください。カードの上は追ってきませんがタイムは止まります。<br>
+                    <strong>イライラ：</strong>一度押して開始した後、もう一度ボタンを捕まえてください。
+                </span>
+                <div style="margin-top: 10px;">
+                    Time: <span id="current-time">0.00</span>s | Best: <span id="best-time">--</span>s
+                    <button id="btn-reset" style="margin-left:10px; cursor:pointer;">リセット</button>
                 </div>
-                <button id="btn-reset">記録リセット</button>
             </div>
-        
-            <p style="font-size: 0.8rem; margin-top: 10px; color: #666;">
-                鬼ごっこモード：追ってくるお化けから逃げ続けてください。カードやパネルの上は追ってきませんが、その間タイムは進みません。
-                イライラモード：一度押してからモードを開始して、もう一度ボタンを押してください。
-            </p>
         </div>
-        
+
         <div class="works-grid" id="card-container">
 
             <div class="work-card">
@@ -263,180 +186,108 @@
     </div>
 
     <script>
-        const GHOST_COUNT = 5;
-        const COLLISION_DISTANCE = 35;
-
-        const btnNormal = document.getElementById('btn-normal');
-        const btnChase = document.getElementById('btn-chase');
-        const btnIraira = document.getElementById('btn-iraira');
         const ghostContainer = document.getElementById('ghost-container');
         const currentTimeEl = document.getElementById('current-time');
         const bestTimeEl = document.getElementById('best-time');
-        const timerBox = document.getElementById('timer-box');
-        const btnReset = document.getElementById('btn-reset');
+        const btnIraira = document.getElementById('btn-iraira');
         
         let currentMode = 'normal';
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
+        let mouseX = 0, mouseY = 0;
         let isHiding = false;
         let ghosts = [];
-        let animationId = null;
-        let timerInterval = null;
         let currentScore = 0;
-        let bestScore = parseFloat(localStorage.getItem('ghostChaseBestScore')) || 0;
-        
-        updateBestTimeDisplay();
+        let bestScore = parseFloat(localStorage.getItem('ghostBest')) || 0;
 
-        function createGhosts() {
-            ghostContainer.innerHTML = '';
-            ghosts = [];
-            const ghostSvg = `<svg class="ghost-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 5 C 30 5, 15 25, 15 50 C 15 75, 25 85, 15 95 C 25 95, 30 85, 40 90 C 50 85, 60 90, 70 85 C 80 90, 85 95, 95 95 C 85 85, 95 75, 95 50 C 95 25, 70 5, 50 5 Z M 35 40 C 35 35, 40 35, 40 40 C 40 45, 35 45, 35 40 Z M 65 40 C 65 35, 70 35, 70 40 C 70 45, 65 45, 65 40 Z M 50 65 C 45 60, 55 60, 50 65 Z" /></svg>`;
-
-            for (let i = 0; i < GHOST_COUNT; i++) {
-                const el = document.createElement('div');
-                el.classList.add('ghost-chaser');
-                el.innerHTML = ghostSvg;
-                ghostContainer.appendChild(el);
-                ghosts.push({
-                    element: el,
-                    x: Math.random() * window.innerWidth,
-                    y: -100,
-                    speed: Math.random() * 0.02 + 0.02
-                });
-            }
-        }
-
-        function startTimer() {
-            let lastTick = Date.now();
-            timerInterval = setInterval(() => {
-                let now = Date.now();
-                let delta = (now - lastTick) / 1000;
-                lastTick = now;
-
-                if (!isHiding && currentMode === 'chase') {
-                    currentScore += delta;
-                    currentTimeEl.textContent = currentScore.toFixed(2);
-                    timerBox.style.color = "var(--main-navy)";
-                    timerBox.style.borderColor = "var(--accent-blue)";
-                    timerBox.style.opacity = "1";
-                } else if (isHiding && currentMode === 'chase') {
-                    timerBox.style.color = "#999";
-                    timerBox.style.borderColor = "#ccc";
-                    timerBox.style.opacity = "0.6";
-                }
-            }, 50);
-        }
-
-        function stopTimer() {
-            if (timerInterval) {
-                clearInterval(timerInterval);
-                timerInterval = null;
-                if (currentScore > bestScore) {
-                    bestScore = currentScore;
-                    localStorage.setItem('ghostChaseBestScore', bestScore.toFixed(2));
-                    updateBestTimeDisplay();
-                }
-            }
-        }
-
-        function updateBestTimeDisplay() {
-            bestTimeEl.textContent = bestScore > 0 ? bestScore.toFixed(2) : '--';
-        }
-
-        function gameOver() {
-            document.body.classList.add('game-over-flash');
-            setTimeout(() => document.body.classList.remove('game-over-flash'), 500);
-            
-            const scoreText = currentScore.toFixed(2);
-            alert(`👻 捕まった！\n記録: ${scoreText}s`);
-            setMode('normal');
-        }
+        bestTimeEl.textContent = bestScore.toFixed(2);
 
         function setMode(mode) {
-            cancelAnimationFrame(animationId);
-            stopTimer();
-            currentScore = 0;
-            currentTimeEl.textContent = "0.00";
-            resetIrairaButton();
-
             currentMode = mode;
-            [btnNormal, btnChase, btnIraira].forEach(btn => btn.classList.remove('active'));
-            
-            if (mode === 'normal') {
-                btnNormal.classList.add('active');
-                ghostContainer.innerHTML = '';
-            } else if (mode === 'chase') {
-                btnChase.classList.add('active');
-                createGhosts();
-                startTimer();
-                startChasingLoop();
-            }
+            ghostContainer.innerHTML = '';
+            btnIraira.style.transform = 'translate(0,0)';
+            document.querySelectorAll('.btn-mode').forEach(b => b.classList.remove('active'));
+            if(mode === 'normal') document.getElementById('btn-normal').classList.add('active');
+            if(mode === 'chase') startChase();
         }
 
-        function startChasingLoop() {
-            function animate() {
-                if (currentMode !== 'chase') return;
+        function startChase() {
+            currentScore = 0;
+            ghosts = [];
+            for(let i=0; i<5; i++) {
+                const el = document.createElement('div');
+                el.className = 'ghost-chaser';
+                el.innerHTML = '<svg class="ghost-svg" viewBox="0 0 100 100"><path d="M50 5 C 30 5, 15 25, 15 50 C 15 75, 25 85, 15 95 C 25 95, 30 85, 40 90 C 50 85, 60 90, 70 85 C 80 90, 85 95, 95 95 C 85 85, 95 75, 95 50 C 95 25, 70 5, 50 5 Z M 35 40 C 35 35, 40 35, 40 40 C 40 45, 35 45, 35 40 Z M 65 40 C 65 35, 70 35, 70 40 C 70 45, 65 45, 65 40 Z M 50 65 C 45 60, 55 60, 50 65 Z" /></svg>';
+                ghostContainer.appendChild(el);
+                ghosts.push({el, x: Math.random()*window.innerWidth, y: -100, s: 0.02 + Math.random()*0.02});
+            }
+            requestAnimationFrame(updateChase);
+        }
 
-                const elementsUnderMouse = document.elementsFromPoint(mouseX, mouseY);
-                isHiding = Array.from(elementsUnderMouse).some(el => el.classList.contains('work-card')|| el.classList.contains('control-panel'));
+        function updateChase() {
+            if(currentMode !== 'chase') return;
+            const els = document.elementsFromPoint(mouseX, mouseY);
+            isHiding = Array.from(els).some(e => e.classList.contains('work-card') || e.classList.contains('control-panel'));
 
-                ghosts.forEach(ghost => {
-                    if (isHiding) {
-                        ghost.element.classList.add('is-hiding');
-                        ghost.x += (Math.random() - 0.5) * 2;
-                        ghost.y += (Math.random() - 0.5) * 2;
-                    } else {
-                        ghost.element.classList.remove('is-hiding');
-                        ghost.x += (mouseX - ghost.x) * ghost.speed;
-                        ghost.y += (mouseY - ghost.y) * ghost.speed;
-
-                        const dx = mouseX - ghost.x;
-                        const dy = mouseY - ghost.y;
-                        if (Math.sqrt(dx*dx + dy*dy) < COLLISION_DISTANCE) {
-                            gameOver();
-                            return;
-                        }
+            ghosts.forEach(g => {
+                if(!isHiding) {
+                    g.x += (mouseX - g.x) * g.s;
+                    g.y += (mouseY - g.y) * g.s;
+                    const d = Math.sqrt((mouseX-g.x)**2 + (mouseY-g.y)**2);
+                    if(d < 35) {
+                        alert("捕まった！");
+                        setMode('normal');
+                        return;
                     }
-                    ghost.element.style.left = `${ghost.x - 30}px`;
-                    ghost.element.style.top = `${ghost.y - 30}px`;
-                });
-                animationId = requestAnimationFrame(animate);
-            }
-            animate();
-        }
-        
-        btnReset.addEventListener('click', () => {
-            if (confirm('ベスト記録をリセットしますか？')) {
-                localStorage.removeItem('ghostChaseBestScore');
-                bestScore = 0;
-                updateBestTimeDisplay();
-            }
-        });
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        function resetIrairaButton() {
-            btnIraira.style.transform = 'translate(0, 0)';
+                    currentScore += 0.016;
+                    currentTimeEl.textContent = currentScore.toFixed(2);
+                }
+                g.el.style.left = g.x-30+'px'; g.el.style.top = g.y-30+'px';
+                g.el.classList.toggle('is-hiding', isHiding);
+            });
+            if(currentMode === 'chase') requestAnimationFrame(updateChase);
         }
 
-        btnIraira.addEventListener('mouseenter', () => {
-            if (currentMode !== 'iraira') return;
-            const angle = Math.random() * Math.PI * 2;
-            const dist = 150 + Math.random() * 100;
-            btnIraira.style.transform = `translate(${Math.cos(angle)*dist}px, ${Math.sin(angle)*dist}px)`;
-        });
+        btnIraira.onclick = () => {
+            if(currentMode !== 'iraira') {
+                setMode('iraira');
+                jumpButton();
+            } else {
+                alert("クリア！");
+                setMode('normal');
+            }
+        };
 
-        btnNormal.addEventListener('click', () => setMode('normal'));
-        btnChase.addEventListener('click', () => setMode('chase'));
-        btnIraira.addEventListener('click', () => {
-            if (currentMode === 'iraira') alert('捕まえた！');
-            setMode('iraira');
-        });
+        function jumpButton() {
+            const x = (Math.random()-0.5)*300;
+            const y = (Math.random()-0.5)*300;
+            btnIraira.style.transform = `translate(${x}px, ${y}px)`;
+        }
+        btnIraira.onmouseenter = () => { if(currentMode === 'iraira') jumpButton(); };
 
-        setMode('normal');
+        const emojis = ["🍒", "🔔", "💎", "⭐", "7️⃣"];
+        let slotInterval;
+        document.getElementById('btn-slot').onclick = function() {
+            if(this.textContent === "STOP!") {
+                clearInterval(slotInterval);
+                this.textContent = "START";
+                checkSlot();
+            } else {
+                this.textContent = "STOP!";
+                slotInterval = setInterval(() => {
+                    const res = [emojis[Math.floor(Math.random()*5)], emojis[Math.floor(Math.random()*5)], emojis[Math.floor(Math.random()*5)]];
+                    document.getElementById('slot-result').textContent = res.join("");
+                }, 100);
+            }
+        };
+
+        function checkSlot() {
+            const res = document.getElementById('slot-result').textContent;
+            if(res[0] === res[2] && res[2] === res[4]) alert("🎉 おめでとう！");
+        }
+
+        document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+        document.getElementById('btn-normal').onclick = () => setMode('normal');
+        document.getElementById('btn-chase').onclick = () => setMode('chase');
+        document.getElementById('btn-reset').onclick = () => { localStorage.removeItem('ghostBest'); location.reload(); };
     </script>
 </body>
 </html>
