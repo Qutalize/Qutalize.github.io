@@ -116,6 +116,28 @@
         }
         .best-score { font-size: 0.9rem; color: #666; margin-left: 10px; }
 
+        #btn-reset {
+        background-color: transparent;
+        color: #999;
+        border: 1px solid #ccc;
+        font-size: 0.7rem;
+        padding: 2px 8px;
+        margin-left: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        }
+        #btn-reset:hover {
+            background-color: #eee;
+            color: #666;
+        }
+        /* タイマー周辺の調整 */
+        .timer-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
         /* お化けのスタイル */
         .ghost-chaser {
             position: fixed;
@@ -171,11 +193,11 @@
         <h2>趣味</h2>
 
         <div class="control-panel">
-            <span class="control-title">モード切替</span>
+            <span class="control-title">インタラクティブモード</span>
             <div class="mode-buttons">
                 <button id="btn-normal" class="btn-mode active">通常モード (停止)</button>
-                <button id="btn-chase" class="btn-mode">鬼ごっこモードON</button>
-                <button id="btn-iraira" class="btn-mode">イライラモードON</button>
+                <button id="btn-chase" class="btn-mode">👻 鬼ごっこモードON</button>
+                <button id="btn-iraira" class="btn-mode">💢 イライラモードON</button>
             </div>
             
             <div class="timer-area">
@@ -183,11 +205,11 @@
                     Time: <span id="current-time">0.00</span>s
                     <span class="best-score">Best: <span id="best-time">--</span>s</span>
                 </div>
+                <button id="btn-reset">記録リセット</button>
             </div>
-
+        
             <p style="font-size: 0.8rem; margin-top: 10px; color: #666;">
-                ※鬼ごっこ：カードの上は安全地帯ですが、<strong>その間タイムは進みません。</strong><br>
-                ※イライラ：ボタンを押してみてください。
+                ※鬼ごっこ：カードやパネルの上は安全地帯ですが、<strong>その間タイムは進みません。</strong>
             </p>
         </div>
         
@@ -246,7 +268,8 @@
         const currentTimeEl = document.getElementById('current-time');
         const bestTimeEl = document.getElementById('best-time');
         const timerBox = document.getElementById('timer-box');
-
+        const btnReset = document.getElementById('btn-reset');
+        
         let currentMode = 'normal';
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
@@ -256,7 +279,7 @@
         let timerInterval = null;
         let currentScore = 0;
         let bestScore = parseFloat(localStorage.getItem('ghostChaseBestScore')) || 0;
-
+        
         updateBestTimeDisplay();
 
         function createGhosts() {
@@ -350,7 +373,7 @@
                 if (currentMode !== 'chase') return;
 
                 const elementsUnderMouse = document.elementsFromPoint(mouseX, mouseY);
-                isHiding = Array.from(elementsUnderMouse).some(el => el.classList.contains('work-card'));
+                isHiding = Array.from(elementsUnderMouse).some(el => el.classList.contains('work-card')|| el.classList.contains('control-panel'));
 
                 ghosts.forEach(ghost => {
                     if (isHiding) {
@@ -376,7 +399,15 @@
             }
             animate();
         }
-
+        
+        btnReset.addEventListener('click', () => {
+            if (confirm('ベスト記録をリセットしますか？')) {
+                localStorage.removeItem('ghostChaseBestScore');
+                bestScore = 0;
+                updateBestTimeDisplay();
+            }
+        });
+        
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
