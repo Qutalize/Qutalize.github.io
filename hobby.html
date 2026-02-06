@@ -40,8 +40,7 @@
             padding: 20px;
             border-radius: 15px;
             max-width: 600px; 
-            margin: 0 auto 40px;
-            margin-bottom: 30px;
+            margin: 0 auto 30px;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: relative;
@@ -90,13 +89,30 @@
             margin-top: 20px;
             border: 3px solid var(--main-navy);
         }
-        .slot-display {
-            font-size: 3rem;
+        .slot-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
             margin: 10px 0;
-            letter-spacing: 10px;
+        }
+        .reel {
+            font-size: 2.5rem;
+            width: 70px;
+            height: 90px;
             background: white;
+            border: 2px solid #ddd;
             border-radius: 10px;
-            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .spinning {
+            animation: slot-scroll 0.1s linear infinite;
+        }
+        @keyframes slot-scroll {
+            0% { transform: translateY(-2px); }
+            100% { transform: translateY(2px); }
         }
 
         @media (max-width: 600px) {
@@ -110,8 +126,7 @@
         .is-hiding { opacity: 0.3; }
 
         .works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; position: relative; z-index: 10; }
-        .work-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-
+        .work-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-decoration: none; color: inherit; }
     </style>
 </head>
 <body>
@@ -140,10 +155,15 @@
             </div>
 
             <div id="mobile-slot-area">
-                <div class="slot-display" id="slot-result">🎰</div>
-                <button id="btn-slot" class="btn-mode" style="background: var(--main-navy); color: white;">STOP!</button>
-                <p style="font-size: 0.8rem; margin-top: 10px;">スマホ限定：絵柄を揃えてください！</p>
+                <div class="slot-container">
+                    <div id="reel1" class="reel">🎰</div>
+                    <div id="reel2" class="reel">🎰</div>
+                    <div id="reel3" class="reel">🎰</div>
+                </div>
+                <button id="btn-slot" class="btn-mode" style="background: var(--main-navy); color: white; width: 120px;">START</button>
+                <p style="font-size: 0.8rem; margin-top: 10px;">スマホ限定：リールを1つずつ止めてください！</p>
             </div>
+
             <div class="instruction-text">
                 <span class="pc-only-text">
                     <strong>鬼ごっこ：</strong>追ってくるお化けから逃げ続けてください。<br>
@@ -203,7 +223,7 @@
         </div>
     </div>
 
-  <script>
+<script>
     const ghostContainer = document.getElementById('ghost-container');
     const currentTimeEl = document.getElementById('current-time');
     const bestTimeEl = document.getElementById('best-time');
@@ -253,17 +273,14 @@
         if (currentMode === 'chase') {
             checkAndSaveBest();
         }
-
         currentMode = mode;
         ghostContainer.innerHTML = '';
         ghosts = [];
         currentScore = 0;
         currentTimeEl.textContent = "0.00";
         btnIraira.style.transform = 'translate(0,0)';
-
         document.querySelectorAll('.btn-mode').forEach(b => b.classList.remove('active'));
         if(mode === 'normal') btnNormal.classList.add('active');
-        
         if(mode === 'chase') {
             btnChase.classList.add('active');
             startChase();
@@ -283,15 +300,12 @@
 
     function updateChase() {
         if(currentMode !== 'chase') return;
-
         const els = document.elementsFromPoint(mouseX, mouseY);
         isHiding = Array.from(els).some(e => e.classList.contains('work-card') || e.classList.contains('control-panel'));
-
         ghosts.forEach(g => {
             if(!isHiding) {
                 g.x += (mouseX - g.x) * g.s;
                 g.y += (mouseY - g.y) * g.s;
-                
                 const d = Math.sqrt((mouseX-g.x)**2 + (mouseY-g.y)**2);
                 if(d < 35) {
                     currentMode = 'normal';
@@ -304,11 +318,9 @@
                 currentScore += 0.016; 
                 currentTimeEl.textContent = currentScore.toFixed(2);
             }
-            g.el.style.left = g.x-30+'px'; 
-            g.el.style.top = g.y-30+'px';
+            g.el.style.left = g.x-30+'px'; g.el.style.top = g.y-30+'px';
             g.el.classList.toggle('is-hiding', isHiding);
         });
-
         if(currentMode === 'chase') requestAnimationFrame(updateChase);
     }
 
@@ -332,7 +344,6 @@
     if (slotBtn) {
         slotBtn.onclick = function() {
             const currentState = this.textContent.trim();
-
             if (currentState === "START") {
                 this.textContent = "STOP!";
                 stopCount = 0;
@@ -349,10 +360,8 @@
                     clearInterval(slotIntervals[stopCount]);
                     document.getElementById(`reel${stopCount+1}`).classList.remove('spinning');
                     stopCount++;
-                    
                     if (stopCount === 3) {
                         this.textContent = "START";
-                        // 判定
                         setTimeout(() => {
                             const r1 = document.getElementById('reel1').textContent;
                             const r2 = document.getElementById('reel2').textContent;
@@ -365,14 +374,9 @@
         };
     }
 
-    document.addEventListener('mousemove', e => { 
-        mouseX = e.clientX; 
-        mouseY = e.clientY; 
-    });
-
+    document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
     btnNormal.onclick = () => setMode('normal');
     btnChase.onclick = () => setMode('chase');
-    
     btnReset.onclick = () => {
         if(confirm('ベスト記録をリセットしますか？')) {
             localStorage.removeItem('ghostBest');
@@ -380,3 +384,5 @@
         }
     };
 </script>
+</body>
+</html>
