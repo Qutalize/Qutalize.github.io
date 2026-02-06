@@ -2,64 +2,395 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>趣味 - Quta's Portfolio</title>
-    <link rel="stylesheet" href="common.css">
+    <style>
+        /* --- 共通スタイル (works.htmlなどと同じ) --- */
+        :root {
+            --bg-color: #e0f2f7;
+            --main-navy: #1a3a5f;
+            --accent-blue: #4682b4;
+            --white: #ffffff;
+            /* 趣味用のタグ色 */
+            --tag-game: #ff4500;
+            --tag-photo: #20b2aa;
+            --tag-camp: #8b4513;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+            background-color: var(--bg-color);
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+            line-height: 1.6;
+            /* 鬼ごっこ用にposition調整 */
+            position: relative;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header { text-align: center; margin-bottom: 40px; }
+        
+        nav ul { list-style: none; padding: 0; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        nav ul li a {
+            text-decoration: none; background-color: var(--main-navy); color: white; padding: 10px 20px; border-radius: 30px; font-weight: bold; transition: 0.3s;
+        }
+        .current { background-color: var(--accent-blue) !important; }
+
+        h2 {
+            border-left: 6px solid var(--main-navy);
+            padding: 5px 15px;
+            color: var(--main-navy);
+            background: rgba(255,255,255,0.5);
+            margin-bottom: 30px;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            /* 鬼ごっこ時にカードが前面に来るように */
+            position: relative;
+            z-index: 10;
+        }
+
+        .work-card {
+            background: var(--white);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .work-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .label {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            color: white;
+            width: fit-content;
+            margin-bottom: 15px;
+        }
+        .bg-game { background-color: var(--tag-game); }
+        .bg-photo { background-color: var(--tag-photo); }
+        .bg-camp { background-color: var(--tag-camp); }
+
+        .work-body h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.25rem;
+            color: var(--main-navy);
+        }
+
+        .work-summary {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        /* --- 趣味ページ固有の追加スタイル --- */
+
+        /* コントロールパネル */
+        .control-panel {
+            background: rgba(255,255,255,0.7);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .control-title {
+            font-weight: bold;
+            color: var(--main-navy);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .mode-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-mode {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            outline: none;
+        }
+
+        #btn-normal { background-color: #ccc; color: #333; }
+        #btn-normal.active { background-color: var(--main-navy); color: white; }
+
+        #btn-chase { background-color: #ff6b6b; color: white; }
+        #btn-chase.active { background-color: #c92a2a; box-shadow: inset 0 3px 5px rgba(0,0,0,0.2); }
+
+        /* イライラボタンのスタイル */
+        #btn-iraira {
+            background-color: #fcc419;
+            color: #333;
+            position: relative; /* 逃げる動きのために必要 */
+            transition: transform 0.1s ease-out; /* 素早く動く */
+        }
+        #btn-iraira:hover {
+            background-color: #fab005;
+        }
+
+        /* 鬼のスタイル */
+        #chaser {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+            pointer-events: none; /* マウスイベントを透過 */
+            transform: translate(-50%, -50%);
+            transition: all 0.1s linear; /* 滑らかに追従 */
+            z-index: 5; /* カードより後ろ */
+            opacity: 0; /* 初期状態は非表示 */
+            box-shadow: 0 0 15px rgba(255,0,0,0.5);
+        }
+        #chaser.is-active {
+            opacity: 1;
+        }
+        /* 隠れている状態 */
+        #chaser.is-hiding {
+            opacity: 0.3;
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: #888; /* 見失った色 */
+        }
+
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>Hobby</h1>
-    <nav>
-        <ul>
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="works.html">業績</a></li>
-            <li><a href="reading.html">読書履歴</a></li>
-            <li><a href="hobby.html" class="current">趣味</a></li>
-            <li><a href="link.html">リンク</a></li>
-        </ul>
-    </nav>
-</header>
+    <div id="chaser"></div>
 
-<section>
-<h2>遊び</h2>
+    <header>
+        <h1>My Hobbies</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="works.html">業績</a></li>
+                <li><a href="reading.html">読書履歴</a></li>
+                <li><a href="hobby.html" class="current">趣味</a></li>
+                <li><a href="link.html">リンク</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div class="works-grid">
+    <div class="section">
+        <h2>趣味の紹介と実験場</h2>
 
-<div class="work-card">
-    <div class="work-body">
-        <span class="label bg-web">Toy</span>
-        <h3>カーソル追従キャラ</h3>
-        <p class="work-summary">
-            CSSとJavaScriptで作った簡単な追従アニメーション。実用性はない。
-        </p>
-        <div class="read-more">そのうち改良予定</div>
+        <div class="control-panel">
+            <span class="control-title">インタラクティブモード切替</span>
+            <div class="mode-buttons">
+                <button id="btn-normal" class="btn-mode active">通常モード</button>
+                <button id="btn-chase" class="btn-mode">鬼ごっこモードON</button>
+                <button id="btn-iraira" class="btn-mode">イライラモードON</button>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 10px; color: #666;">
+                ※鬼ごっこ：カードの上は安全地帯です。<br>
+                ※イライラ：黄色のボタンを押そうとしてみてください。
+            </p>
+        </div>
+        
+        <div class="works-grid" id="card-container">
+
+            <div class="work-card">
+                <div class="work-body">
+                    <span class="label bg-game">Game</span>
+                    <h3>インディーゲーム探索</h3>
+                    <p class="work-summary">
+                        Steamなどで独創的なインディーゲームを探してプレイするのが好きです。最近はローグライク系にハマっています。
+                    </p>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <div class="work-body">
+                    <span class="label bg-photo">Photography</span>
+                    <h3>街歩きスナップ</h3>
+                    <p class="work-summary">
+                        休日はカメラを持って知らない街を散歩します。何気ない日常の風景を切り取るのが楽しいです。
+                    </p>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <div class="work-body">
+                    <span class="label bg-camp">Camping</span>
+                    <h3>ソロキャンプ</h3>
+                    <p class="work-summary">
+                        静かな森の中で焚き火を見つめる時間が最高の癒やしです。不便さを楽しむスタイルが好きです。
+                    </p>
+                </div>
+            </div>
+            
+             <div class="work-card">
+                <div class="work-body">
+                    <span class="label bg-game">Programming</span>
+                    <h3>面白インタラクション制作</h3>
+                    <p class="work-summary">
+                        このページのように、Web技術を使って少し変わった動きやインタラクションを作る実験をしています。
+                    </p>
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
 
-<div class="work-card game-mode">
-    <div class="work-body">
-        <span class="label bg-award">Game Mode</span>
-        <h3>コンポーネント鬼ごっこ</h3>
-        <p class="work-summary">
-            カード要素を遮蔽物にした簡易ゲーム。未実装。
-        </p>
-        <div class="read-more">▶ 遊ぶ（予定）</div>
-    </div>
-</div>
+    <script>
+        // 要素の取得
+        const btnNormal = document.getElementById('btn-normal');
+        const btnChase = document.getElementById('btn-chase');
+        const btnIraira = document.getElementById('btn-iraira');
+        const chaser = document.getElementById('chaser');
+        const cards = document.querySelectorAll('.work-card');
 
-<div class="work-card irritate-mode">
-    <div class="work-body">
-        <span class="label bg-arch">Irritate</span>
-        <h3>イライラモード</h3>
-        <p class="work-summary">
-            押そうとするとUIが逃げるだけの嫌がらせ機能。
-        </p>
-        <div class="read-more">押せるかな？</div>
-    </div>
-</div>
+        // 状態管理
+        let currentMode = 'normal'; // 'normal', 'chase', 'iraira'
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let isHiding = false;
 
-</div>
-</section>
+        // --- モード切替処理 ---
+        function setMode(mode) {
+            currentMode = mode;
+            // ボタンの見た目リセット
+            [btnNormal, btnChase, btnIraira].forEach(btn => btn.classList.remove('active'));
+            
+            if (mode === 'normal') {
+                btnNormal.classList.add('active');
+                chaser.classList.remove('is-active');
+                resetIrairaButton();
+            } else if (mode === 'chase') {
+                btnChase.classList.add('active');
+                chaser.classList.add('is-active');
+                resetIrairaButton();
+                startChasing();
+            } else if (mode === 'iraira') {
+                // イライラモードボタン自体をアクティブ表示にはしない（逃げるため）
+                chaser.classList.remove('is-active');
+            }
+        }
+
+        btnNormal.addEventListener('click', () => setMode('normal'));
+        btnChase.addEventListener('click', () => {
+            if (currentMode !== 'chase') setMode('chase');
+        });
+        // イライラボタンはクリックさせる気がないが、一応設定
+        btnIraira.addEventListener('click', () => {
+             alert('すごい！クリックできましたね！');
+             setMode('normal');
+        });
+
+        // --- 鬼ごっこモードの実装 ---
+        
+        // マウス位置の更新
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // 鬼ごっこモード時、マウスがカードの上にあるかチェック
+            if (currentMode === 'chase') {
+                checkIfHiding(e.clientX, e.clientY);
+            }
+        });
+
+        // 隠れているか判定（簡易的な衝突判定）
+        function checkIfHiding(mx, my) {
+            isHiding = false;
+            // すべてのカードに対して判定
+            /* note: elementsFromPointは重なりを考慮して複数の要素を返す */
+            const elementsUnderMouse = document.elementsFromPoint(mx, my);
+            for (let el of elementsUnderMouse) {
+                // マウスの下に .work-card クラスを持つ要素があれば隠れているとみなす
+                if (el.classList.contains('work-card')) {
+                    isHiding = true;
+                    break;
+                }
+            }
+            
+            // 鬼の見た目を更新
+            if (isHiding) {
+                chaser.classList.add('is-hiding');
+            } else {
+                chaser.classList.remove('is-hiding');
+            }
+        }
+
+        // 鬼の追尾アニメーションループ
+        function startChasing() {
+            // 現在の鬼の位置を取得（初期値）
+            let chaserX = window.innerWidth / 2;
+            let chaserY = window.innerHeight / 2;
+            
+            function animate() {
+                if (currentMode !== 'chase') return; // モードが変わったら終了
+
+                if (!isHiding) {
+                    // 隠れていない場合、マウスに向かって少しずつ移動（線形補間）
+                    // 0.05 は追尾スピード係数。小さいほど遅れる。
+                    chaserX += (mouseX - chaserX) * 0.05;
+                    chaserY += (mouseY - chaserY) * 0.05;
+                    
+                    chaser.style.left = `${chaserX}px`;
+                    chaser.style.top = `${chaserY}px`;
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        // --- イライラモードの実装 ---
+        
+        // ボタンの位置を元に戻す
+        function resetIrairaButton() {
+            btnIraira.style.transform = 'translate(0, 0)';
+        }
+
+        // マウスが乗ったら逃げる処理
+        btnIraira.addEventListener('mouseover', () => {
+            if (currentMode !== 'iraira') return;
+
+            // ランダムな方向へ移動（移動量は適宜調整）
+            // -100px ～ 100px の範囲でランダムにずらす
+            const moveX = (Math.random() - 0.5) * 200;
+            const moveY = (Math.random() - 0.5) * 200;
+            
+            btnIraira.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+
+        // 初期モード設定
+        setMode('normal');
+
+    </script>
 
 </body>
 </html>
