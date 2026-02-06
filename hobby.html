@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>趣味 - Quta's Portfolio</title>
     <style>
-        /* --- 共通スタイル (works.htmlなどと同じ) --- */
         :root {
             --bg-color: #e0f2f7;
             --main-navy: #1a3a5f;
             --accent-blue: #4682b4;
             --white: #ffffff;
-            /* 趣味用のタグ色 */
             --tag-game: #ff4500;
-            --tag-photo: #20b2aa;
-            --tag-camp: #8b4513;
+            --tag-travel: #20b2aa;
+            --tag-other: #8b4513;
         }
 
         body {
@@ -25,7 +23,6 @@
             padding: 40px 20px;
             color: #333;
             line-height: 1.6;
-            /* 鬼ごっこ用にposition調整 */
             position: relative;
             min-height: 100vh;
             overflow-x: hidden;
@@ -89,8 +86,8 @@
             margin-bottom: 15px;
         }
         .bg-game { background-color: var(--tag-game); }
-        .bg-photo { background-color: var(--tag-photo); }
-        .bg-camp { background-color: var(--tag-camp); }
+        .bg-travel { background-color: var(--tag-travel); }
+        .bg-other { background-color: var(--tag-other); }
 
         .work-body h3 {
             margin: 0 0 12px 0;
@@ -104,9 +101,6 @@
             margin-bottom: 20px;
         }
         
-        /* --- 趣味ページ固有の追加スタイル --- */
-
-        /* コントロールパネル */
         .control-panel {
             background: rgba(255,255,255,0.7);
             padding: 20px;
@@ -196,7 +190,7 @@
             <ul>
                 <li><a href="index.html">ホーム</a></li>
                 <li><a href="works.html">業績</a></li>
-                <li><a href="reading.html">読書履歴</a></li>
+                <li><a href="readinglog.html">読書履歴</a></li>
                 <li><a href="hobby.html" class="current">趣味</a></li>
                 <li><a href="link.html">リンク</a></li>
             </ul>
@@ -204,18 +198,18 @@
     </header>
 
     <div class="section">
-        <h2>趣味の紹介と実験場</h2>
+        <h2>趣味</h2>
 
         <div class="control-panel">
-            <span class="control-title">インタラクティブモード切替</span>
+            <span class="control-title">モード切替</span>
             <div class="mode-buttons">
                 <button id="btn-normal" class="btn-mode active">通常モード</button>
                 <button id="btn-chase" class="btn-mode">鬼ごっこモードON</button>
                 <button id="btn-iraira" class="btn-mode">イライラモードON</button>
             </div>
             <p style="font-size: 0.8rem; margin-top: 10px; color: #666;">
-                ※鬼ごっこ：カードの上は安全地帯です。<br>
-                ※イライラ：黄色のボタンを押そうとしてみてください。
+                鬼ごっこモード：追ってくる鬼から逃げ続けるゲームモードです。<br>
+                イライラモード：あなたをイライラさせます。
             </p>
         </div>
         
@@ -224,39 +218,39 @@
             <div class="work-card">
                 <div class="work-body">
                     <span class="label bg-game">Game</span>
-                    <h3>インディーゲーム探索</h3>
+                    <h3>ゲーム</h3>
                     <p class="work-summary">
-                        Steamなどで独創的なインディーゲームを探してプレイするのが好きです。最近はローグライク系にハマっています。
+                        主にPlaystationでRPGやアクションゲームを楽しんでいます。
                     </p>
                 </div>
             </div>
 
             <div class="work-card">
                 <div class="work-body">
-                    <span class="label bg-photo">Photography</span>
-                    <h3>街歩きスナップ</h3>
+                    <span class="label bg-travel">Studying in France</span>
+                    <h3>フランス留学(2024.2)</h3>
                     <p class="work-summary">
-                        休日はカメラを持って知らない街を散歩します。何気ない日常の風景を切り取るのが楽しいです。
+                        フランス、リヨンの大学に3週間ほど、留学を行いました。文化交流や、フィールドワーク、通信に関する講義を受け、週末はパリ観光などを楽しみました。
                     </p>
                 </div>
             </div>
 
             <div class="work-card">
                 <div class="work-body">
-                    <span class="label bg-camp">Camping</span>
-                    <h3>ソロキャンプ</h3>
+                    <span class="label bg-travel">Trip to Taiwan</span>
+                    <h3>台湾旅行(2025.3)</h3>
                     <p class="work-summary">
-                        静かな森の中で焚き火を見つめる時間が最高の癒やしです。不便さを楽しむスタイルが好きです。
+                        家族と2泊3日の台湾旅行に行きました。料理が特に美味しくて、好物のルーロー飯は4回も食べました。
                     </p>
                 </div>
             </div>
             
              <div class="work-card">
                 <div class="work-body">
-                    <span class="label bg-game">Programming</span>
-                    <h3>面白インタラクション制作</h3>
+                    <span class="label bg-game">Programing</span>
+                    <h3>面白いUI制作(2026.2)</h3>
                     <p class="work-summary">
-                        このページのように、Web技術を使って少し変わった動きやインタラクションを作る実験をしています。
+                        このページで、Web技術を使ったゲームやインタラクションを作りました。
                     </p>
                 </div>
             </div>
