@@ -7,8 +7,8 @@
     <style>
         /* 水色テーマの設定 */
         :root {
-            --main-color: #00BFFF; /* 鮮やかな水色 */
-            --hover-color: #009ACD; /* ホバー時の少し濃い色 */
+            --main-color: #87ceeb; /* 鮮やかな水色 */
+            --hover-color: #00bfff; /* ホバー時の少し濃い色 */
             --text-color: #333;
         }
 
@@ -39,7 +39,7 @@
         }
         nav ul li a {
             text-decoration: none;
-            background-color: var(--main-color); /* 水色ボタン */
+            background-color: var(--main-color); 
             color: white;
             padding: 10px 20px;
             border-radius: 5px;
@@ -51,30 +51,33 @@
             background-color: var(--hover-color);
         }
         
-        /* 現在のページのボタンを目立たせる（任意） */
         .current {
             background-color: var(--hover-color);
             pointer-events: none;
         }
 
         h2 {
-            border-left: 6px solid var(--main-color); /* 水色の線 */
+            border-left: 6px solid var(--main-color); 
             padding-left: 10px;
-            background-color: #f0f8ff; /* 薄い水色の背景 */
+            background-color: #f0f8ff; 
             padding: 5px 10px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to My Website</h1>
+      <header class="site-header">
+        <div class="header-top">
+            <img src="slim.gif" alt="slim" class="image">
+            <h1>Welcome to My Website</h1>
+        </div>
+    
         <nav>
             <ul>
                 <li><a href="index.html" class="current">ホーム</a></li>
                 <li><a href="works.html">業績</a></li>
-                <li><a href="history.html">経歴</a></li>
-                <li><a href="hobby.html">趣味</a></li>
+                <li><a href="hobby.html">読書履歴</a></li>
+                <li><a href="history.html">趣味</a></li>
                 <li><a href="link.html">リンク</a></li>
             </ul>
         </nav>
@@ -82,8 +85,9 @@
 
     <div class="section">
         <h2>About</h2>
-        <p>ようこそ。ここは私のポートフォリオサイトのトップページです。</p>
-        <p>上のメニューボタンから各詳細ページへ移動してください。</p>
+        <p>Qutaのポートフォリオへようこそ！</p>
+        <p>Welcome to Quta's portfolio pages!</p>
+        <p>Bienvenue sur les pages du portfolio de Quta!</p>
     </div>
 
 </body>
