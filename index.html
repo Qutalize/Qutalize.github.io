@@ -3,29 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Quta's Portfolio</title>
     <style>
-        /* 水色テーマの設定 */
         :root {
-            --main-color: #87ceeb; /* 鮮やかな水色 */
-            --hover-color: #00bfff; /* ホバー時の少し濃い色 */
-            --text-color: #333;
+            --bg-color: #e0f2f7;      /* 背景：明るいスカイブルー */
+            --main-navy: #1a3a5f;     /* ボタン：落ち着いた紺色 */
+            --accent-blue: #4682b4;   /* ホバー時の色：スチールブルー */
+            --text-color: #2c3e50;
+            --white: #ffffff;
         }
 
         body {
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            max-width: 800px;
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            background-color: var(--bg-color);
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
+        /* ヘッダー周り */
         header {
             text-align: center;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px; /* GIFと文字の間隔 */
             margin-bottom: 30px;
+        }
+
+        .header-top h1 {
+            font-size: 2rem;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .header-top .image {
+            width: 50px; /* GIFのサイズ調整 */
+            height: auto;
         }
 
         /* ナビゲーションメニュー */
@@ -34,42 +54,62 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
             flex-wrap: wrap;
         }
+
         nav ul li a {
             text-decoration: none;
-            background-color: var(--main-color); 
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+            background-color: var(--main-navy); 
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 30px; /* 丸みのあるボタンでお洒落に */
             font-weight: bold;
             display: inline-block;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
+
         nav ul li a:hover {
-            background-color: var(--hover-color);
+            background-color: var(--accent-blue);
+            transform: translateY(-2px); /* 少し浮き上がる演出 */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
         
         .current {
-            background-color: var(--hover-color);
+            background-color: var(--accent-blue) !important;
+            opacity: 0.8;
             pointer-events: none;
         }
 
+        /* コンテンツエリア */
+        .section {
+            background: rgba(255, 255, 255, 0.7); /* 白背景を少し透過させてお洒落に */
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px); /* 背景をぼかす（モダンな手法） */
+        }
+
         h2 {
-            border-left: 6px solid var(--main-color); 
-            padding-left: 10px;
-            background-color: #f0f8ff; 
-            padding: 5px 10px;
+            border-left: 6px solid var(--main-navy);
+            padding: 5px 15px;
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: var(--main-navy);
+        }
+
+        .welcome-msg {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
-      <header class="site-header">
+    <header class="site-header">
         <div class="header-top">
-            <img src="slim.gif" alt="slim" class="image">
             <h1>Welcome to My Website</h1>
+            <img src="slim.gif" alt="slim" class="image">
         </div>
     
         <nav>
@@ -85,7 +125,7 @@
 
     <div class="section">
         <h2>About</h2>
-        <p>Qutaのポートフォリオへようこそ！</p>
+        <p class="welcome-msg">Qutaのポートフォリオへようこそ！</p>
         <p>Welcome to Quta's portfolio pages!</p>
         <p>Bienvenue sur les pages du portfolio de Quta!</p>
     </div>
