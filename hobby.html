@@ -11,6 +11,8 @@
             --accent-blue: #4682b4;
             --white: #ffffff;
             --tag-game: #ff4500;
+            --tag-travel: #20b2aa;
+            --tag-other: #8b4513;
         }
 
         body {
@@ -53,6 +55,19 @@
             line-height: 1.8;
         }
 
+        .label {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            color: white;
+            width: fit-content;
+            margin-bottom: 15px;
+        }
+        .bg-game   { background-color: var(--tag-game); }
+        .bg-travel { background-color: var(--tag-travel); }
+        .bg-other  { background-color: var(--tag-other); }
+        
         .mode-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 15px;}
         .btn-mode {
             padding: 12px 18px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; transition: 0.2s; font-family: inherit;
