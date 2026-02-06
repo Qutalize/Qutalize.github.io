@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EEG Analysis Code - Quta's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <style>
+        :root {
+            --bg-color: #e0f2f7;
+            --main-navy: #1a3a5f;
+            --accent-blue: #4682b4;
+            --white: #ffffff;
+            --code-bg: #0d1117;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", sans-serif;
+            background-color: var(--bg-color);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header { text-align: center; margin-bottom: 40px; }
+        
+        nav ul { list-style: none; padding: 0; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+        nav ul li a {
+            text-decoration: none; background-color: var(--main-navy); color: white; padding: 10px 20px; border-radius: 30px; font-weight: bold; transition: 0.3s;
+        }
+
+        .code-container {
+            background: var(--code-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        pre code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            tab-size: 4;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #30363d;
+            color: #e6edf3;
+        }
+
+        .filename {
+            font-family: monospace;
+            font-size: 0.9rem;
+            background: #21262d;
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        h2 {
+            border-left: 6px solid var(--main-navy);
+            padding: 5px 15px;
+            color: var(--main-navy);
+            background: rgba(255,255,255,0.5);
+            margin-bottom: 20px;
+        }
+
+        .description {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--main-navy);
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Source Code</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="works.html">業績</a></li>
+                <li><a href="reading.html">読書履歴</a></li>
+                <li><a href="hobby.html">趣味</a></li>
+                <li><a href="link.html">リンク</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="section">
+        <h2>脳波データを用いた運動意図の判定</h2>
+        
+        <div class="description">
+            <p><strong>解説:</strong> このスクリプトは、運動想起に伴う脳波成分 <strong>SMR-ERD</strong> を抽出・分類するためのものです。
+            8-30 Hzのバンドパスフィルタリング、時系列データ特有のデータ拡張、および <strong>ShallowFBCSPNet</strong> を用いた5モデルのアンサンブル学習を実装しています。</p>
+        </div>
+
+        <div class="code-container">
+            <div class="code-header">
+                <span class="filename">eeg_classification_smr.py</span>
+            </div>
+            <pre><code class="language-python">import numpy as np
+import torch
+import pandas as pd
+import os
+import gc
+import mne
+from braindecode import EEGClassifier
+from skorch.dataset import ValidSplit
+from skorch.callbacks import EarlyStopping
+
+# --- 設定 ---
+N_MODELS = 5        # アンサンブル数
+BATCH_SIZE = 32
+MAX_EPOCHS = 30
+SFREQ = 100         # サンプリング周波数
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+print(f"Using device: {device}")
+
+# 1. SMR-ERD特化フィルタリング (8-30 Hz)
+# α波(8-13Hz)とβ波(13-30Hz)を通過させ、それ以外をカット
+print("Applying Bandpass Filter (8-30 Hz) for SMR-ERD...")
+
+# l_freq=8, h_freq=30 で目的の帯域を抽出
+train_X_filtered = mne.filter.filter_data(train_X.astype(np.float64), SFREQ, 8, 30, verbose=0)
+test_X_filtered = mne.filter.filter_data(test_X.astype(np.float64), SFREQ, 8, 30, verbose=0)
+
+# 標準化関数
+def standardize_data(data):
+    # (Samples, Channels, Time)
+    data_std = np.zeros_like(data)
+    for i in range(len(data)):
+        x = np.where(np.isnan(data[i]), np.nanmean(data[i]), data[i])
+        mean = x.mean(axis=1, keepdims=True)
+        std = x.std(axis=1, keepdims=True)
+        std[std == 0] = 1
+        data_std[i] = (x - mean) / std
+    return data_std
+
+print("Standardizing data...")
+train_X_prep_new = standardize_data(train_X_filtered)
+test_X_prep_new = standardize_data(test_X_filtered)
+
+
+# 2. 時系列向けデータ拡張関数
+def time_series_augmentation(X, y):
+    """
+    時系列の特徴を壊さずにデータを増やす
+    1. Time Shift: 時間方向にずらす
+    2. Amplitude Scale: 振幅をランダムに変える
+    3. Gaussian Noise: わずかなノイズ
+    """
+    n_samples, n_channels, n_time = X.shape
+
+    # --- A. Time Shift (時間シフト) ---
+    # 最大 ±20サンプル (0.2秒) ずらす
+    shift = np.random.randint(-20, 20, size=n_samples)
+    X_shifted = np.zeros_like(X)
+    for i in range(n_samples):
+        X_shifted[i] = np.roll(X[i], shift[i], axis=1) 
+    # --- B. Amplitude Scaling (振幅スケーリング) ---
+    # 0.8倍 〜 1.2倍 の範囲でランダムに強弱をつける
+    scale = np.random.uniform(0.8, 1.2, size=(n_samples, 1, 1))
+    X_scaled = X_shifted * scale
+
+    # --- C. Gaussian Noise (微小ノイズ) ---
+    # 信号の強弱を変えた後に、少しだけノイズを乗せる
+    noise = np.random.normal(0, 0.005, X_scaled.shape)
+    X_aug = X_scaled + noise
+
+    return X_aug, y
+
+# 学習ループ
+all_preds = []
+
+for i in range(N_MODELS):
+    print(f"\n=== Training Model {i+1}/{N_MODELS} ===")
+
+    # データ拡張の適用
+    X_orig = train_X_prep_new
+    y_orig = np.array(train_y) if isinstance(train_y, list) else train_y
+    X_aug_new, y_aug_new = time_series_augmentation(X_orig, y_orig)
+    X_train_final = np.concatenate((X_orig, X_aug_new), axis=0).astype(np.float32)
+    y_train_final = np.concatenate((y_orig, y_aug_new), axis=0).astype(np.int64)
+    torch.manual_seed(i)
+    if device == 'cuda':
+        torch.cuda.manual_seed(i)
+
+    # モデル構築
+    net = EEGClassifier(
+        "ShallowFBCSPNet",
+        batch_size=BATCH_SIZE,
+        max_epochs=MAX_EPOCHS,
+        train_split=ValidSplit(0.2),
+        device=device,
+        module__drop_prob=0.5,
+        optimizer=torch.optim.AdamW,
+        optimizer__weight_decay=0.01,
+        optimizer__lr=0.001,
+        iterator_train__shuffle=True,
+        iterator_train__num_workers=0,
+        iterator_train__pin_memory=(device=='cuda'),
+
+        callbacks=[
+            ('early_stopping', EarlyStopping(monitor='valid_loss', patience=5))
+        ],
+        verbose=1
+    )
+
+    net.fit(X_train_final, y_train_final)
+
+    # 予測
+    X_test_tensor = test_X_prep_new.astype(np.float32)
+    proba = net.predict_proba(X_test_tensor)
+    all_preds.append(proba)
+
+    del net
+    gc.collect()
+    if device == 'cuda':
+        torch.cuda.empty_cache()
+
+# --- 集計 ---
+print("\nAggregating predictions...")
+avg_preds = np.mean(all_preds, axis=0)
+final_predictions = np.argmax(avg_preds, axis=1)
+
+submit = pd.DataFrame({'test_id': test_id, 'y_pred': final_predictions})
+save_path = os.path.join(OUTPUT_DIR, 'submit_smr_erd.csv')
+submit.to_csv(save_path, header=False, index=False)
+
+print(f"Done! Saved to: {save_path}")</code></pre>
+        </div>
+
+        <a href="works.html" class="back-link">← 業績一覧へ戻る</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
