@@ -119,6 +119,9 @@
             #btn-chase, #btn-iraira { display: none; }
             #mobile-slot-area { display: block; }
             .pc-only-text { display: none; }
+            .timer-wrapper {
+                display: none !important;
+            }
         }
 
         .ghost-chaser { position: fixed; width: 60px; height: 60px; pointer-events: none; z-index: 5; transition: opacity 0.3s; }
@@ -170,7 +173,8 @@
                     カードやパネルの上は追ってきませんが、その間タイムは進みません。<br>
                     <strong>イライラ：</strong>一度押してモードを開始した後、逃げるボタンをもう一度捕まえてください。
                 </span>
-                <div style="margin-top: 10px;">
+                
+                <div class="timer-wrapper" style="margin-top: 10px;">
                     Time: <span id="current-time">0.00</span>s | Best: <span id="best-time">--</span>s
                     <button id="btn-reset" style="margin-left:10px; cursor:pointer;">リセット</button>
                 </div>
