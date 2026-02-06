@@ -30,8 +30,8 @@
             justify-content: space-between; /* 両端に寄せる */
             text-align: left; /* テキストを左詰め */
             margin-bottom: 30px;
+            gap: 20px;
         }
-
         .header-text {
             flex: 1; /* テキスト部分を広げる */
         }
@@ -108,7 +108,14 @@
             object-fit: cover;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-
+        .image-video {
+            width: 100px; /* お好みのサイズに */
+            height: auto;
+            border-radius: 10px; /* 角を少し丸くするとお洒落 */
+        }
+        
+        
+        
         /* 挨拶文のスタイル */
         .welcome-jp { font-weight: bold; font-size: 1.1rem; margin: 0; }
         .welcome-sub { font-size: 0.9rem; color: #666; margin: 0; line-height: 1.4; }
@@ -135,8 +142,8 @@
                 <p class="welcome-sub">Welcome to Quta's portfolio pages!</p>
                 <p class="welcome-sub">Bienvenue sur les pages du portfolio de Quta!</p>
             </div>
-            <div class="gif-block">
-                <img src="slim.mp4" alt="slim">
+            <div class="slim-block">
+                <video src="slim.mp4" autoplay loop muted playsinline class="image-video"></video>
             </div>
         </div>
 
