@@ -23,12 +23,13 @@
             line-height: 1.8;
         }
 
+        /* ヘッダーコンテナの上下余白を短縮 */
         .header-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 30px;
-            padding: 20px 0;
+            padding: 10px 0 0 0; /* 下側のパディングを0に */
         }
         .header-text {
             flex: 1; 
@@ -36,7 +37,7 @@
 
         .header-text h1 {
             font-size: 3.0rem;
-            margin: 0 0 10px 0;
+            margin: 0 0 5px 0;
             color: var(--main-navy);
             font-weight: 800;
             line-height: 1.1;
@@ -47,13 +48,17 @@
             height: auto;
         }
 
-        nav { margin-bottom: 40px; }
+        /* ナビゲーションの上の余白を消し、下を少し詰める */
+        nav { 
+            margin-top: 0;
+            margin-bottom: 30px; 
+        }
         nav ul {
             list-style: none;
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 15px; /* ボタン同士の間隔は維持 */
             flex-wrap: wrap;
         }
         nav ul li a {
@@ -98,8 +103,13 @@
         .intro h3 {
             margin-top: 0;
             font-size: 1.4rem;
-            text-align: left;
             color: var(--main-navy);
+        }
+
+        /* スマホでの文字折れ・崩れ対策 */
+        .intro p {
+            word-break: break-all;
+            text-align: justify;
         }
 
         .icon-block img {
@@ -130,20 +140,47 @@
             mix-blend-mode: multiply;
         }
         
+        /* スマホ版の詳細修正 */
         @media (max-width: 600px) {
-            .header-container, .about-flex {
+            .header-container {
                 flex-direction: column;
                 text-align: center;
+                gap: 10px;
+                padding: 10px 0;
             }
+
+            /* ナビゲーションの折り返しを最適化 */
+            nav ul {
+                gap: 10px;
+            }
+
+            .section {
+                padding: 25px 20px; /* 余白を減らして文字のスペースを確保 */
+            }
+
+            .about-flex {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .intro h3 {
+                text-align: center;
+            }
+
             .gif-block, .icon-block {
-                margin-top: 20px;
+                margin-top: 10px;
+            }
+
+            .header-text h1 {
+                font-size: 2.2rem; /* スマホでは少し小さくしてバランス調整 */
             }
         }
     </style>
 </head>
 <body>
 
-    <header class="site-header">
+     <header class="site-header">
         <div class="header-container">
             <div class="header-text">
                 <h1>Quta's Portfolio</h1>
