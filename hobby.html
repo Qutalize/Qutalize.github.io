@@ -51,8 +51,11 @@
             margin-top: 15px;
             color: #666;
             text-align: left;
-            display: inline-block;
-            line-height: 1.8;
+            display: block;
+            line-height: 1.6;
+            background: #f0f8ff;
+            padding: 10px;
+            border-radius: 8px;
         }
 
         .label {
@@ -139,11 +142,11 @@
                 <button id="btn-slot" class="btn-mode" style="background: var(--main-navy); color: white;">STOP!</button>
                 <p style="font-size: 0.8rem; margin-top: 10px;">スマホ限定：絵柄を揃えてください！</p>
             </div>
-
             <div class="instruction-text">
                 <span class="pc-only-text">
-                    <strong>鬼ごっこ：</strong>お化けから逃げてください。カードの上は追ってきませんがタイムは止まります。<br>
-                    <strong>イライラ：</strong>一度押して開始した後、もう一度ボタンを捕まえてください。
+                    <strong>鬼ごっこ：</strong>追ってくるお化けから逃げ続けてください。<br>
+                    カードやパネルの上は追ってきませんが、その間タイムは進みません。<br>
+                    <strong>イライラ：</strong>一度押してモードを開始した後、逃げるボタンをもう一度捕まえてください。
                 </span>
                 <div style="margin-top: 10px;">
                     Time: <span id="current-time">0.00</span>s | Best: <span id="best-time">--</span>s
@@ -200,87 +203,118 @@
         </div>
     </div>
 
-    <script>
-        const ghostContainer = document.getElementById('ghost-container');
-        const currentTimeEl = document.getElementById('current-time');
-        const bestTimeEl = document.getElementById('best-time');
-        const btnIraira = document.getElementById('btn-iraira');
-        
-        let currentMode = 'normal';
-        let mouseX = 0, mouseY = 0;
-        let isHiding = false;
-        let ghosts = [];
-        let currentScore = 0;
-        let bestScore = parseFloat(localStorage.getItem('ghostBest')) || 0;
+  <script>
+    const ghostContainer = document.getElementById('ghost-container');
+    const currentTimeEl = document.getElementById('current-time');
+    const bestTimeEl = document.getElementById('best-time');
+    const btnIraira = document.getElementById('btn-iraira');
+    const btnNormal = document.getElementById('btn-normal');
+    const btnChase = document.getElementById('btn-chase');
+    const btnReset = document.getElementById('btn-reset');
+    
+    let currentMode = 'normal';
+    let mouseX = 0, mouseY = 0;
+    let isHiding = false;
+    let ghosts = [];
+    let currentScore = 0;
+    let bestScore = parseFloat(localStorage.getItem('ghostBest')) || 0;
 
-        bestTimeEl.textContent = bestScore.toFixed(2);
+    bestTimeEl.textContent = bestScore.toFixed(2);
 
-        function setMode(mode) {
-            currentMode = mode;
-            ghostContainer.innerHTML = '';
-            btnIraira.style.transform = 'translate(0,0)';
-            document.querySelectorAll('.btn-mode').forEach(b => b.classList.remove('active'));
-            if(mode === 'normal') document.getElementById('btn-normal').classList.add('active');
-            if(mode === 'chase') startChase();
+    function checkAndSaveBest() {
+        if (currentScore > bestScore) {
+            bestScore = currentScore;
+            localStorage.setItem('ghostBest', bestScore.toFixed(2));
+            bestTimeEl.textContent = bestScore.toFixed(2);
+            return true;
+        }
+        return false;
+    }
+
+    function setMode(mode) {
+        if (currentMode === 'chase') {
+            checkAndSaveBest();
         }
 
-        function startChase() {
-            currentScore = 0;
-            ghosts = [];
-            for(let i=0; i<5; i++) {
-                const el = document.createElement('div');
-                el.className = 'ghost-chaser';
-                el.innerHTML = '<svg class="ghost-svg" viewBox="0 0 100 100"><path d="M50 5 C 30 5, 15 25, 15 50 C 15 75, 25 85, 15 95 C 25 95, 30 85, 40 90 C 50 85, 60 90, 70 85 C 80 90, 85 95, 95 95 C 85 85, 95 75, 95 50 C 95 25, 70 5, 50 5 Z M 35 40 C 35 35, 40 35, 40 40 C 40 45, 35 45, 35 40 Z M 65 40 C 65 35, 70 35, 70 40 C 70 45, 65 45, 65 40 Z M 50 65 C 45 60, 55 60, 50 65 Z" /></svg>';
-                ghostContainer.appendChild(el);
-                ghosts.push({el, x: Math.random()*window.innerWidth, y: -100, s: 0.02 + Math.random()*0.02});
-            }
-            requestAnimationFrame(updateChase);
+        currentMode = mode;
+        ghostContainer.innerHTML = '';
+        currentScore = 0;
+        currentTimeEl.textContent = "0.00";
+        btnIraira.style.transform = 'translate(0,0)';
+
+        document.querySelectorAll('.btn-mode').forEach(b => b.classList.remove('active'));
+        if(mode === 'normal') btnNormal.classList.add('active');
+        if(mode === 'chase') {
+            btnChase.classList.add('active');
+            startChase();
         }
+    }
 
-        function updateChase() {
-            if(currentMode !== 'chase') return;
-            const els = document.elementsFromPoint(mouseX, mouseY);
-            isHiding = Array.from(els).some(e => e.classList.contains('work-card') || e.classList.contains('control-panel'));
+    function startChase() {
+        currentScore = 0;
+        ghosts = [];
+        for(let i=0; i<5; i++) {
+            const el = document.createElement('div');
+            el.className = 'ghost-chaser';
+            el.innerHTML = '<svg class="ghost-svg" viewBox="0 0 100 100"><path d="M50 5 C 30 5, 15 25, 15 50 C 15 75, 25 85, 15 95 C 25 95, 30 85, 40 90 C 50 85, 60 90, 70 85 C 80 90, 85 95, 95 95 C 85 85, 95 75, 95 50 C 95 25, 70 5, 50 5 Z M 35 40 C 35 35, 40 35, 40 40 C 40 45, 35 45, 35 40 Z M 65 40 C 65 35, 70 35, 70 40 C 70 45, 65 45, 65 40 Z M 50 65 C 45 60, 55 60, 50 65 Z" /></svg>';
+            ghostContainer.appendChild(el);
+            ghosts.push({el, x: Math.random()*window.innerWidth, y: -100, s: 0.02 + Math.random()*0.02});
+        }
+        requestAnimationFrame(updateChase);
+    }
 
-            ghosts.forEach(g => {
-                if(!isHiding) {
-                    g.x += (mouseX - g.x) * g.s;
-                    g.y += (mouseY - g.y) * g.s;
-                    const d = Math.sqrt((mouseX-g.x)**2 + (mouseY-g.y)**2);
-                    if(d < 35) {
-                        alert("捕まった！");
-                        setMode('normal');
-                        return;
-                    }
-                    currentScore += 0.016;
-                    currentTimeEl.textContent = currentScore.toFixed(2);
+    function updateChase() {
+        if(currentMode !== 'chase') return;
+
+        const els = document.elementsFromPoint(mouseX, mouseY);
+        isHiding = Array.from(els).some(e => e.classList.contains('work-card') || e.classList.contains('control-panel'));
+
+        ghosts.forEach(g => {
+            if(!isHiding) {
+                g.x += (mouseX - g.x) * g.s;
+                g.y += (mouseY - g.y) * g.s;
+                
+                const d = Math.sqrt((mouseX-g.x)**2 + (mouseY-g.y)**2);
+                if(d < 35) {
+                    const newRecord = checkAndSaveBest();
+                    alert(newRecord ? `🎉 新記録！捕まった！\nTime: ${currentScore.toFixed(2)}s` : `捕まった！\nTime: ${currentScore.toFixed(2)}s`);
+                    setMode('normal'); 
+                    return;
                 }
-                g.el.style.left = g.x-30+'px'; g.el.style.top = g.y-30+'px';
-                g.el.classList.toggle('is-hiding', isHiding);
-            });
-            if(currentMode === 'chase') requestAnimationFrame(updateChase);
-        }
-
-        btnIraira.onclick = () => {
-            if(currentMode !== 'iraira') {
-                setMode('iraira');
-                jumpButton();
-            } else {
-                alert("クリア！");
-                setMode('normal');
+                currentScore += 0.016; 
+                currentTimeEl.textContent = currentScore.toFixed(2);
             }
-        };
+            
+            g.el.style.left = g.x-30+'px'; 
+            g.el.style.top = g.y-30+'px';
+            g.el.classList.toggle('is-hiding', isHiding);
+        });
 
-        function jumpButton() {
-            const x = (Math.random()-0.5)*300;
-            const y = (Math.random()-0.5)*300;
-            btnIraira.style.transform = `translate(${x}px, ${y}px)`;
+        if(currentMode === 'chase') requestAnimationFrame(updateChase);
+    }
+
+    btnIraira.onclick = () => {
+        if(currentMode !== 'iraira') {
+            setMode('iraira');
+            jumpButton(); 
+        } else {
+            alert("🎉 クリア！捕まえましたね！");
+            setMode('normal');
         }
-        btnIraira.onmouseenter = () => { if(currentMode === 'iraira') jumpButton(); };
+    };
 
-        const emojis = ["🍒", "🔔", "💎", "⭐", "7️⃣"];
-        let slotInterval;
-        document.getElementById('btn-slot').onclick = function() {
+    function jumpButton() {
+        const x = (Math.random()-0.5)*400;
+        const y = (Math.random()-0.5)*400;
+        btnIraira.style.transform = `translate(${x}px, ${y}px)`;
+    }
+    btnIraira.onmouseenter = () => { if(currentMode === 'iraira') jumpButton(); };
+
+    const emojis = ["🍒", "🔔", "💎", "⭐", "7️⃣"];
+    let slotInterval;
+    const slotBtn = document.getElementById('btn-slot');
+    if (slotBtn) {
+        slotBtn.onclick = function() {
             if(this.textContent === "STOP!") {
                 clearInterval(slotInterval);
                 this.textContent = "START";
@@ -293,16 +327,25 @@
                 }, 100);
             }
         };
+    }
 
-        function checkSlot() {
-            const res = document.getElementById('slot-result').textContent;
-            if(res[0] === res[2] && res[2] === res[4]) alert("🎉 おめでとう！");
+    function checkSlot() {
+        const res = document.getElementById('slot-result').textContent;
+        if(res[0] === res[2] && res[2] === res[4]) alert("🎉 おめでとう！揃いました！");
+    }
+
+    document.addEventListener('mousemove', e => { 
+        mouseX = e.clientX; 
+        mouseY = e.clientY; 
+    });
+
+    btnNormal.onclick = () => setMode('normal');
+    btnChase.onclick = () => setMode('chase');
+    
+    btnReset.onclick = () => {
+        if(confirm('ベスト記録をリセットしますか？')) {
+            localStorage.removeItem('ghostBest');
+            location.reload(); 
         }
-
-        document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
-        document.getElementById('btn-normal').onclick = () => setMode('normal');
-        document.getElementById('btn-chase').onclick = () => setMode('chase');
-        document.getElementById('btn-reset').onclick = () => { localStorage.removeItem('ghostBest'); location.reload(); };
-    </script>
-</body>
-</html>
+    };
+</script>
