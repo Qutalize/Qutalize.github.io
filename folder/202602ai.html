@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     <style>
         :root {
-            --bg-color: #f4f7f9;
+            --bg-color: #e0f2f7;
             --main-navy: #1a3a5f;
             --accent-blue: #4682b4;
             --soft-blue: #e1eaf2;
@@ -203,7 +203,6 @@
         .metric-label { font-size: 0.7rem; color: var(--text-muted); display: block; }
         .metric-value { font-weight: bold; font-size: 1.1rem; color: var(--main-navy); }
 
-        /* --- Video --- */
         .video-container {
             margin: 25px 0;
             background: #000;
@@ -214,7 +213,7 @@
 
         .video-wrapper {
             position: relative;
-            padding-bottom: 177.8%; /* 9:16 ratio */
+            padding-bottom: 56.25%;
             height: 0;
         }
 
@@ -224,7 +223,6 @@
             object-fit: contain;
         }
 
-        /* --- Utility --- */
         .highlight { background: #fff3cd; padding: 2px 4px; border-radius: 4px; font-weight: bold; color: #856404; }
         .description { margin-bottom: 20px; }
         .back-link {
@@ -274,14 +272,14 @@
 
         <section class="card">
             <h2>1. 反実仮想機械学習とは</h2>
-            <div class="literature-quote">
-                <strong>「世の中に絶えて桜のなかりせば春の心はのどけからまし」</strong>（在原業平）
-                <p style="font-size: 0.9rem; margin-top: 10px; color: #6d4c41; font-style: italic;">
-                    訳：もし世の中に桜というものが全くなかったならば、春を過ごす人々の心はどれほど穏やかだっただろうに。
-                </p>
-            </div>
             <div class="description">
-                <p>古典文法における助動詞「まし」は、事実とは異なる仮定を立て、その結果を推量する**反実仮想**の表現です。</p>
+                <p>古典では、反実仮想の意味を持つ助動詞「まし」が存在します。反実仮想とは、現在の事実とは反する仮定を立てる表現です。</p>
+                <div class="literature-quote">
+                    <strong>「世の中に絶えて桜のなかりせば春の心はのどけからまし」</strong>（在原業平）
+                    <p style="font-size: 0.9rem; margin-top: 10px; color: #6d4c41; font-style: italic;">
+                        訳：もし世の中に桜というものが全くなかったならば、春を過ごす人々の心はどれほど穏やかだっただろうに。
+                    </p>
+                </div>
                 <p>機械学習における反実仮想も同様で、<strong>「もし別の行動をとっていたら、結果はどう変わっていたか？」</strong>というシミュレーションを行います。実体験（既知のデータ）に加え、仮想的な試行データを生成することで学習効率を劇的に向上させるこの手法は、医療やロボティクスなどの高コストなデータ収集が必要な分野で真価を発揮します。</p>
             </div>
         </section>
@@ -293,8 +291,8 @@
                     <thead>
                         <tr>
                             <th>項目</th>
-                            <th>標準的な強化学習 (DQN)</th>
-                            <th>反実仮想機械学習 (Deep Causal RL)</th>
+                            <th>標準的な強化学習(DQN)</th>
+                            <th>反実仮想機械学習(Deep Causal RL)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -329,19 +327,20 @@
 
                 <h4>アイスホッケーゲームの基本仕様</h4>
                 <ul>
-                    <li><strong>画面構成:</strong> $500 \times 700$ ピクセルのフィールド。中央のラインを境に、上がAI、下がBot(または人間)の陣地となります。</li>
+                    <li><strong>画面構成:</strong> 500×700ピクセルのフィールドで、中央のラインを境に、上がAI、下がBot(または人間)の陣地となります。</li>
                     <li><strong>得点システム:</strong> ボールが画面下端(Bot側)を超えればAIの得点、上端(AI側)を超えればBotの得点となります。</li>
                     <li><strong>サーブ権:</strong> 直前のラリーで得点した側のパドル位置から、ボールがリセットされ次のゲームが開始されます。</li>
-                    <li><strong>難易度調整:</strong> $50$ エピソードごとに直近の勝率を確認し、以下の条件で環境を動的に変化させます。
+                    <li><strong>難易度調整:</strong> 50エピソードごとに直近の勝率を確認し、以下の条件で環境を動的に変化させます。
                         <ul>
-                            <li><strong>強化:</strong> しきい値 $70\%$ 以上でBotの移動速度を $+0.5$、パワーを $+0.2$ 増加。</li>
-                            <li><strong>緩和:</strong> しきい値 $20\%$ 未満でBotの移動速度を $-0.5$、パワーを $-0.2$ 減少。</li>
+                            <li><strong>強化:</strong> しきい値70%以上でBotの移動速度を+0.5、パワーを+0.2増加。</li>
+                            <li><strong>緩和:</strong> しきい値20%未満でBotの移動速度を-0.5、パワーを-0.2減少。</li>
                             <li><strong>下限設定:</strong> Botの速度は最低 $2.0$ を維持。</li>
                         </ul>
                     </li>
                 </ul>
 
-                <h4>詳細な報酬設計(DQNモデル：Shaping Rewards)</h4>
+                <h4>詳細な報酬設計(DQNモデル)</h4>
+                    <p>少ない試行回数で機械学習モデルが明確に強くなることを保証するために、迎合的に報酬条件を与えました。</p>
                 <div class="table-wrapper">
                     <table>
                         <thead>
@@ -352,12 +351,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td><strong>距離報酬</strong></td><td>パドルがボールの水平位置に近づく</td><td>$+0.05$</td></tr>
-                            <tr><td><strong>範囲報酬</strong></td><td>ボールがパドル幅($80$px)内にある</td><td>$+0.1$</td></tr>
-                            <tr><td><strong>イベント報酬</strong></td><td>ボールを打ち返す</td><td>$+1.0$</td></tr>
-                            <tr><td><strong>スキルボーナス</strong></td><td>高速移動(Smash)状態で打ち返す</td><td>$+0.5$</td></tr>
-                            <tr><td><strong>終端報酬(勝)</strong></td><td>相手ゴールにボールを入れる</td><td>$+5.0$</td></tr>
-                            <tr><td><strong>終端報酬(負)</strong></td><td>自陣にボールを入れられる</td><td>$-1.0$</td></tr>
+                            <tr><td><strong>距離報酬</strong></td><td>パドルがボールの水平位置に近づく</td><td>+0.05</td></tr>
+                            <tr><td><strong>範囲報酬</strong></td><td>ボールがパドル幅(80px)内にある</td><td>+0.1</td></tr>
+                            <tr><td><strong>イベント報酬</strong></td><td>ボールを打ち返す</td><td>+1.0</td></tr>
+                            <tr><td><strong>スキルボーナス</strong></td><td>高速移動(Smash)状態で打ち返す</td><td>+0.5</td></tr>
+                            <tr><td><strong>終端報酬(勝)</strong></td><td>相手ゴールにボールを入れる</td><td>+5.0</td></tr>
+                            <tr><td><strong>終端報酬(負)</strong></td><td>自陣にボールを入れられる</td><td>-1.0</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -369,7 +368,7 @@
             
             <div class="results-grid">
                 <div class="stat-card">
-                    <div class="stat-header"><span>反実仮想 (Causal RL)</span> <span style="color: #e53e3e; font-size: 0.8rem;">● High Performance</span></div>
+                    <div class="stat-header"><span>反実仮想</span></div>
                     <img src="icehockey_hanjitu.png" alt="反実仮想モデルの学習結果" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #eee;">
                     <div class="metrics-row">
                         <div class="metric-box"><span class="metric-label">Max BotSpeed</span><span class="metric-value">13.5</span></div>
@@ -378,7 +377,7 @@
                 </div>
         
                 <div class="stat-card">
-                    <div class="stat-header"><span>強化学習 (DQN)</span> <span style="color: var(--accent-blue); font-size: 0.8rem;">● Stable</span></div>
+                    <div class="stat-header"><span>強化学習</span></div>
                     <img src="icehockey_kyouka.png" alt="強化学習モデルの学習結果" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #eee;">
                     <div class="metrics-row">
                         <div class="metric-box"><span class="metric-label">Max BotSpeed</span><span class="metric-value">13.0</span></div>
@@ -395,7 +394,6 @@
                         <div class="video-wrapper">
                             <video controls preload="metadata">
                                 <source src="first_learnig.mp4" type="video/mp4">
-                                動画を再生するには、ブラウザのアップデートが必要です。
                             </video>
                         </div>
                     </div>
@@ -410,7 +408,6 @@
                         <div class="video-wrapper">
                             <video controls preload="metadata">
                                 <source src="finish_learning.mp4" type="video/mp4">
-                                動画を再生するには、ブラウザのアップデートが必要です。
                             </video>
                         </div>
                     </div>
@@ -447,12 +444,11 @@
         <section class="card">
             <h2>7. おまけ</h2>
             <div class="description">
-                <p>反実仮想機械学習モデルの学習済みモデルと私が対戦したところ、10戦1勝9負で、<strong>コテン</strong>パにやられました。</p>
+                <p>反実仮想機械学習モデルの学習済みモデルと私が対戦したところ、10戦2勝8敗で、<strong>コテン</strong>パにやられました。</p>
                 <div class="video-container">
                     <div class="video-wrapper">
                         <video controls preload="metadata">
                             <source src="battle.mp4" type="video/mp4">
-                            ブラウザをアップデートしてください。
                         </video>
                     </div>
                 </div>
@@ -460,7 +456,7 @@
         </section>
 
         <div style="text-align: center;">
-            <a href="../works.html" class="back-link">← 成果一覧へ戻る</a>
+            <a href="../works.html" class="back-link">←一覧へ戻る</a>
         </div>
     </div>
 
