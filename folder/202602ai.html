@@ -28,7 +28,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Layout --- */
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -47,7 +46,6 @@
             letter-spacing: 0.05em;
         }
 
-        /* --- Navigation --- */
         nav ul {
             list-style: none;
             padding: 0;
@@ -73,7 +71,6 @@
             transform: translateY(-2px);
         }
 
-        /* --- Card Styles --- */
         .card {
             background: var(--white);
             border-radius: 16px;
@@ -118,7 +115,6 @@
             margin-bottom: 10px;
         }
 
-        /* --- Classic Quote Block --- */
         .literature-quote {
             background: var(--classic-quote-bg);
             border-left: 4px solid #d4c5a9;
@@ -135,7 +131,6 @@
             margin-bottom: 8px;
         }
 
-        /* --- Comparison Table --- */
         .table-wrapper {
             overflow-x: auto;
             margin: 20px 0;
@@ -161,7 +156,6 @@
         tr:last-child td { border-bottom: none; }
         tr:hover { background-color: #fafbfc; }
 
-        /* --- Metrics & Results --- */
         .results-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -334,12 +328,12 @@
                         <ul>
                             <li><strong>強化:</strong> しきい値70%以上でBotの移動速度を+0.5、パワーを+0.2増加。</li>
                             <li><strong>緩和:</strong> しきい値20%未満でBotの移動速度を-0.5、パワーを-0.2減少。</li>
-                            <li><strong>下限設定:</strong> Botの速度は最低 $2.0$ を維持。</li>
+                            <li><strong>下限:</strong> Botの速度は最低2.0を維持。</li>
                         </ul>
                     </li>
                 </ul>
 
-                <h4>詳細な報酬設計(DQNモデル)</h4>
+                <h4>詳細な報酬設計</h4>
                     <p>少ない試行回数で機械学習モデルが明確に強くなることを保証するために、迎合的に報酬条件を与えました。</p>
                 <div class="table-wrapper">
                     <table>
@@ -389,11 +383,11 @@
             <h3>学習の様子</h3>
             <div class="results-grid">
                 <div class="stat-card">
-                    <div class="stat-header"><span>初期段階</span></div>
+                    <div class="stat-header"><span>10回程度の試行時の反実仮想機械学習モデルの様子</span></div>
                     <div class="video-container">
                         <div class="video-wrapper">
                             <video controls preload="metadata">
-                                <source src="first_learnig.mp4" type="video/mp4">
+                                <source src="first_learning.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
