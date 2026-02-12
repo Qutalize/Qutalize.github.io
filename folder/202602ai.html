@@ -7,14 +7,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     <style>
         :root {
-            --bg-color: #f0f4f8;
+            --bg-color: #f4f7f9;
             --main-navy: #1a3a5f;
             --accent-blue: #4682b4;
             --soft-blue: #e1eaf2;
             --white: #ffffff;
             --text-dark: #2c3e50;
             --text-muted: #5a6c7d;
-            --card-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --classic-quote-bg: #f9f7f2;
         }
 
         body {
@@ -24,25 +25,26 @@
             padding: 0;
             color: var(--text-dark);
             line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* --- Layout --- */
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 40px 20px;
         }
 
         header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--main-navy);
-            margin-bottom: 20px;
-            letter-spacing: 1px;
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
         }
 
         /* --- Navigation --- */
@@ -51,19 +53,19 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
         nav ul li a {
             text-decoration: none;
             background-color: var(--white);
             color: var(--main-navy);
-            padding: 10px 25px;
+            padding: 8px 20px;
             border-radius: 50px;
             font-weight: bold;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-size: 0.85rem;
         }
         nav ul li a:hover {
             background-color: var(--main-navy);
@@ -71,73 +73,85 @@
             transform: translateY(-2px);
         }
 
-        /* --- Sections --- */
+        /* --- Card Styles --- */
         .card {
             background: var(--white);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 30px;
             box-shadow: var(--card-shadow);
+            border: 1px solid rgba(0,0,0,0.03);
         }
 
         h2 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--main-navy);
             border-bottom: 2px solid var(--soft-blue);
-            padding-bottom: 15px;
-            margin-bottom: 30px;
+            padding-bottom: 12px;
+            margin-top: 0;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
         }
 
         h2::before {
             content: "";
-            width: 8px;
-            height: 30px;
+            width: 6px;
+            height: 24px;
             background: var(--main-navy);
-            margin-right: 15px;
-            border-radius: 4px;
+            margin-right: 12px;
+            border-radius: 3px;
         }
 
         h3 {
-            color: var(--accent-blue);
-            font-size: 1.4rem;
-            margin-top: 40px;
-            margin-bottom: 20px;
+            color: var(--main-navy);
+            font-size: 1.3rem;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            display: inline-block;
+            position: relative;
         }
 
-        /* --- Special Callout (Mash) --- */
+        h4 {
+            color: var(--accent-blue);
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        /* --- Classic Quote Block --- */
         .literature-quote {
-            background: var(--soft-blue);
-            border-left: 5px solid var(--accent-blue);
-            padding: 30px;
-            margin: 30px 0;
-            border-radius: 0 15px 15px 0;
-            font-style: italic;
+            background: var(--classic-quote-bg);
+            border-left: 4px solid #d4c5a9;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
         }
 
         .literature-quote strong {
-            color: var(--main-navy);
-            font-size: 1.2rem;
-            font-style: normal;
+            color: #5d4037;
+            font-size: 1.15rem;
+            display: block;
+            margin-bottom: 8px;
         }
 
         /* --- Comparison Table --- */
         .table-wrapper {
             overflow-x: auto;
-            border-radius: 12px;
-            border: 1px solid #eee;
             margin: 20px 0;
+            border-radius: 12px;
+            border: 1px solid #eef2f6;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             background: white;
+            font-size: 0.95rem;
         }
         th, td {
-            padding: 20px;
+            padding: 18px;
             text-align: left;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f0f4f8;
         }
         th {
             background-color: var(--main-navy);
@@ -147,19 +161,19 @@
         tr:last-child td { border-bottom: none; }
         tr:hover { background-color: #fafbfc; }
 
-        /* --- Results & Stats Grid --- */
+        /* --- Metrics & Results --- */
         .results-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 40px 0;
+            gap: 25px;
+            margin: 30px 0;
         }
 
         .stat-card {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 15px;
-            padding: 25px;
+            background: #fafbfc;
+            border: 1px solid #ebf0f5;
+            border-radius: 12px;
+            padding: 20px;
         }
 
         .stat-header {
@@ -168,32 +182,34 @@
             margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
         .metrics-row {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 12px;
         }
 
         .metric-box {
             background: white;
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
-            border: 1px solid #edf2f7;
+            border: 1px solid #eef2f6;
             text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
-        .metric-label { font-size: 0.75rem; color: var(--text-muted); }
-        .metric-value { font-weight: bold; font-size: 1rem; color: var(--accent-blue); }
+        .metric-label { font-size: 0.7rem; color: var(--text-muted); display: block; }
+        .metric-value { font-weight: bold; font-size: 1.1rem; color: var(--main-navy); }
 
-        /* --- Video Handling --- */
+        /* --- Video --- */
         .video-container {
-            margin: 30px 0;
+            margin: 25px 0;
             background: #000;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
 
         .video-wrapper {
@@ -205,27 +221,30 @@
         .video-wrapper video {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         /* --- Utility --- */
-        .highlight { background: #fff3cd; padding: 2px 5px; border-radius: 4px; font-weight: bold; }
+        .highlight { background: #fff3cd; padding: 2px 4px; border-radius: 4px; font-weight: bold; color: #856404; }
+        .description { margin-bottom: 20px; }
         .back-link {
-            display: block;
+            display: inline-block;
             text-align: center;
-            margin-top: 60px;
+            margin-top: 40px;
             color: var(--main-navy);
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem;
+            transition: color 0.2s;
         }
         .back-link:hover { color: var(--accent-blue); }
 
-        /* --- Responsive --- */
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+
         @media (max-width: 768px) {
             .results-grid { grid-template-columns: 1fr; }
-            .card { padding: 25px; }
-            header h1 { font-size: 1.8rem; }
+            .card { padding: 20px; }
+            header h1 { font-size: 1.6rem; }
         }
     </style>
 </head>
@@ -247,32 +266,28 @@
 
         <section class="card">
             <h2>アイスホッケーゲームにおける学習比較</h2>
-            <p>
-                ネット記事を調査中に<strong>反実仮想機械学習</strong>という手法に出会いました。私は塾講師として古典文法の「反実仮想」を教えていることもあり、この概念がAIの世界でどう応用されているのかに強い関心を持ちました。
-            </p>
-            <p>
-                本プロジェクトでは、標準的な強化学習(DQN)との性能比較を「アイスホッケーゲーム」を通じて実施しました。エージェントが動的なターゲットを追い、最適な返球を学習する過程を可視化しています。
-            </p>
+            <div class="description">
+                <p>ネット記事を漁っている時に<strong>反実仮想機械学習</strong>というものを見つけました。私は塾講師として古典文法の「反実仮想」を教えていることもあり、この概念がAIの世界でどう応用されているのかに強い関心を持ちました。</p>
+                <p>本プロジェクトでは、標準的な強化学習との性能比較を「アイスホッケーゲーム」を通じて実施しました。エージェントが動的なターゲットを追い、最適な返球を学習する過程を可視化しています。</p>
+            </div>
         </section>
 
         <section class="card">
-            <h2>1. 反実仮想機械学習とは何か</h2>
+            <h2>1. 反実仮想機械学習とは</h2>
             <div class="literature-quote">
-                <strong>「世の中に絶えて桜のなかりせば春の心はのどけからまし」</strong>（在原業平）<br>
-                <p style="font-size: 0.9rem; margin-top: 10px; color: var(--text-dark);">
+                <strong>「世の中に絶えて桜のなかりせば春の心はのどけからまし」</strong>（在原業平）
+                <p style="font-size: 0.9rem; margin-top: 10px; color: #6d4c41; font-style: italic;">
                     訳：もし世の中に桜というものが全くなかったならば、春を過ごす人々の心はどれほど穏やかだっただろうに。
                 </p>
             </div>
-            <p>
-                古典文法における助動詞「まし」は、事実とは異なる仮定を立て、その結果を推量する**反実仮想**の表現です。
-            </p>
-            <p>
-                機械学習における反実仮想も同様で、<strong>「もし別の行動をとっていたら、結果はどう変わっていたか？」</strong>というシミュレーションを行います。実体験（既知のデータ）に加え、仮想的な試行データを生成することで学習効率を劇的に向上させるこの手法は、医療やロボティクスなどの高コストなデータ収集が必要な分野で真価を発揮します。
-            </p>
+            <div class="description">
+                <p>古典文法における助動詞「まし」は、事実とは異なる仮定を立て、その結果を推量する**反実仮想**の表現です。</p>
+                <p>機械学習における反実仮想も同様で、<strong>「もし別の行動をとっていたら、結果はどう変わっていたか？」</strong>というシミュレーションを行います。実体験（既知のデータ）に加え、仮想的な試行データを生成することで学習効率を劇的に向上させるこの手法は、医療やロボティクスなどの高コストなデータ収集が必要な分野で真価を発揮します。</p>
+            </div>
         </section>
 
         <section class="card">
-            <h2>2. アルゴリズムの比較</h2>
+            <h2>2. 強化学習との違い</h2>
             <div class="table-wrapper">
                 <table>
                     <thead>
@@ -296,7 +311,7 @@
                         <tr>
                             <td><strong>報酬設計</strong></td>
                             <td>詳細な設計が不可欠</td>
-                            <td>因果補完により、比較的シンプルで済む</td>
+                            <td>モデルが因果を補完し、比較的シンプルで済む</td>
                         </tr>
                     </tbody>
                 </table>
@@ -304,63 +319,149 @@
         </section>
 
         <section class="card">
-            <h2>3. 実験結果：成長曲線の可視化</h2>
+            <h2>3. ゲーム・学習モデル</h2>
+            <div class="description">
+                <p>今回の実装では、以下の2つのアプローチでエージェントを構成しました。</p>
+                <ul>
+                    <li><strong>反実仮想モデル:</strong> 内部に環境の挙動を予測する <span class="highlight">WorldModel</span> を構築。学習が進むと「成功確率の高い擬似データ」を自ら生成し、経験を補強します。</li>
+                    <li><strong>DQNモデル:</strong> 報酬設計を極めて緻密に実施。ガイドとなる報酬を細かく設定し、行動の指針を直接与えます。</li>
+                </ul>
+
+                <h4>アイスホッケーゲームの基本仕様</h4>
+                <ul>
+                    <li><strong>画面構成:</strong> $500 \times 700$ ピクセルのフィールド。中央のラインを境に、上がAI、下がBot(または人間)の陣地となります。</li>
+                    <li><strong>得点システム:</strong> ボールが画面下端(Bot側)を超えればAIの得点、上端(AI側)を超えればBotの得点となります。</li>
+                    <li><strong>サーブ権:</strong> 直前のラリーで得点した側のパドル位置から、ボールがリセットされ次のゲームが開始されます。</li>
+                    <li><strong>難易度調整:</strong> $50$ エピソードごとに直近の勝率を確認し、以下の条件で環境を動的に変化させます。
+                        <ul>
+                            <li><strong>強化:</strong> しきい値 $70\%$ 以上でBotの移動速度を $+0.5$、パワーを $+0.2$ 増加。</li>
+                            <li><strong>緩和:</strong> しきい値 $20\%$ 未満でBotの移動速度を $-0.5$、パワーを $-0.2$ 減少。</li>
+                            <li><strong>下限設定:</strong> Botの速度は最低 $2.0$ を維持。</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>詳細な報酬設計(DQNモデル：Shaping Rewards)</h4>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>カテゴリ</th>
+                                <th>条件</th>
+                                <th>報酬額</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>距離報酬</strong></td><td>パドルがボールの水平位置に近づく</td><td>$+0.05$</td></tr>
+                            <tr><td><strong>範囲報酬</strong></td><td>ボールがパドル幅($80$px)内にある</td><td>$+0.1$</td></tr>
+                            <tr><td><strong>イベント報酬</strong></td><td>ボールを打ち返す</td><td>$+1.0$</td></tr>
+                            <tr><td><strong>スキルボーナス</strong></td><td>高速移動(Smash)状態で打ち返す</td><td>$+0.5$</td></tr>
+                            <tr><td><strong>終端報酬(勝)</strong></td><td>相手ゴールにボールを入れる</td><td>$+5.0$</td></tr>
+                            <tr><td><strong>終端報酬(負)</strong></td><td>自陣にボールを入れられる</td><td>$-1.0$</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>4. 実験結果</h2>
             
             <div class="results-grid">
                 <div class="stat-card">
-                    <div class="stat-header"><span>反実仮想 (Causal RL)</span> <span style="color: #e53e3e;">📈 High</span></div>
-                    <img src="icehockey_hanjitu.png" alt="反実仮想モデルの学習結果" style="width:100%; border-radius:10px; margin-bottom:15px;">
+                    <div class="stat-header"><span>反実仮想 (Causal RL)</span> <span style="color: #e53e3e; font-size: 0.8rem;">● High Performance</span></div>
+                    <img src="icehockey_hanjitu.png" alt="反実仮想モデルの学習結果" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #eee;">
                     <div class="metrics-row">
-                        <div class="metric-box"><div class="metric-label">Max BotSpeed</div><div class="metric-value">13.0</div></div>
-                        <div class="metric-box"><div class="metric-label">2万回到達時間</div><div class="metric-value">1h 25m</div></div>
+                        <div class="metric-box"><span class="metric-label">Max BotSpeed</span><span class="metric-value">13.5</span></div>
+                        <div class="metric-box"><span class="metric-label">1万回到達時間</span><span class="metric-value">36分</span></div>
                     </div>
                 </div>
-
+        
                 <div class="stat-card">
-                    <div class="stat-header"><span>強化学習 (DQN)</span> <span style="color: var(--accent-blue);">📉 Stable</span></div>
-                    <img src="icehockey_kyouka.png" alt="強化学習モデルの学習結果" style="width:100%; border-radius:10px; margin-bottom:15px;">
+                    <div class="stat-header"><span>強化学習 (DQN)</span> <span style="color: var(--accent-blue); font-size: 0.8rem;">● Stable</span></div>
+                    <img src="icehockey_kyouka.png" alt="強化学習モデルの学習結果" style="width:100%; border-radius:10px; margin-bottom:15px; border: 1px solid #eee;">
                     <div class="metrics-row">
-                        <div class="metric-box"><div class="metric-label">Max BotSpeed</div><div class="metric-value">13.0</div></div>
-                        <div class="metric-box"><div class="metric-label">2万回到達時間</div><div class="metric-value">1h 25m</div></div>
+                        <div class="metric-box"><span class="metric-label">Max BotSpeed</span><span class="metric-value">13.0</span></div>
+                        <div class="metric-box"><span class="metric-label">1万回到達時間</span><span class="metric-value">48分</span></div>
                     </div>
                 </div>
             </div>
-
-            <div class="stat-card" style="margin-top: 20px;">
-                <p><strong>検証結果：</strong> 反実仮想機械学習は、強化学習に比べ、データの希少性が高い初期段階において圧倒的な収束速度を見せることが確認されました。</p>
+        
+            <h3>学習の様子</h3>
+            <div class="results-grid">
+                <div class="stat-card">
+                    <div class="stat-header"><span>初期段階</span></div>
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <video controls preload="metadata">
+                                <source src="first_learnig.mp4" type="video/mp4">
+                                動画を再生するには、ブラウザのアップデートが必要です。
+                            </video>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">
+                        ボールに近づくこともままならない。
+                    </p>
+                </div>
+        
+                <div class="stat-card">
+                    <div class="stat-header"><span>約1.5万回の試行後の反実仮想機械学習モデルの様子</span></div>
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <video controls preload="metadata">
+                                <source src="finish_learning.mp4" type="video/mp4">
+                                動画を再生するには、ブラウザのアップデートが必要です。
+                            </video>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">
+                        正確かつコースや速度を考えた返球ができている。
+                    </p>
+                </div>
+            </div>
+        
+            <div class="stat-card" style="margin-top: 20px; background: #fffdf5; border-color: #fcf1d1;">
+                <p style="margin: 0; font-size: 0.95rem;"><strong>検証結果：</strong> 反実仮想機械学習は、強化学習より実行時間が短く、より高いレベルまで成長しました。ただ、グラフの概形から、最終的な性能差は大きくは確認できませんでした。</p>
+            </div>
+        </section>
+        <section class="card">
+            <h2>5. 考察</h2>
+            <div class="description">
+                <p>反実仮想機械学習モデルが少し良い性能であるのは、過去のデータをうまく活用したことによると考えられる。<br>
+                ただし、報酬条件の微小な不均衡や、過去の結果の考慮に入れるパラメータ数（移動距離のみ考慮）によっては、強化学習の方が高性能である結果が確認された。<br>
+                故に、反実仮想機械学習モデルの方が優れているわけではなく、<strong>緻密な報酬設計を施したDQN</strong>も場面に応じて有効であると言えます。</p>
+                <p>パラメータを多く上げることで計算量が増え計算時間がかかる反実仮想機械学習モデルか、計算時間は比較的短いがパラメータ次第で精度が大きく変動する強化学習モデルかといったトレードオフがあると感じました。<br>
+                （報酬条件を細かく列挙するのであれば、もはや強化学習の良さは半減しているように感じるが、、、）</p>
+                <p>つまり、反実仮想機械学習モデルが有効に機能するためには、モデルが環境の因果を捉えるのに十分な表現力(パラメータ数)等が重要であると考えられます。</p>
             </div>
         </section>
 
         <section class="card">
-            <h2>4. 考察とトレードオフ</h2>
-            <p>
-                今回の実験結果は、過去のデータを仮想的に再構成することで性能が向上することを示しています。しかし、パラメータ数（特に移動距離などの物理演算に依存する部分）の設定によっては、従来のDQNの方が安定した性能を発揮するケースも確認されました。
-            </p>
-            <p>
-                <strong>トレードオフの結論：</strong>
-                <ul>
-                    <li><strong>反実仮想モデル：</strong> 計算コストは高いが、因果の表現力（パラメータ数）を確保すれば、データ効率が飛躍的に向上する。</li>
-                    <li><strong>DQN：</strong> 計算は軽量だが、精度が報酬設計（Shaping）に大きく依存し、複雑な状況変化に弱い。</li>
-                </ul>
-            </p>
+            <h2>6. まとめ</h2>
+            <div class="description">
+                <p>今回の比較を通じ、反実仮想機械学習は<strong>「実データを得るコストが高い環境」</strong>や、<b>「ルールは明確だが状況の変化が激しい環境」</b>において、単なる試行錯誤以上の力を発揮することが分かりました。<br>
+                塾講師として教えている古典の「反実仮想」が、最新のAI技術の中で「効率的な成長」の鍵となっている事実に感動し、今後、反実仮想機械学習モデルが目に見える形で活躍していく日が楽しみになりました。</p>
+            </div>
         </section>
 
         <section class="card">
-            <h2>5. おまけ：最強AIに挑む</h2>
-            <p>
-                学習済みの反実仮想モデルと私自身が対戦した結果、<strong>10戦1勝9敗</strong>。文字通り「古典（コテン）パ」に打ち負かされました。
-            </p>
-            <div class="video-container">
-                <div class="video-wrapper">
-                    <video controls preload="metadata">
-                        <source src="battle.mp4" type="video/mp4">
-                        動画を再生するには、ブラウザのアップデートが必要です。
-                    </video>
+            <h2>7. おまけ</h2>
+            <div class="description">
+                <p>反実仮想機械学習モデルの学習済みモデルと私が対戦したところ、10戦1勝9負で、<strong>コテン</strong>パにやられました。</p>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <video controls preload="metadata">
+                            <source src="battle.mp4" type="video/mp4">
+                            ブラウザをアップデートしてください。
+                        </video>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <a href="../works.html" class="back-link">← 成果一覧へ戻る</a>
+        <div style="text-align: center;">
+            <a href="../works.html" class="back-link">← 成果一覧へ戻る</a>
+        </div>
     </div>
 
 </body>
