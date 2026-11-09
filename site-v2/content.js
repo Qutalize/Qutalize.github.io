@@ -502,7 +502,7 @@ window.PORTFOLIO_CONTENT = [
     "meta": "ゲーム制作",
     "image": "./records/works/samezario/preview.png",
     "imageType": "photo",
-    "url": "https://samezario.pages.dev/",
+    "url": "https://github.com/Qutalize/Samether.io",
     "source": "公開GitHub README / Samether.io",
     "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
     "outline": {
@@ -534,8 +534,6 @@ window.PORTFOLIO_CONTENT = [
       "Terraform"
     ],
     "repositoryUrl": "https://github.com/Qutalize/Samether.io",
-    "urlLabel": "公開サイトを開く",
-    "publicUrl": "https://samezario.pages.dev/",
     "photos": [
       {
         "file": "team-mosaic.png",
@@ -807,13 +805,15 @@ window.PORTFOLIO_CONTENT = [
       "地域",
       "企画"
     ],
-    "date": "",
+    "date": "2026-08",
     "meta": "改修設計・プロトタイプ",
     "image": "./records/works/uecport/video-thumb.jpg",
     "imageType": "photo",
-    "url": "https://github.com/Qutalize/UPoC_Samether.io",
+    "url": "https://samezario.pages.dev/",
+    "publicUrl": "https://samezario.pages.dev/",
+    "repositoryUrl": "https://github.com/Qutalize/UPoC_Samether.io",
     "source": "公開GitHub README / UPoC_Samether.io",
-    "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+    "reviewStatus": "概要下書き・担当範囲は本人確認待ち",
     "outline": {
       "purpose": "調布の歴史スポットを訪れる体験と、ゲーム内のエリア解放を結び付ける。",
       "role": "",
@@ -880,13 +880,13 @@ window.PORTFOLIO_CONTENT = [
       "WebRTC",
       "アクセシビリティ"
     ],
-    "date": "",
+    "date": "2026-09",
     "meta": "会話デモ実装・認識モデル検証",
     "image": "./records/works/visual-speech/video-thumb.jpg",
     "imageType": "photo",
     "url": "https://kotoba.yutoabe.com/",
     "source": "公開GitHub README / openAI_hackathon と demo/README.md",
-    "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+    "reviewStatus": "概要下書き・担当範囲は本人確認待ち",
     "outline": {
       "purpose": "音声だけに依存しないコミュニケーションを目指し、複数の入力方法を字幕でつなぐ。",
       "role": "",
@@ -3129,12 +3129,12 @@ window.PORTFOLIO_PAGES = {
     {
       "title": "プロフィール",
       "paragraphs": [
-        "富山出身。関東の大学で情報工学を専攻する大学4年生です。現在はコンピュータアーキテクチャ分野の研究室に所属しています。",
-        "セキュリティ、インフラ、AI、ゲーム制作に取り組んでいます。研究では、TEEの処理負荷を分析し、ソフトウェアとハードウェアの協調による効率化を検討しています。",
+        "富山出身。慶應義塾大学理工学部情報工学科の4年生です。現在はコンピュータアーキテクチャ分野の研究室に所属しています。",
+        "セキュリティ、インフラ、AI、ゲーム制作、グラフィックス表現に取り組んでいます。研究では、TEEの処理負荷を分析し、ソフトウェアとハードウェアの協調による効率化を検討しています。",
         "使用言語はPython・C・Javaを中心に、C++・C#・Go・Rust・JavaScriptなど。用途に合わせて学びながら開発しています。"
       ],
       "highlights": [
-        "富山出身・情報工学専攻の大学4年生。",
+        "富山出身。慶應義塾大学理工学部情報工学科4年生。",
         "コンピュータアーキテクチャを研究。",
         "セキュリティ・AI・ゲーム制作に取り組んでいます。"
       ]
@@ -3142,13 +3142,17 @@ window.PORTFOLIO_PAGES = {
     {
       "title": "経歴・活動",
       "paragraphs": [
+        "2022年3月に富山県立富山中部高校 理数科学科を卒業しました。",
+        "2023年に慶應義塾大学理工学部 学門Bに入学し、2024年に同学部の情報工学科に進級しました。",
         "2023年から3年間、小学生・中学生・高校生を対象に5教科を指導する塾講師として勤務しました。",
         "2026年から現在まで、都内のIT・コンテンツ企業の研究開発チームで長期インターンに取り組んでいます。",
         "2024年2月：フランス・リヨンの大学に約3週間留学。文化交流、フィールドワーク、低電力通信の講義を経験しました。",
         "フランス語サークルの学生代表を1年間務めました。",
-        "2026年：SecHack365に通年参加し、自作ゲームエンジンを開発。8月にはセキュリティ・キャンプ ネクストに参加しました。"
+        "2026年：SecHack365に通年参加し、自作ゲームエンジンを開発。8月にはセキュリティ・キャンプ ネクストに参加しました。",
+        "2027年に慶應義塾大学大学院 理工学研究科 人間・社会システム情報科学専攻へ進学予定です。"
       ],
       "highlights": [
+        "2022.03｜富山県立富山中部高校 理数科学科 卒業",
         "2023〜2026｜塾講師・小中高の5教科を担当",
         "2026〜現在｜都内IT・コンテンツ企業の研究開発チームで長期インターン",
         "フランス留学・SecHack365・セキュリティキャンプ"
@@ -3158,14 +3162,14 @@ window.PORTFOLIO_PAGES = {
       "title": "制作・研究の実績",
       "paragraphs": [
         "Samether.io：Progate Hackathon powered by AWS 2026.4 最優秀賞。技育博にも出展しました。",
-        "ことばリンク：CodeX開発祭り入賞。",
-        "UECPort Samezario — 写真で街を解放するゲーム：UPoCでCRESCO賞を受賞。",
+        "ことばリンク：2026年9月のCodeX開発祭りで入賞。",
+        "UECPort Samezario — 写真で街を解放するゲーム：2026年8月のUPoCでCRESCO賞を受賞。",
         "AgileX Chip Design Contest：2026年7月にOutstanding Design Prizeを受賞。その成果を10月のAPCCAS26（福岡）でポスター発表しました。"
       ],
       "highlights": [
         "Samether.io｜ハッカソン最優秀賞",
-        "ことばリンク｜CodeX開発祭り入賞",
-        "UECPort Samezario｜UPoC CRESCO賞",
+        "2026.09｜ことばリンク・CodeX開発祭り入賞",
+        "2026.08｜UECPort Samezario・UPoC CRESCO賞",
         "AgileX Chip Design Contest｜Outstanding Design Prize"
       ],
       "links": [
@@ -3180,12 +3184,14 @@ window.PORTFOLIO_PAGES = {
       "paragraphs": [
         "2025年8月：CG-ARTS CGエンジニア検定エキスパート、画像処理エンジニア検定エキスパートに合格。",
         "2025年10月：TOEIC L&R 730点。英語は継続して学習しています。",
-        "2025年10月：応用情報技術者試験は午前83.75％、午後59.00％で不合格。合格に向けて学習しています。"
+        "2025年10月：応用情報技術者試験は午前83.75％、午後59.00％で不合格。合格に向けて学習しています。",
+        "2026年11月：AWS Certified Solutions Architect – Associate（AWS-SAA）に合格。"
       ],
       "highlights": [
-        "CGエンジニア・画像処理エキスパート合格",
-        "TOEIC L&R 730点（2025年10月）",
-        "応用情報技術者試験に向けて学習中"
+        "2025.08 CG・画像処理エンジニア検定 エキスパート合格",
+        "2025.10 TOEIC L&R 730点",
+        "応用情報技術者試験に向けて学習中",
+        "2026年11月：AWS-SAAに合格"
       ]
     }
   ],
@@ -3199,6 +3205,14 @@ window.PORTFOLIO_PAGES = {
   },
   "careerTimeline": [
     {
+      "period": "2022.03",
+      "title": "富山県立富山中部高校 理数科学科 卒業"
+    },
+    {
+      "period": "2023",
+      "title": "慶應義塾大学 理工学部 学門B 入学"
+    },
+    {
       "period": "2023–2026",
       "title": "塾講師",
       "description": "小・中・高校生の5教科を3年間担当。"
@@ -3207,6 +3221,10 @@ window.PORTFOLIO_PAGES = {
       "period": "2024.02",
       "title": "フランス留学",
       "description": "リヨンで3週間、文化交流と低電力通信を学ぶ。"
+    },
+    {
+      "period": "2024",
+      "title": "慶應義塾大学 理工学部 情報工学科に進級"
     },
     {
       "period": "2026–現在",
@@ -3222,12 +3240,16 @@ window.PORTFOLIO_PAGES = {
       "period": "2026.08",
       "title": "セキュリティ・キャンプ ネクスト",
       "description": "開発・研究に参加。"
+    },
+    {
+      "period": "2027",
+      "title": "慶應義塾大学大学院 理工学研究科 人間・社会システム情報科学専攻 進学予定"
     }
   ],
   "albumDates": {
     "フランス留学": "2024-02",
     "台湾旅行": "2025-03",
-    "東京ゲームショウ2026": "2026",
+    "東京ゲームショウ2026": "2026-09-20",
     "Architecture Challenge": "2026-06-27",
     "技育博": "2026-05-30",
     "JSAI デジタルゲームAI研究会サマースクール": "2026-10-17",
@@ -3286,7 +3308,7 @@ window.PORTFOLIO_PAGES = {
     },
     {
       "recordId": "samezario",
-      "title": "Progate Hackathon powered by AWS",
+      "title": "Progate Hackathon powered by AWS 4月回",
       "date": "2026-04"
     },
     {

@@ -10,13 +10,15 @@
     "地域",
     "企画"
   ],
-  "date": "",
+  "date": "2026-08",
   "meta": "改修設計・プロトタイプ",
   "image": "video-thumb.jpg",
   "imageType": "photo",
-  "url": "https://github.com/Qutalize/UPoC_Samether.io",
+  "url": "https://samezario.pages.dev/",
+  "publicUrl": "https://samezario.pages.dev/",
+  "repositoryUrl": "https://github.com/Qutalize/UPoC_Samether.io",
   "source": "公開GitHub README / UPoC_Samether.io",
-  "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+  "reviewStatus": "概要下書き・担当範囲は本人確認待ち",
   "outline": {
     "purpose": "調布の歴史スポットを訪れる体験と、ゲーム内のエリア解放を結び付ける。",
     "role": "",

@@ -1,12 +1,60 @@
 // Photo-first overview pages and URL-addressable journals.
 const journalKinds=['games','travel','hackathons','events','museums'];
-const careerRows=window.PORTFOLIO_PAGES.careerTimeline.map(r=>[r.period,r.title,r.description]);
-function careerMarkup(){return '<ol class="career-list">'+careerRows.map(r=>'<li><time>'+esc(r[0])+'</time><div><strong>'+esc(r[1])+'</strong><p>'+esc(r[2])+'</p></div></li>').join('')+'</ol>';}
-function awardMarkup(){return '<div class="award-list">'+['samezario','agilex','poster-paper','visual-speech','uecport'].map(id=>entries.find(e=>e.id===id)).filter(Boolean).sort((a,b)=>(a.date||'9999').localeCompare(b.date||'9999')).map(e=>'<a href="#detail/'+e.id+'"><time>'+esc(e.date?e.date.replace('-','.'):'時期未登録')+'</time><div><strong>'+esc(({samezario:'最優秀賞',agilex:'Outstanding Design Prize','poster-paper':'ポスター発表','visual-speech':'入賞',uecport:'CRESCO賞'})[e.id]||(e.achievements||[])[0])+'</strong><span>'+esc(e.title.split(' — ')[0])+'</span><small>'+esc(e.id==='visual-speech'?'CodeX開発祭り':e.id==='uecport'?'UPoC':e.id==='samezario'?'Progate Hackathon powered by AWS':e.id==='agilex'?'AgileX Chip Design Contest':'APCCAS26 / 福岡')+'</small></div><b aria-hidden="true">↗</b></a>').join('')+'</div>';}
+function careerMarkup(){
+ return '<ol class="career-list">'+window.PORTFOLIO_PAGES.careerTimeline.map(r=>
+  '<li><time>'+esc(r.period)+'</time> <div><strong>'+esc(r.title)+'</strong>'+
+  (r.description?'<p>'+esc(r.description)+'</p>':'')+'</div></li>').join('')+'</ol>';
+}
+function qualificationsMarkup(overview=false){
+ const {highlights,paragraphs}=window.PORTFOLIO_PAGES.aboutDetails[3];
+ const list=(items,variant='')=>'<ul class="qualification-list'+variant+'">'+
+  items.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>';
+ return '<section class="bio-panel bio-qualifications"><h2>資格</h2>'+
+  (overview?list(highlights,' qualification-summary')+list(paragraphs,' qualification-expanded'):list(paragraphs))+
+  '</section>';
+}
+function awardMarkup(){
+ const awards={
+  samezario:['最優秀賞','Progate Hackathon powered by AWS'],
+  agilex:['Outstanding Design Prize'],
+  'poster-paper':['ポスター発表','福岡'],
+  'visual-speech':['入賞','CodeX開発祭り'],
+  uecport:['CRESCO賞','UPoC'],
+ };
+ const records=entries.filter(e=>Object.hasOwn(awards,e.id))
+  .sort((a,b)=>(a.date||'9999').localeCompare(b.date||'9999'));
+ return '<div class="award-list">'+records.map(e=>{
+  const [award,event]=awards[e.id];
+  return `<a href="#detail/${e.id}">
+   <time>${esc(e.date?e.date.replace('-','.'):'時期未登録')}</time>
+   <div><span>${esc(e.title.split(' — ')[0])}</span><div class="award-result">
+    <strong>${esc(award)}</strong>${event?' <small>'+esc(event)+'</small>':''}
+   </div></div>
+   <b aria-hidden="true">↗</b>
+  </a>`;
+ }).join('')+'</div>';
+}
 home=function(){
  graphState=null;document.body.classList.remove('graph-mode');scene(topics.findIndex(t=>t[0]==='about'));
  document.title="Quta's portfolio / About";
- app.innerHTML='<section class="about-editorial"><div class="section-heading"><h1>About</h1></div><div class="bio-hero"><img class="bio-avatar" src="./images/profile/avatar.jpeg" alt="Qutaのアイコン"><div class="bio-copy"><h2>Quta</h2><p>慶應義塾大学理工学部情報工学科4年生（院進予定）。<br><a class="lab-link" href="https://www.acsl.ics.keio.ac.jp/kondo" target="_blank" rel="noopener noreferrer">近藤正章研究室</a>に所属し、コンピュータアーキテクチャを研究しています。</p><p class="bio-secondary">富山出身。セキュリティ・インフラ・AI・ゲーム制作・グラフィックス表現の研究・学習に取り組んでいます。</p><a href="#journal/about">プロフィール・資格を読む ↗</a></div><img class="bio-photo" src="./images/about/fugaku-visit-mosaic.png" alt="富岳見学時の写真（顔は加工済み）"></div><div class="bio-columns"><section class="bio-panel"><div class="panel-heading"><h2>経歴</h2><a href="#journal/about">すべて読む ↗</a></div>'+careerMarkup()+'</section><section class="bio-panel"><div class="panel-heading"><h2>制作・研究の実績</h2><a href="#collection/works">Works ↗</a></div>'+awardMarkup()+'</section></div></section>';
+ app.innerHTML=`<section class="about-editorial">
+  <div class="bio-intro">
+   <div class="section-heading"><h1>About</h1></div>
+   <div class="bio-hero">
+    <img class="bio-avatar" src="./images/profile/avatar.jpeg" alt="Qutaのアイコン">
+    <div class="bio-copy">
+     <h2>Quta</h2>
+     <p>慶應義塾大学理工学部情報工学科4年生。<br><a href="https://www.acsl.ics.keio.ac.jp/kondo" target="_blank" rel="noopener noreferrer">近藤正章研究室</a><span class="bio-research">でコンピュータアーキテクチャを研究しています。</span></p>
+     <p class="bio-interests">富山出身。セキュリティ・インフラ・AI・ゲーム制作・グラフィックスを学んでいます。</p>
+     <a href="#journal/about">プロフィール詳細 ↗</a>
+    </div>
+    <img class="bio-photo" src="./images/about/fugaku-visit-mosaic.png" alt="富岳見学時の写真（顔は加工済み）">
+   </div>
+  </div>
+  <section class="bio-panel bio-career"><div class="panel-heading"><h2>経歴</h2><a href="#journal/about">すべて読む ↗</a></div>${careerMarkup()}</section>
+  <section class="bio-panel bio-awards"><div class="panel-heading"><h2>制作・研究の実績</h2><a href="#collection/works">Works ↗</a></div>${awardMarkup()}</section>
+  ${qualificationsMarkup(true)}
+ </section>`;
 };
 const originalRenderPage=renderPage;
 renderPage=function(id){
@@ -25,7 +73,7 @@ function journalGroups(item){
 function renderJournal(id){
  document.body.classList.remove('home-mode','compact-mode','graph-mode');graphState=null;
  const isAbout=id==='about';scene(topics.findIndex(t=>t[0]===(isAbout?'about':'hobby')));
- if(isAbout){app.innerHTML='<a class="journal-back" href="#home">← About</a><div class="section-heading"><h1>プロフィール・活動記録</h1></div><div class="biography-page"><section class="bio-panel"><h2>プロフィール</h2>'+window.PORTFOLIO_PAGES.aboutDetails[0].paragraphs.map(t=>'<p>'+esc(t)+'</p>').join('')+'</section><section class="bio-panel"><h2>経歴</h2>'+careerMarkup()+'<p>フランス語サークルの学生代表を1年間務めました。</p></section><section class="bio-panel"><h2>制作・研究の実績</h2>'+awardMarkup()+'</section><section class="bio-panel"><h2>資格・学習</h2>'+window.PORTFOLIO_PAGES.aboutDetails[3].paragraphs.map(t=>'<p>'+esc(t)+'</p>').join('')+'</section></div>';}
+ if(isAbout){app.innerHTML='<a class="journal-back" href="#home">← About</a><div class="section-heading"><h1>プロフィール・活動記録</h1></div><div class="biography-page"><section class="bio-panel"><h2>プロフィール</h2>'+window.PORTFOLIO_PAGES.aboutDetails[0].paragraphs.map(t=>'<p>'+esc(t)+'</p>').join('')+'</section><section class="bio-panel"><h2>経歴</h2>'+careerMarkup()+'<p>フランス語サークルの学生代表を1年間務めました。</p></section><section class="bio-panel"><h2>制作・研究の実績</h2>'+awardMarkup()+'</section>'+qualificationsMarkup()+'</div>';}
  else {
  const index=journalKinds.indexOf(id);if(index<0){collection('hobby');return;}
  const item=window.PORTFOLIO_PAGES.hobbies[index];let groups=journalGroups(item);

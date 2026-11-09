@@ -2,6 +2,7 @@
 :root{--font-text:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;--font-code:Consolas,"Courier New",monospace}
 body,body *{font-family:var(--font-text)!important}
 code,pre,code *,pre *{font-family:var(--font-code)!important}
+.media-placeholder .media-title{font-family:Georgia,"Yu Mincho","Hiragino Mincho ProN",serif!important}
 body{font-weight:500}
 h1,h2,h3,h4,strong,b{font-weight:700!important;letter-spacing:0}
 button,input,select,textarea{font-family:var(--font-text);font-size:inherit}

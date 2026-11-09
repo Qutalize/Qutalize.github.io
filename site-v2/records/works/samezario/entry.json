@@ -13,7 +13,7 @@
   "meta": "ゲーム制作",
   "image": "preview.png",
   "imageType": "photo",
-  "url": "https://samezario.pages.dev/",
+  "url": "https://github.com/Qutalize/Samether.io",
   "source": "公開GitHub README / Samether.io",
   "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
   "outline": {
@@ -45,8 +45,6 @@
     "Terraform"
   ],
   "repositoryUrl": "https://github.com/Qutalize/Samether.io",
-  "urlLabel": "公開サイトを開く",
-  "publicUrl": "https://samezario.pages.dev/",
   "photos": [
     {
       "file": "team-mosaic.png",

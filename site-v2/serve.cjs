@@ -1,4 +1,12 @@
-const http=require('http'),fs=require('fs'),path=require('path');const root=path.resolve(__dirname,'..');const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpeg':'image/jpeg','.jpg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml','.mp4':'video/mp4','.pdf':'application/pdf'};http.createServer((req,res)=>{try{if(new URL(req.url,'http://localhost').pathname==='/site-v2/content.js')require('./build-content.cjs').build();}catch(error){res.writeHead(200,{'Content-Type':'text/javascript','Cache-Control':'no-store'}).end('document.querySelector("#app").textContent='+JSON.stringify('データを確認してください: '+error.message)+'; throw new Error("Content build failed");');return;}let file;try{file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));}catch{res.writeHead(400).end();return;}
+const http=require('http'),fs=require('fs'),path=require('path');const root=path.resolve(__dirname,'..');const types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpeg':'image/jpeg','.jpg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml','.mp4':'video/mp4','.pdf':'application/pdf'};
+const {build,buildShaderSources}=require('./build-content.cjs');
+http.createServer((req,res)=>{
+try{
+  const pathname=new URL(req.url,'http://localhost').pathname;
+  if(pathname==='/site-v2/content.js')build();
+  if(pathname==='/site-v2/shaders/sources.js')buildShaderSources();
+}catch(error){res.writeHead(200,{'Content-Type':'text/javascript','Cache-Control':'no-store'}).end('const app=document.querySelector("#app");if(app)app.textContent='+JSON.stringify('データを確認してください: '+error.message)+'; throw new Error("Site build failed");');return;}
+let file;try{file=path.resolve(root,'.'+decodeURIComponent(new URL(req.url,'http://localhost').pathname));}catch{res.writeHead(400).end();return;}
 const relative = path.relative(root,file);
 const parts = relative.split(path.sep);
 const inSite = relative === '' || relative === 'index.html' || parts[0] === 'site-v2';

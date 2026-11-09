@@ -5,7 +5,7 @@ const vm = require('vm');
 const SITE = 'site-v2/';
 const runtime = new Set([
   'index.html', 'background-source.html', 'content.js', 'core.js',
-  'editorial.js', 'graph-layout.js', 'revision.js', 'textile.js', 'typography.js',
+  'editorial.js', 'graph-layout.js', 'revision.js', 'shaders/sources.js', 'textile.js', 'typography.js',
   'base.css', 'demo.css', 'editorial.css', 'layout.css', 'revision.css',
   'textile.css', 'typography.css'
 ].map(file => SITE + file));

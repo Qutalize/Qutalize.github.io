@@ -39,17 +39,13 @@ vec3 patternColor(vec2 uv) {
         return mix(color, gold, trim);
     }
     if (uPattern == 4) {
-        // Staggered semicircular fans, drawn from concentric distance fields.
+        // Leave a gap between fans, including the softened outer stroke.
         vec2 q = uv * vec2(5.0, 7.0);
-        float mask = 0.0;
-        for (int row = 0; row < 2; row++) {
-            float y = floor(q.y) - float(row);
-            vec2 local = vec2(fract(q.x - mod(y, 2.0) * 0.5) - 0.5, q.y - y);
-            float radius = length(local);
-            float rings = max(lineMask(radius - 0.32, 0.01), lineMask(radius - 0.52, 0.01));
-            rings = max(rings, lineMask(radius - 0.72, 0.012));
-            mask = max(mask, rings);
-        }
+        float row = floor(q.y);
+        vec2 local = vec2(fract(q.x - mod(row, 2.0) * 0.5) - 0.5, fract(q.y) * 0.75);
+        float radius = length(local);
+        float mask = max(lineMask(radius - 0.20, 0.01), lineMask(radius - 0.31, 0.01));
+        mask = max(mask, lineMask(radius - 0.42, 0.012));
         return mix(vec3(0.14, 0.28, 0.36), vec3(0.78, 0.87, 0.85), mask);
     }
     if (uPattern == 5) {

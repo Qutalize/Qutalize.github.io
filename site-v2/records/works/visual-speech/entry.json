@@ -12,13 +12,13 @@
     "WebRTC",
     "アクセシビリティ"
   ],
-  "date": "",
+  "date": "2026-09",
   "meta": "会話デモ実装・認識モデル検証",
   "image": "video-thumb.jpg",
   "imageType": "photo",
   "url": "https://kotoba.yutoabe.com/",
   "source": "公開GitHub README / openAI_hackathon と demo/README.md",
-  "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+  "reviewStatus": "概要下書き・担当範囲は本人確認待ち",
   "outline": {
     "purpose": "音声だけに依存しないコミュニケーションを目指し、複数の入力方法を字幕でつなぐ。",
     "role": "",

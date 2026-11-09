@@ -86,9 +86,28 @@ function renderPage(id){document.body.classList.remove('graph-mode');const p=win
 }
 
 
-function recordMedia(e,size){const type=e.imageType||'pictogram';const url=safeUrl(e.image);const title=esc(e.title);const cls='record-media media-'+type+' media-'+size+(e.imageFit==='contain'?' media-contain':'');if(e.video&&size==='card'&&/^[-\w]+\.mp4$/.test(e.video)){const video='./records/'+e.collection+'/'+e.id+'/'+e.video;return '<span class="'+cls+'"><video class="loop-preview" muted loop playsinline preload="none" poster="'+esc(url)+'" src="'+esc(video)+'" aria-label="'+title+'の動画プレビュー"></video></span>';}if(!url)return '<span class="'+cls+' media-placeholder" role="img" aria-label="'+title+'・画像未登録"><span>'+title+'</span><small>'+(type==='cover'?'書影未登録':'画像未登録')+'</small></span>';return '<span class="'+cls+'"><img src="'+esc(url)+'" alt="'+(size==='node'?'':title+(type==='cover'?'の表紙':'の画像'))+'"></span>';}
-// If a supplied image cannot be decoded, retain a readable label instead of a broken icon.
-document.addEventListener('error',function(event){const img=event.target;if(img.tagName!=='IMG'||!img.parentElement.classList.contains('record-media'))return;const box=img.parentElement;box.classList.add('media-placeholder');box.textContent=img.alt||'画像を確認';},true);
+function recordMedia(e,size){
+ const type=e.imageType||'pictogram';
+ const url=safeUrl(e.image);
+ const title=esc(e.title);
+ const cls='record-media media-'+type+' media-'+size+(e.imageFit==='contain'?' media-contain':'');
+ if(e.video&&size==='card'&&/^[-\w]+\.mp4$/.test(e.video)){
+  const video='./records/'+e.collection+'/'+e.id+'/'+e.video;
+  return '<span class="'+cls+'"><video class="loop-preview" muted loop playsinline preload="none" poster="'+esc(url)+'" src="'+esc(video)+'" aria-label="'+title+'の動画プレビュー"></video></span>';
+ }
+ if(!url)return '<span class="'+cls+' media-placeholder"><span class="media-title">'+title+'</span></span>';
+ const alt=size==='node'?'':title+(type==='cover'?'の表紙':'の画像');
+ return '<span class="'+cls+'" data-media-title="'+title+'"><img src="'+esc(url)+'" alt="'+alt+'"></span>';
+}
+document.addEventListener('error',function(event){
+ const img=event.target,box=img.parentElement;
+ if(img.tagName!=='IMG'||!box?.classList.contains('record-media'))return;
+ const title=document.createElement('span');
+ title.className='media-title';
+ title.textContent=box.dataset.mediaTitle;
+ box.classList.add('media-placeholder');
+ img.replaceWith(title);
+},true);
 
 function recordExtra(e){let html=(e.collection==="works"?achievementMarkup(e)+recordDateLabel(e)+classificationMarkup(e):"")+recordVideos(e)+recordPhotos(e)+renderArticle(e);if(e.collection==="books"){const rows=[["読書月",e.readDate],["返却日",e.returnDate],["出版社",e.publisher],["刊行",e.publicationDate],["版・巻号",e.issue||e.edition],["ISBN",e.isbn]].filter(r=>r[1]);html+='<dl class="bibliography">'+rows.map(([k,v])=>"<dt>"+esc(k)+"</dt><dd>"+esc(v)+"</dd>").join("")+"</dl>";if(e.editionNote)html+='<p class="record-meta">'+esc(e.editionNote)+"</p>";if(safeUrl(e.coverSource))html+='<p class="record-meta">'+esc(e.coverNote||"書影")+' · <a target="_blank" rel="noopener noreferrer" href="'+esc(safeUrl(e.coverSource))+'">出典を見る ↗</a></p>';}const o=e.outline||{};for(const [key,label]of [["purpose","背景・目的"],["role","担当したこと"],["highlights","工夫したこと"],["results","結果・学び"],["nextSteps","今後の展開"]]){const raw=o[key];const v=e.collection==="books"?(Array.isArray(raw)?raw.filter(meaningfulRecordText):meaningfulRecordText(raw)?raw:""):raw;if(Array.isArray(v)&&v.length)html+="<h2>"+label+"</h2><ul>"+v.map(x=>"<li>"+esc(x)+"</li>").join("")+"</ul>";else if(typeof v==="string"&&v.trim())html+="<h2>"+label+"</h2><p>"+esc(v)+"</p>";}return html;}
 
