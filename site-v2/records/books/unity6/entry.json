@@ -1,0 +1,27 @@
+{
+  "id": "unity6",
+  "collection": "books",
+  "title": "Unityの教科書 Unity 6完全対応版",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "Unity"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "北村愛実",
+  "isbn": "9784815628192",
+  "publicationDate": "2024.12",
+  "edition": "",
+  "publisher": "SBクリエイティブ",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I033807313",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033807313",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784815628192",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784815628192_600.jpg?lastupdated=2024-11-25T17%3A24%3A36%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2025-07-16"
+}

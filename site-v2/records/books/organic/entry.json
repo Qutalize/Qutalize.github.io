@@ -1,0 +1,28 @@
+{
+  "id": "organic",
+  "collection": "books",
+  "title": "有機化学",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "化学"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "Marion H. O’Leary / 中島利誠 訳",
+  "isbn": "9784807901692",
+  "publicationDate": "1981",
+  "edition": "",
+  "publisher": "",
+  "bibliographySource": "https://libinfo.ouj.ac.jp/webopac/catdbl.do?hidden_return_link=true&locale=ja&pkey=BB00011905",
+  "url": "https://libinfo.ouj.ac.jp/webopac/catdbl.do?hidden_return_link=true&locale=ja&pkey=BB00011905",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.kosho.or.jp/products/detail.php?product_id=455166587",
+  "coverImageUrl": "https://www.kosho.or.jp/upload/save_image/21000200/20230126055513528783_8a03e15786b0b236db8b10b0979ac7de.jpg",
+  "coverRetrievedAt": "2026-09-14",
+  "coverNote": "書影写真：天地人堂 / 日本の古本屋（同一書籍の古書写真）",
+  "returnDate": "2023-10-30"
+}

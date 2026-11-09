@@ -1,0 +1,28 @@
+{
+  "id": "vector-geometry",
+  "collection": "books",
+  "title": "ベクトル解析と幾何学",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "数学"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "坪井俊",
+  "isbn": "9784254115857",
+  "publicationDate": "2002.5",
+  "edition": "",
+  "publisher": "朝倉書店",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I000003639711",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000003639711",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.asakura.co.jp/detail.php?book_code=11585",
+  "coverImageUrl": "https://www.asakura.co.jp/user_data/product_image/11585/1.jpg",
+  "coverRetrievedAt": "2026-09-14",
+  "coverNote": "出版社提供の小サイズ書影",
+  "returnDate": "2025-01-25"
+}

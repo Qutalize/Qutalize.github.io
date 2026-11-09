@@ -1,0 +1,77 @@
+{
+  "id": "agilex",
+  "collection": "works",
+  "title": "AgileX Chip Design Contest",
+  "description": "4×3画素の○×パターンを判定する小規模デジタル回路を設計。ゲート数の制約に合わせて判定処理を簡素化し、RTL検証から配置配線まで取り組み、2026年7月にOutstanding Design Prizeを受賞しました。",
+  "achievements": [
+    "Outstanding Design Prize 受賞"
+  ],
+  "fields": [
+    "半導体",
+    "チップ開発"
+  ],
+  "techStack": [
+    "Verilog HDL",
+    "RTLシミュレーション",
+    "Cadence Innovus",
+    "Calibre"
+  ],
+  "tags": [
+    "半導体",
+    "チップ開発"
+  ],
+  "date": "2026-07",
+  "period": "2026年7月",
+  "meta": "チップ開発コンペ・受賞",
+  "image": "chip-board.jpg",
+  "imageType": "photo",
+  "imageFit": "contain",
+  "photos": [
+    {
+      "file": "outstanding-design-prize.jpg",
+      "caption": "Outstanding Design Prizeの賞状（APCCAS 2026）"
+    },
+    {
+      "file": "chip-board.jpg",
+      "caption": "Agile-Xのチップと評価ボード"
+    },
+    {
+      "file": "contest-flyer.jpg",
+      "caption": "APCCAS2026 Agile-X Chip Design Contestの案内"
+    }
+  ],
+  "url": "",
+  "source": "AgileX_chipathonプロジェクトの提出サマリと2026-10-20の実機調査記録。受賞名・時期・学会発表は本人提供。",
+  "article": {
+    "sections": [
+      {
+        "heading": "限られた回路規模で○×を判定する",
+        "paragraphs": [
+          "チームacslで、4×3画素の入力を○または×に分類するゲートアレイ向け回路に取り組みました。限られた回路資源の中で判定処理を実現することが設計の中心です。"
+        ]
+      },
+      {
+        "heading": "テンプレートを利用した回路の簡素化",
+        "paragraphs": [
+          "最終設計は、学習済みモデルではなく、固定の○×テンプレートと入力画像の一致度を利用する方式です。XNORと一致数の集計で判定し、○と×のテンプレートの相補性を使って計数回路を共通化しています。もともと3種の判定や1つのパターンごとの判定を計画していましたが、回路資源の制約を守れなかったため、2種の判定とし、一方のみをカウントしてその数を全画素数から減算することで解決しました。"
+        ]
+      },
+      {
+        "heading": "RTLから配置配線・検証へ",
+        "paragraphs": [
+          "Verilog HDLでの設計、機能シミュレーション、合成後の回路確認、Innovusによる配置配線、Calibreによる設計ルール確認を進めました。論理が正しいことと、レイアウト・実機が期待どおり動作することを分けて検証しています。"
+        ]
+      },
+      {
+        "heading": "受賞から国際学会へ",
+        "paragraphs": [
+          "2026年7月にOutstanding Design Prizeを受賞しました。この成果をもとに、同年10月、福岡で開催された国際学会APCCAS26でポスター発表を行いました。デモ発表用にチップが届いた後に、チップのピンが曲がっているトラブルやクロック配線を通常配線してしまっているミスなどでかなり苦戦しましたが、何とか対処しデモ発表も行いました。"
+        ]
+      }
+    ]
+  },
+  "links": [
+    "poster-paper"
+  ],
+  "graphGroup": "半導体・回路設計"
+}

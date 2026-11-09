@@ -1,0 +1,28 @@
+{
+  "id": "book-2",
+  "collection": "books",
+  "title": "図解入門TCP/IP 第2版",
+  "description": "まとめ作成中",
+  "tags": [
+    "技術書",
+    "ネットワーク"
+  ],
+  "image": "cover.jpg",
+  "date": "2026-02-01",
+  "meta": "2026.02 読書中",
+  "author": "みやたひろし",
+  "source": "index.html / Book History",
+  "imageType": "cover",
+  "isbn": "9784815627058",
+  "publicationDate": "2025.1",
+  "edition": "第2版",
+  "publisher": "SBクリエイティブ",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I033852008",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033852008",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784815627058",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784815627058_600.jpg?lastupdated=2024-12-09T17%3A21%3A30%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2026-10-08"
+}

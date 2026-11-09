@@ -1,0 +1,38 @@
+{
+  "id": "aws-infra",
+  "collection": "works",
+  "title": "AWSインフラ構築・負荷検証PoC",
+  "description": "TerraformとGitHub ActionsでGoアプリのAWS基盤を構築。ALB・Auto Scaling・CloudFrontを組み合わせ、負荷テストで応答時間、スケーリングの遅れ、キャッシュの効果と限界を比較した記録です。",
+  "tags": [
+    "AWS",
+    "Go",
+    "Terraform",
+    "インフラ"
+  ],
+  "date": "",
+  "meta": "技術検証",
+  "image": "preview.png",
+  "imageType": "photo",
+  "url": "https://github.com/Qutalize/aws-infra-poc",
+  "source": "公開GitHub README / aws-infra-poc",
+  "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+  "outline": {
+    "purpose": "",
+    "role": "",
+    "highlights": [],
+    "results": "",
+    "nextSteps": ""
+  },
+  "links": [],
+  "imageSource": "https://github.com/Qutalize/aws-infra-poc/blob/main/images/01_ALB_heavy_normal_graph.png",
+  "repositoryUpdatedAt": "2026-05-08",
+  "fields": [
+    "インフラ"
+  ],
+  "techStack": [
+    "AWS",
+    "Go",
+    "Terraform"
+  ],
+  "achievements": []
+}

@@ -1,0 +1,38 @@
+{
+  "id": "inventory",
+  "collection": "works",
+  "title": "一石四鳥モバイルシステム — AWS在庫管理",
+  "description": "SNSトレンドに基づく仕入れ提案、店舗在庫と割引商品の検索、売上分析・新商品提案を組み合わせたAWSベースのシステム。物流・店舗・顧客・企業のそれぞれに役立つ体験を目指した制作です。",
+  "tags": [
+    "AWS",
+    "Python",
+    "AI",
+    "ハッカソン"
+  ],
+  "date": "",
+  "meta": "ハッカソン制作",
+  "image": "preview.png",
+  "imageType": "photo",
+  "url": "https://github.com/Qutalize/Hackathon_with_AWS",
+  "source": "公開GitHub README / Hackathon_with_AWS",
+  "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+  "outline": {
+    "purpose": "",
+    "role": "",
+    "highlights": [],
+    "results": "",
+    "nextSteps": ""
+  },
+  "links": [],
+  "imageSource": "https://github.com/Qutalize/Hackathon_with_AWS/blob/main/images/home.png",
+  "repositoryUpdatedAt": "2026-04-03",
+  "fields": [
+    "AI",
+    "ハッカソン"
+  ],
+  "techStack": [
+    "AWS",
+    "Python"
+  ],
+  "achievements": []
+}

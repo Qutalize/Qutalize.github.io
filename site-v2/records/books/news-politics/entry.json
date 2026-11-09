@@ -1,0 +1,27 @@
+{
+  "id": "news-politics",
+  "collection": "books",
+  "title": "ニュース英語が本当に解るボキャブラリー 政治・経済編",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "英語"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "谷川幹",
+  "isbn": "9784757430716",
+  "publicationDate": "2018.6",
+  "edition": "",
+  "publisher": "アルク",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I029015886",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I029015886",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.kinokuniya.co.jp/f/dsg-01-9784757430716",
+  "coverImageUrl": "https://www.kinokuniya.co.jp/images/goods/ar2/web/imgdata2/large/47574/475743071X.jpg",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2024-10-08"
+}

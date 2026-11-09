@@ -1,0 +1,27 @@
+{
+  "id": "surfaces",
+  "collection": "books",
+  "title": "曲面 — 幾何学基礎講義",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "数学"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "古畑仁",
+  "isbn": "9784903342382",
+  "publicationDate": "2013",
+  "edition": "",
+  "publisher": "",
+  "bibliographySource": "https://www.math.sci.hokudai.ac.jp/~furuhata/book/surfaces/",
+  "url": "https://www.math.sci.hokudai.ac.jp/~furuhata/book/surfaces/",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784903342382",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784903342382_600.jpg?lastupdated=2013-09-20T12%3A57%3A35%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2025-01-24"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "university-math",
+  "collection": "books",
+  "title": "新体系・大学数学入門の教科書 下",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "数学"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "芳沢光雄",
+  "isbn": "9784065277621",
+  "publicationDate": "2022.6",
+  "edition": "",
+  "publisher": "講談社",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I032180968",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032180968",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784065277621",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784065277621_600.jpg?lastupdated=2026-05-21T11%3A14%3A22%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2024-10-08"
+}

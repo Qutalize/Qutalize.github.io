@@ -1,0 +1,30 @@
+{
+  "id": "data-intensive-applications",
+  "title": "データ指向アプリケーションデザイン",
+  "subtitle": "信頼性、拡張性、保守性の高い分散システム設計の原理",
+  "author": "Martin Kleppmann（著）・斉藤太郎（監訳）・玉川竜司（訳）",
+  "isbn": "9784873118703",
+  "publicationDate": "2019-07-18",
+  "edition": "初版",
+  "publisher": "オライリー・ジャパン",
+  "tags": [
+    "データベース",
+    "アーキテクチャ",
+    "設計"
+  ],
+  "description": "データモデル、ストレージ、複製、分散処理などを通じて、信頼性と拡張性を備えたデータシステムの設計原理を学ぶ。",
+  "url": "https://www.oreilly.co.jp/books/9784873118703/",
+  "coverImageUrl": "https://www.oreilly.co.jp/books/images/picture_large978-4-87311-870-3.jpeg",
+  "coverRetrievedAt": "2026-11-07",
+  "bibliographySource": "https://www.oreilly.co.jp/books/9784873118703/",
+  "meta": "読書メモ準備中",
+  "image": "cover.jpg",
+  "source": "本人提供の書籍一覧（2026年11月追加）",
+  "coverStatus": "取得済み",
+  "collection": "books",
+  "date": "",
+  "coverSource": "https://www.oreilly.co.jp/books/9784873118703/",
+  "imageType": "cover",
+  "urlLabel": "書誌情報を読む",
+  "returnDate": "2026-10-07"
+}

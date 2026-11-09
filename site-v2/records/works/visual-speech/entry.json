@@ -1,0 +1,82 @@
+{
+  "id": "visual-speech",
+  "collection": "works",
+  "title": "ことばリンク",
+  "description": "発声・読唇・手話・文字入力を共通の字幕につなぐ会話アプリ。4人チームで、React・FastAPIによる最大4人の映像通話、字幕共有、読み上げのデモと、認識モデルの検証に取り組んでいます。",
+  "tags": [
+    "Python",
+    "TypeScript",
+    "AI",
+    "研究",
+    "ハッカソン",
+    "WebRTC",
+    "アクセシビリティ"
+  ],
+  "date": "",
+  "meta": "会話デモ実装・認識モデル検証",
+  "image": "video-thumb.jpg",
+  "imageType": "photo",
+  "url": "https://kotoba.yutoabe.com/",
+  "source": "公開GitHub README / openAI_hackathon と demo/README.md",
+  "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+  "outline": {
+    "purpose": "音声だけに依存しないコミュニケーションを目指し、複数の入力方法を字幕でつなぐ。",
+    "role": "",
+    "highlights": [
+      "ReactとFastAPIを接続し、WebRTCで映像・音声、WebSocketで字幕を共有。",
+      "標準・聴覚サポート・視覚サポートの画面と文字入力への切り替えを用意。",
+      "読唇・手話の特徴点収集、学習、ONNX出力・評価の流れを整備。"
+    ],
+    "results": "公開資料では会話画面・ルーム管理・字幕共有の実装が記録されています。読唇・手話の学習済み重みは付属せず、実際の認識精度や異なるネットワークでの通話品質は別途評価が必要です。",
+    "nextSteps": "実データによる認識精度と、実端末での会話体験・通信品質を検証する。"
+  },
+  "links": [],
+  "sourceCheckedAt": "2026-11-07",
+  "sources": [
+    "https://github.com/Qutalize/openAI_hackathon",
+    "https://github.com/Qutalize/openAI_hackathon/blob/main/demo/README.md"
+  ],
+  "imageFit": "contain",
+  "imageSource": "本人提供の画像・動画（2026-11-07）",
+  "repositoryUpdatedAt": "2026-11-07",
+  "achievements": [
+    "CodeX開発祭り 入賞"
+  ],
+  "videoHeading": "紹介動画",
+  "videos": [
+    {
+      "title": "ことばリンクの利用シーンとアプリの実演",
+      "src": "promotion-mosaic.mp4",
+      "poster": "video-thumb.jpg"
+    }
+  ],
+  "fields": [
+    "コミュニケーション",
+    "アクセシビリティ"
+  ],
+  "techStack": [
+    "React",
+    "FastAPI",
+    "WebRTC",
+    "WebSocket",
+    "Python",
+    "ONNX"
+  ],
+  "repositoryUrl": "https://github.com/Qutalize/openAI_hackathon",
+  "urlLabel": "公開サイトを開く",
+  "publicUrl": "https://kotoba.yutoabe.com/",
+  "photos": [
+    {
+      "file": "event-group-mosaic.png",
+      "caption": "イベント参加者の集合写真"
+    },
+    {
+      "file": "event-venue-mosaic.png",
+      "caption": "会場でのひとこま"
+    },
+    {
+      "file": "development-team-mosaic.png",
+      "caption": "Codex Builder Festでの開発チームの記念写真"
+    }
+  ]
+}

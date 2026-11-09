@@ -1,0 +1,27 @@
+{
+  "id": "french-vocab",
+  "collection": "books",
+  "title": "仏検4級・5級準拠〈頻度順〉フランス語単語集",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "フランス語"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "川口裕司 / 伊藤玲子",
+  "isbn": "9784411005632",
+  "publicationDate": "2023.8",
+  "edition": "",
+  "publisher": "駿河台出版社",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I032951439",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032951439",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784411005632",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784411005632_600.jpg?lastupdated=2023-07-28T14%3A16%3A35%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2024-01-24"
+}

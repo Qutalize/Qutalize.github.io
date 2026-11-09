@@ -1,0 +1,70 @@
+{
+  "id": "uecport",
+  "collection": "works",
+  "title": "UECPort Samezario — 写真で街を解放するゲーム",
+  "description": "調布の歴史スポットを巡り、位置情報と写真照合でエリアを解放する地域回遊ゲームの構想。Samether.ioを基盤としたU☆PoC向けプロトタイプで、公開READMEは改修着手前・新機能未実装の状態を説明しています。",
+  "tags": [
+    "TypeScript",
+    "Go",
+    "ゲーム",
+    "地域",
+    "企画"
+  ],
+  "date": "",
+  "meta": "改修設計・プロトタイプ",
+  "image": "video-thumb.jpg",
+  "imageType": "photo",
+  "url": "https://github.com/Qutalize/UPoC_Samether.io",
+  "source": "公開GitHub README / UPoC_Samether.io",
+  "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+  "outline": {
+    "purpose": "調布の歴史スポットを訪れる体験と、ゲーム内のエリア解放を結び付ける。",
+    "role": "",
+    "highlights": [
+      "Samether.ioのPhaser・TypeScript・Goによるゲーム基盤を活用。",
+      "位置情報と写真照合を組み合わせたエリア解放を設計。"
+    ],
+    "results": "2026年11月7日に確認した公開READMEでは、改修設計と既存ゲーム基盤が掲載されています。ステージ管理・写真照合などの新機能は未実装として記載されており、完成した成果とは区別しています。",
+    "nextSteps": ""
+  },
+  "links": [
+    "samezario"
+  ],
+  "sourceCheckedAt": "2026-11-07",
+  "repositoryUpdatedAt": "2026-11-02",
+  "achievements": [
+    "CRESCO賞"
+  ],
+  "fields": [
+    "地域回遊",
+    "ゲーム"
+  ],
+  "techStack": [
+    "Phaser 3",
+    "TypeScript",
+    "Go",
+    "AWS",
+    "Terraform"
+  ],
+  "video": "preview-loop.mp4",
+  "imageFit": "contain",
+  "imageSource": "本人提供の録画（2026-11-07）",
+  "photos": [
+    {
+      "file": "upoc-campus-gate.jpg",
+      "caption": "会場の電気通信大学の門"
+    },
+    {
+      "file": "upoc-ceremony-mosaic.png",
+      "caption": "UPoCの表彰会場の様子"
+    },
+    {
+      "file": "upoc-team-award-mosaic.png",
+      "caption": "CRESCO賞受賞時のチーム記念写真"
+    },
+    {
+      "file": "upoc-campus-mosaic.png",
+      "caption": "電気通信大学のキャンパス外観"
+    }
+  ]
+}

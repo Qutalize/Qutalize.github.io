@@ -1,0 +1,27 @@
+{
+  "id": "cyber-law",
+  "collection": "books",
+  "title": "クロスセクター・サイバーセキュリティ法",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "セキュリティ"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "蔦大輔 編著 / 森・濱田松本法律事務所外国法共同事業 著",
+  "isbn": "9784785731953",
+  "publicationDate": "2025.10",
+  "edition": "",
+  "publisher": "商事法務",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I034336448",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034336448",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784785731953",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784785731953_600.jpg?lastupdated=2026-05-08T17%3A21%3A29%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "readDate": "2026-07"
+}

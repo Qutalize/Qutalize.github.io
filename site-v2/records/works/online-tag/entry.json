@@ -1,0 +1,36 @@
+{
+  "id": "online-tag",
+  "collection": "works",
+  "title": "Online Tag Game — 多人数オンライン鬼ごっこ",
+  "description": "ブラウザで遊べるリアルタイムの鬼ごっこゲーム。GoとWebSocketによる同期、待機ロビー、Botの追加、PC・スマートフォンからの参加に対応する構成をまとめています。",
+  "tags": [
+    "Go",
+    "WebSocket",
+    "ゲーム"
+  ],
+  "date": "",
+  "meta": "ゲーム制作",
+  "image": "preview.png",
+  "imageType": "photo",
+  "url": "https://github.com/Qutalize/Online_Tag_game",
+  "source": "公開GitHub README / Online_Tag_game",
+  "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+  "outline": {
+    "purpose": "",
+    "role": "",
+    "highlights": [],
+    "results": "",
+    "nextSteps": ""
+  },
+  "links": [],
+  "imageSource": "https://github.com/Qutalize/Online_Tag_game/blob/main/images/Game.png",
+  "repositoryUpdatedAt": "2026-04-03",
+  "fields": [
+    "ゲーム"
+  ],
+  "techStack": [
+    "Go",
+    "WebSocket"
+  ],
+  "achievements": []
+}

@@ -1,0 +1,140 @@
+/* Shared headings and photo-led pages. Last in the cascade by design. */
+#app .section-heading{display:flex;align-items:center;background:#f5f3ed;color:#183c46;border:1px solid #d7e0dc;border-radius:14px;padding:16px 22px;margin:0 0 18px;box-shadow:0 6px 24px #071c2926;gap:12px;text-shadow:none;min-width:0}
+#app .section-heading h1,#app h1.section-heading{font-size:28px;color:#183c46;margin:0;line-height:1.3;text-shadow:none;letter-spacing:0}
+#app .section-heading .page-title-description{color:#4d6267;font-size:13px;font-weight:500}
+#site-nav .nav-topic,#site-nav .nav-topic:hover,#site-nav .nav-topic:focus,#site-nav .nav-topic span{border:0;box-shadow:none;text-shadow:none;outline:0;transform:none;background:none}
+#site-nav .nav-topic::before,#site-nav .nav-topic::after,#site-nav .nav-topic span::before,#site-nav .nav-topic span::after{display:none}
+#site-nav .nav-topic:focus-visible{outline:2px solid #fff;outline-offset:5px;border-radius:8px}
+#site-nav .nav-topic img.nav-label-art{outline:0!important;box-shadow:none!important;border:0!important;filter:none}
+#site-nav .nav-topic:hover>img:not(.nav-label-art){border-color:#ffe1a1}
+.toolbar label,.toolbar label:hover{color:#183c46!important;background:transparent;font-size:14px}
+.toolbar input[type=checkbox]{accent-color:#167888;width:18px;height:18px}
+.view-switch,.view-switch span{color:#183c46;background:#f5f3ed;border-radius:10px}.view-switch{padding:9px 12px}
+.view-switch button{background:#fff;color:#214a55;border:1px solid #698d94}.view-switch button[aria-pressed=true]{background:#205e69;color:#fff}
+.about-editorial,.hobby-editorial{min-height:0;display:grid;gap:16px;grid-template-rows:auto minmax(0,1fr)}
+.about-editorial{grid-template-rows:auto minmax(0,.8fr) minmax(0,1.6fr)}
+#app .about-editorial>.section-heading,#app .hobby-editorial>.section-heading{margin:0}
+.bio-hero{background:#f5f3ed;border-radius:16px;padding:18px;display:grid;grid-template-columns:92px minmax(0,1fr) minmax(100px,22%);align-items:center;gap:20px;min-height:0;color:#183c46}
+.bio-avatar{width:92px;height:92px;border-radius:22px;object-fit:cover}
+.bio-copy h2{font-size:28px;margin:0 0 8px}.bio-copy p{font-size:14px;line-height:1.65;margin:0 0 8px}.bio-copy a{font-size:12px;color:#205e69}
+.bio-photo{display:block;width:100%;height:100%;min-height:0;object-fit:contain;border-radius:8px;background:#e7e9e2}
+.bio-columns{display:grid;grid-template-columns:1fr 1.1fr;gap:16px;min-height:0}
+.bio-panel{background:#f5f3ed;border-radius:16px;padding:20px;color:#183c46;min-width:0;min-height:0;text-align:left}
+.panel-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}.panel-heading h2,.bio-panel>h2{font-size:19px;margin:0}.panel-heading a{font-size:11px;color:#205e69;white-space:nowrap}
+.career-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}.career-list li{display:grid;grid-template-columns:80px 1fr;gap:10px}.career-list time,.award-list time{font-size:11px;color:#526d73;font-weight:700}.career-list strong{font-size:14px}.career-list p{font-size:12px;margin:3px 0 0;line-height:1.55}
+.award-list{display:grid;gap:8px}.award-list>a{display:grid;grid-template-columns:65px 1fr auto;gap:10px;text-decoration:none;color:#183c46;border-bottom:1px solid #d8dfda;padding:0 0 8px}.award-list strong{display:block;font-size:15px;color:#75541c;line-height:1.4}.award-list span{display:block;font-size:12px;font-weight:700;margin-top:2px}.award-list small{display:block;font-size:10px;color:#526d73;line-height:1.4}
+.album-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:18px;min-height:0}
+.album-card{display:grid;grid-template-rows:minmax(0,1fr) auto;min-height:0;background:#f5f3ed;border-radius:16px;overflow:hidden;text-decoration:none;color:#183c46;border:1px solid #d7e0dc;box-shadow:0 8px 26px #071c2930}
+.album-image{min-height:0;padding:12px 12px 0;background:#e3e9e5;display:flex;justify-content:center}.album-image img{display:block;width:100%;height:100%;object-fit:contain;min-height:0}
+.album-copy{padding:14px 20px}.album-copy h2{font-size:21px;line-height:1.4;margin:0;display:flex;justify-content:space-between}.album-copy h2 span{color:#257a85}.album-copy p{font-size:12px;line-height:1.5;margin:6px 0 0;color:#52676b}.album-card:hover{border-color:#4ca2ae}.album-card:focus-visible{outline:3px solid #ffd890;outline-offset:3px}
+.journal-back{display:inline-block;margin-bottom:18px;color:#fff;font-weight:700}.journal-intro{background:#f5f3ed;color:#183c46;padding:22px;border-radius:14px;font-size:15px;line-height:1.85;white-space:pre-line}
+.photo-journal{display:grid;gap:28px;margin-top:28px}.journal-entry{background:#f5f3ed;padding:24px;border-radius:16px;color:#183c46}.journal-heading{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;padding:0 0 20px;background:none;border:0;box-shadow:none}.journal-heading time{font-size:14px;color:#526d73}.journal-heading h2{font-size:23px;margin:0}.journal-heading a{color:#205e69;font-size:14px}
+.journal-photos{columns:3;column-gap:18px}.journal-photos figure{margin:0 0 18px;break-inside:avoid;background:#fff;border-radius:10px;padding:8px}.journal-photos img{display:block;width:100%;height:auto;border-radius:5px}.journal-photos figcaption{font-size:12px;line-height:1.6;padding:8px 4px 3px}
+.biography-page{display:grid;grid-template-columns:1fr 1fr;gap:20px}.biography-page p{font-size:15px;line-height:1.8}.biography-page .bio-panel>h2{margin-bottom:20px}
+@media(max-height:850px){.about-editorial{gap:10px;grid-template-rows:auto minmax(0,.65fr) minmax(0,1.65fr)}.bio-hero{padding:12px;gap:12px}.bio-copy p{font-size:12px}.bio-secondary{display:none}.bio-panel{padding:14px}.career-list{gap:8px}.career-list p{font-size:11px}.award-list{gap:6px}.award-list>a{padding-bottom:5px}.award-list strong{font-size:13px}.panel-heading{margin-bottom:10px}}
+@media(max-width:760px){
+ #app .section-heading{padding:12px 14px;border-radius:12px}#app .section-heading h1,#app h1.section-heading{font-size:23px}#app .section-heading .page-title-description{font-size:11px}
+ .about-editorial{gap:10px;grid-template-rows:auto minmax(0,.7fr) minmax(0,1.6fr)}.bio-hero{grid-template-columns:60px 1fr 65px;gap:10px;padding:10px}.bio-avatar{width:60px;height:60px;border-radius:15px}.bio-copy h2{font-size:20px;margin-bottom:4px}.bio-copy p{font-size:11px;line-height:1.5;margin-bottom:4px}.bio-copy a{font-size:10px}.bio-secondary{display:none}
+ .bio-columns{gap:8px;grid-template-columns:1fr 1.15fr}.bio-panel{padding:10px}.panel-heading{display:block;margin-bottom:10px}.panel-heading h2{font-size:14px}.panel-heading a{font-size:10px}.career-list{gap:10px}.career-list li{display:block}.career-list time{font-size:10px}.career-list strong{font-size:11px;display:block}.about-editorial .career-list p{display:none}.award-list>a{grid-template-columns:1fr;gap:2px;padding-bottom:6px}.award-list>a>b,.about-editorial .award-list small{display:none}.award-list time{font-size:9px}.award-list strong{font-size:11px}.award-list span{font-size:10px;line-height:1.4}.award-list{gap:5px}
+ .album-grid{gap:10px}.album-copy{padding:10px}.album-copy h2{font-size:16px}.album-copy p{font-size:11px}.album-image{padding:8px 8px 0}.hobby-editorial{gap:10px}.journal-photos{columns:2;column-gap:10px}.journal-entry{padding:14px}.journal-heading h2{font-size:19px}.journal-intro{font-size:13px;padding:16px}.biography-page{grid-template-columns:1fr}
+}
+@media(max-height:660px){.about-editorial .career-list p,.about-editorial .award-list small{display:none}.career-list{gap:5px}.award-list{gap:3px}.award-list>a{padding-bottom:3px}.panel-heading{margin-bottom:6px}.bio-copy br{display:none}.album-copy p{display:none}}
+/* Fit the overview using deliberate typographic rows, without clipping text. */
+.about-editorial .bio-panel{display:grid;grid-template-rows:auto minmax(0,1fr)}
+.about-editorial .award-list{gap:6px;align-content:start}
+.about-editorial .award-list>a{padding-bottom:6px;gap:8px}
+.about-editorial .award-list strong{font-size:14px;line-height:1.3}
+.about-editorial .award-list span{font-size:12px;line-height:1.3}
+.about-editorial .award-list small{font-size:10px;line-height:1.3;letter-spacing:0;text-transform:none}
+.about-editorial .career-list{align-content:start}
+@media(max-height:850px){.about-editorial .award-list strong{font-size:12px}.about-editorial .award-list span{font-size:11px}.about-editorial .award-list>a{padding-bottom:4px}.about-editorial .award-list small{font-size:9px}}
+@media(max-width:760px){.about-editorial .award-list strong{font-size:11px}.about-editorial .award-list span{font-size:10px}.about-editorial .award-list>a{gap:1px;padding-bottom:4px}.about-editorial .award-list{gap:4px}}
+.about-editorial .career-list li{line-height:1.35}
+.about-editorial .award-list>a{line-height:1.25}
+@media(max-width:760px){
+ .about-editorial .career-list{gap:8px}
+ .about-editorial .career-list strong{line-height:1.4}
+ .about-editorial .panel-heading{margin-bottom:8px;line-height:1.4}
+ .about-editorial .panel-heading h2{line-height:1.4}
+}
+/* Links shares Research's heading spacing and four-card composition. */
+.links-page .external{color:#183c46}
+.links-page .external .external-action{margin-top:auto;color:#245865;font-size:13px;font-weight:700}
+.links-page .external:focus-visible{outline:3px solid #245865;outline-offset:3px}
+/* Profile previews preserve the full image; social links stay compact. */
+.links-page .links-grid{grid-template-rows:minmax(0,1fr) auto}
+.links-page .external{background:#f5f3ed;border:1px solid #d7e0dc;text-decoration:none;box-shadow:0 6px 24px #071c2926;gap:14px;padding:18px 20px;transition:border-color .2s,box-shadow .2s}
+.links-page .external:hover{color:#183c46;border-color:#378792;box-shadow:0 8px 28px #071c2940}
+.links-page .link-card-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;flex:none}
+.links-page .link-arrow{font-size:22px;line-height:1;color:#245865}
+.links-page .link-with-preview{display:grid;grid-template-rows:auto minmax(0,1fr) auto}
+.links-page .link-preview{min-height:0;overflow:hidden;border-radius:8px;border:1px solid #d6dfe0;background:#e5e9e7;display:flex;align-items:center;justify-content:center}
+.links-page .link-preview img{display:block;width:100%;height:100%;min-height:0;object-fit:contain}
+.links-page .link-card-copy{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px}
+.links-page .link-card-copy p{font-size:14px;line-height:1.6;color:#435b62}
+.links-page .external .external-action{margin:0;font-size:12px;white-space:nowrap}
+@media(max-width:760px),(max-height:620px){
+ html:has(.links-page){height:auto;overflow:auto}
+ body.compact-mode:has(.links-page){height:auto;min-height:100dvh;overflow:visible;display:flex;flex-direction:column}
+ body.compact-mode:has(.links-page) #app{height:auto;display:block;flex:1}
+ .links-page .links-grid{grid-template-rows:auto auto}
+ .links-page .link-preview{aspect-ratio:1.6;min-height:0}
+ .links-page .link-with-preview{grid-template-rows:auto auto auto}
+ .links-page .external{padding:16px;gap:12px}
+}
+@media(max-width:540px){.links-page .links-grid{grid-template-columns:1fr}.links-page .link-preview{aspect-ratio:auto}.links-page .link-preview img{height:auto}.links-page .link-card-copy p{font-size:13px}}
+
+/* Compact collection cards and five photo albums. */
+.album-grid{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}
+.record-no-detail{display:block;padding:8px 12px;color:inherit}
+article.record-card{cursor:default}
+@media(min-width:761px){
+ .record-cards[data-collection="works"] .media-card{height:150px;padding:8px}
+ .record-cards[data-collection="works"] .media-photo{padding:0}
+ .record-cards[data-collection="works"] .card-copy{padding:10px;gap:5px}
+ .record-cards[data-collection="works"] h2{-webkit-line-clamp:2;line-height:1.4}
+ .record-cards[data-collection="works"] .card-description{line-height:1.45}
+ .record-cards[data-collection="works"] .card-achievements{gap:3px}
+ .record-cards[data-collection="works"] .card-achievements li{padding:3px 6px}
+ .record-cards[data-collection="works"] .card-facts dd{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .record-cards[data-collection="works"] .card-open{padding-top:4px}
+}
+@media(max-width:760px){.album-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr))}}
+.record-video-section{margin:24px 0}
+.record-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.record-video-grid figure{margin:0;min-width:0}
+.record-video-grid video{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#101820;border-radius:12px}
+.record-video-grid figcaption{padding:10px 0;font-weight:700;text-align:left}
+@media(max-width:760px){.record-video-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Keep secondary About text readable within the fixed overview layout. */
+.about-editorial .panel-heading a,
+.about-editorial .career-list time,
+.about-editorial .award-list time,
+.about-editorial .award-list small{font-size:12px}
+.about-editorial .bio-copy a.lab-link{font-size:inherit}
+@media(max-height:850px){
+ .about-editorial .career-list p,
+ .about-editorial .award-list small{font-size:12px}
+}
+@media(max-width:760px){
+ .about-editorial .bio-copy a,
+ .about-editorial .panel-heading a,
+ .about-editorial .career-list time,
+ .about-editorial .award-list time,
+ .about-editorial .award-list span{font-size:11px}
+ .about-editorial .bio-copy a.lab-link{font-size:inherit}
+}
+
+/* Let overview cards grow when a short viewport cannot fit their contents. */
+@media(max-height:660px){
+ html:has(body:is(.home-mode,.compact-mode)){height:auto;overflow:auto}
+ body:is(.home-mode,.compact-mode){
+  height:auto;min-height:100dvh;overflow:visible;display:flex;flex-direction:column
+ }
+ body:is(.home-mode,.compact-mode) #app{height:auto;flex:1;display:block;overflow:visible}
+ .about-editorial,.about-editorial .bio-panel,.hobby-editorial,.compact-page{grid-template-rows:auto}
+ .bio-photo{height:auto;max-height:200px}
+ .quarter-grid,.album-grid{grid-template-rows:none}
+ .album-card{grid-template-rows:100px auto}
+}

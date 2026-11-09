@@ -1,0 +1,28 @@
+{
+  "id": "book-3",
+  "collection": "books",
+  "title": "リーダブルコード",
+  "description": "まとめ作成中",
+  "tags": [
+    "技術書",
+    "制作"
+  ],
+  "image": "cover.jpg",
+  "date": "2026-02-01",
+  "meta": "2026.02 読書中",
+  "author": "Dustin Boswell / Trevor Foucher / 角征典 訳",
+  "source": "index.html / Book History",
+  "imageType": "cover",
+  "isbn": "9784873115658",
+  "publicationDate": "2012.6",
+  "edition": "",
+  "publisher": "オライリー・ジャパン / オーム社 (発売)",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I023737539",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I023737539",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784873115658",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784873115658_600.jpg?lastupdated=2015-11-16T18%3A20%3A34%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2026-05-07"
+}

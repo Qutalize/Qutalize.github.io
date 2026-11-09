@@ -1,0 +1,27 @@
+{
+  "id": "eiken",
+  "collection": "books",
+  "title": "英検準1級100時間大特訓 改訂新版",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "英語"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "植田一三 / Michy里中",
+  "isbn": "9784860644864",
+  "publicationDate": "2016.9",
+  "edition": "改訂新版",
+  "publisher": "ベレ出版",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I027569828",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I027569828",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784860644864",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784860644864_600.jpg?lastupdated=2020-09-16T18%3A49%3A18%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2024-01-24"
+}

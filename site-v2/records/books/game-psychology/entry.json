@@ -1,0 +1,27 @@
+{
+  "id": "game-psychology",
+  "collection": "books",
+  "title": "はじめて学ぶビデオゲームの心理学",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "心理学"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "セリア・ホデント / 山根信二 監訳 / 成田啓行 訳",
+  "isbn": "9784571210457",
+  "publicationDate": "2022.12",
+  "edition": "",
+  "publisher": "福村出版",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I032523096",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032523096",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784571210457",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784571210457_600.jpg?lastupdated=2022-12-08T16%3A09%3A46%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2023-10-18"
+}

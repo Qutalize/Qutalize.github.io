@@ -1,0 +1,63 @@
+/* Typography rules for every route. Keep layout sizes in layout.css. */
+:root{--font-text:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;--font-code:Consolas,"Courier New",monospace}
+body,body *{font-family:var(--font-text)!important}
+code,pre,code *,pre *{font-family:var(--font-code)!important}
+body{font-weight:500}
+h1,h2,h3,h4,strong,b{font-weight:700!important;letter-spacing:0}
+button,input,select,textarea{font-family:var(--font-text);font-size:inherit}
+button,#site-nav,.card-copy>small{font-weight:700}
+p,li,dd{font-weight:500}
+.brand img{display:block;width:clamp(180px,22vw,290px);height:auto;max-width:100%}
+.page-title-art{display:block;width:auto;height:28px;max-width:100%;object-fit:contain;object-position:left}
+#app h1:has(.page-title-art){line-height:1.25;margin-top:0;letter-spacing:0}
+@media(max-width:760px){.page-title-art{height:23px}}
+@media(max-height:560px){.page-title-art{height:20px}}
+
+/* Vectura for navigation and actions; Yomiyasu remains the display title. */
+#site-nav .nav-topic .nav-label-art{display:block;width:auto;height:12px;max-width:90px;object-fit:contain;padding:0;border:0;border-radius:0;background:none;box-shadow:none;outline:none}
+#site-nav .nav-topic[aria-current=page] .nav-label-art{filter:sepia(1) saturate(2)}
+.link-title-art{display:block;height:25px;width:auto;max-width:100%;object-fit:contain;object-position:left}
+.card-label-art{height:11px;width:auto;max-width:calc(100% - 24px);object-fit:contain}
+.card-open{display:flex;align-items:center;gap:8px}
+.eyebrow-art{display:block;width:auto;height:10px;max-width:100%;object-fit:contain;object-position:left;margin-bottom:10px}
+@media(max-width:760px){#site-nav .nav-topic .nav-label-art{height:9px;max-width:100%}.link-title-art{height:22px}.card-label-art{height:10px}}
+/* Title captions and an always-visible About overview. */
+#app h1.page-title-with-description{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.page-title-description{font-size:13px;font-weight:500;line-height:1.65;color:#426168;letter-spacing:0}
+.about-dashboard{display:grid;grid-template-rows:auto minmax(0,1fr);gap:14px;min-height:0;text-align:left}
+body.home-mode .about-dashboard>h1{margin:0;padding:16px 20px;background:#edf1ee;border:1px solid #c6d6d0;border-radius:14px;text-shadow:none}
+.about-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:14px;min-height:0}
+.about-info-card{display:flex;flex-direction:column;min-width:0;min-height:0;gap:12px;padding:20px;background:#edf1ee;color:#203d42;border:1px solid #c6d6d0;border-top:4px solid #6ca6ac;border-radius:14px;box-shadow:0 8px 26px #0003;text-align:left}
+.about-info-card:nth-child(2){border-top-color:#ba9c6b}.about-info-card:nth-child(3){border-top-color:#9685b8}.about-info-card:nth-child(4){border-top-color:#699a87}
+.about-card-heading{display:flex;align-items:center;gap:12px}
+.about-card-heading img{width:52px;height:52px;object-fit:cover;border-radius:10px;flex-shrink:0}
+.about-info-card h2{font-size:19px;line-height:1.35;margin:0}
+.about-info-card ul{padding:0;margin:0;list-style:none;display:grid;gap:9px}
+.about-info-card li{font-size:13px;line-height:1.65;padding-left:10px;border-left:2px solid #b8ceca}
+.about-read{margin-top:auto;align-self:flex-start;padding:0;border:0;background:none;color:#205e69;text-decoration:underline;text-underline-offset:3px;font-size:12px}
+@media(max-width:760px){
+ #app h1.page-title-with-description{gap:8px}.page-title-description{font-size:11px}
+ .about-dashboard{gap:10px}body.home-mode .about-dashboard>h1{padding:12px 14px}
+ .about-card-grid{gap:10px}.about-info-card{padding:12px;gap:8px}
+ .about-card-heading{gap:6px}.about-card-heading img{width:34px;height:34px}
+ .about-info-card h2{font-size:14px}.about-info-card li{font-size:11px;line-height:1.55;padding-left:6px}.about-info-card ul{gap:6px}
+ .about-read{font-size:11px}
+}
+@media(max-height:560px){
+ .about-info-card{padding:9px;gap:6px}.about-info-card h2{font-size:13px}.about-info-card li{font-size:10px;line-height:1.4}.about-info-card ul{gap:4px}
+ .about-card-heading img{height:26px;width:26px}.about-read{font-size:10px}
+}
+/* About photo and compact biography, all within the home viewport. */
+.about-header{display:flex;align-items:center;gap:16px;background:#edf1ee;border-radius:14px;padding:12px 18px;min-height:0}
+.about-header h1{flex:1;margin:0!important;text-shadow:none}
+.about-avatar{width:54px;height:54px;object-fit:cover;border-radius:12px}
+.about-body{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);gap:14px;min-height:0}
+.about-fugaku{margin:0;background:#edf1ee;border-radius:14px;padding:10px;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:8px;min-height:0}
+.about-fugaku a{min-height:0;display:block}.about-fugaku img{width:100%;height:100%;object-fit:contain;border-radius:8px}
+.about-fugaku figcaption{font-size:11px;line-height:1.5;color:#203d42}
+.about-body .about-info-card{padding:12px;gap:7px}.about-body .about-info-card h2{font-size:16px}.about-body .about-info-card li{font-size:12px;line-height:1.5}.about-body .about-info-card ul{gap:5px}
+.photo-group-control{display:block;margin:16px 0;color:#203d42;font-weight:bold}.photo-group-control[hidden]{display:none}
+.photo-group-control select{display:block;width:100%;margin-top:6px;padding:10px;background:#fff;color:#203d42;border:1px solid #789e9f;border-radius:8px}
+@media(max-width:760px){.about-header{padding:8px 12px;gap:8px}.about-avatar{width:36px;height:36px}.about-body{grid-template-columns:1fr;grid-template-rows:minmax(80px,.65fr) minmax(0,2fr);gap:8px}.about-fugaku{grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr);align-items:center;padding:6px}.about-fugaku a{height:100%}.about-body .about-info-card{padding:8px;gap:5px}.about-body .about-info-card h2{font-size:13px}.about-body .about-info-card li{font-size:10px;line-height:1.4}.about-body .about-info-card ul{gap:3px}}
+@media(max-height:600px){.about-body .about-info-card li{font-size:9px}.about-body .about-info-card{padding:6px;gap:4px}.about-header{padding:6px 10px}.about-avatar{width:30px;height:30px}}
+@media(max-width:760px){.about-body{grid-template-rows:minmax(70px,.5fr) minmax(0,2fr)}.about-body .about-info-card li{font-size:9px;line-height:1.4}.about-body .about-info-card h2{font-size:12px}.about-body .about-info-card ul{gap:3px}}

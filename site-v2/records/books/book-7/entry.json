@@ -1,0 +1,27 @@
+{
+  "id": "book-7",
+  "collection": "books",
+  "title": "三体",
+  "description": "読書中",
+  "tags": [
+    "小説"
+  ],
+  "image": "cover.jpg",
+  "date": "2026-02-15",
+  "meta": "2026.02 読書中",
+  "author": "劉慈欣",
+  "source": "index.html / Book History",
+  "imageType": "cover",
+  "isbn": "9784152098702",
+  "publicationDate": "2019.7",
+  "edition": "",
+  "publisher": "早川書房",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I029756494",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I029756494",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "editionNote": "版の指定がないため、2019年の単行本を仮選定。",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784152098702",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784152098702_600.jpg?lastupdated=2024-04-23T11%3A43%3A27%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14"
+}

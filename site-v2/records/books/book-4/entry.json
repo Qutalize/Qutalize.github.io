@@ -1,0 +1,28 @@
+{
+  "id": "book-4",
+  "collection": "books",
+  "title": "コンピュータの構成と設計 第6版 上",
+  "description": "まとめ作成中",
+  "tags": [
+    "技術書",
+    "アーキテクチャ"
+  ],
+  "image": "cover.jpg",
+  "date": "2026-02-01",
+  "meta": "2026.02 読書中",
+  "author": "David A. Patterson / John L. Hennessy / 成田光彰 訳",
+  "source": "index.html / Book History",
+  "imageType": "cover",
+  "isbn": "9784296070091",
+  "publicationDate": "2021.11",
+  "edition": "第6版",
+  "publisher": "日経BP / 日経BPマーケティング",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I031756331",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I031756331",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.kinokuniya.co.jp/f/dsg-01-9784296070091",
+  "coverImageUrl": "https://www.kinokuniya.co.jp/images/goods/ar2/web/imgdata2/large/42960/4296070096.jpg",
+  "coverRetrievedAt": "2026-09-14",
+  "readDate": "2026-03"
+}

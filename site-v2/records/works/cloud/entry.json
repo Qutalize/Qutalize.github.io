@@ -1,0 +1,29 @@
+{
+  "id": "cloud",
+  "collection": "works",
+  "title": "AWSを用いた「SNSでバズった飲食店マップ」Webアプリケーション",
+  "description": "大学の授業の一環として、AWSとSNSのAPIを用いて、最近SNSでバズった飲食店の位置を地図上に表示するWebアプリケーションを開発しました。",
+  "tags": [
+    "Web",
+    "AWS",
+    "インフラ"
+  ],
+  "image": "screenshot.png",
+  "url": "./articles/cloud_jikken.pdf",
+  "date": "2025-10",
+  "meta": "2025.10",
+  "source": "index.html / Works",
+  "imageType": "photo",
+  "repositoryUrl": "https://github.com/Qutalize/SNS_buzz_map-with-AWS",
+  "imageFit": "contain",
+  "imageSource": "本人提供の画像・動画（2026-11-07）",
+  "repositoryUpdatedAt": "2026-01-08",
+  "fields": [
+    "Web",
+    "インフラ"
+  ],
+  "techStack": [
+    "AWS"
+  ],
+  "achievements": []
+}

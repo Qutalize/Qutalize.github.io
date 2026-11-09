@@ -1,0 +1,28 @@
+{
+  "id": "cpp-pocket",
+  "collection": "books",
+  "title": "C++ポケットリファレンス 改訂第5版",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "C++"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "高橋晶 / 安藤敏彦 / 一戸優介 / 楠田真矢 / 湯朝剛介",
+  "isbn": "9784297141653",
+  "publicationDate": "2024.5",
+  "edition": "改訂第5版",
+  "publisher": "技術評論社",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I033433115",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033433115",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "editionNote": "版の指定がないため、改訂第5版を仮選定。",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784297141653",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784297141653_600.jpg?lastupdated=2024-04-12T10%3A11%3A00%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "readDate": "2026-07"
+}

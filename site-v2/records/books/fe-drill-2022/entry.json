@@ -1,0 +1,27 @@
+{
+  "id": "fe-drill-2022",
+  "collection": "books",
+  "title": "栢木先生の基本情報技術者教室準拠書き込み式ドリル 令和04年",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "資格"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "栢木厚 監修 / 技術評論社編集部 著",
+  "isbn": "9784297123871",
+  "publicationDate": "2021.12",
+  "edition": "",
+  "publisher": "技術評論社",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I031801474",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I031801474",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784297123871",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784297123871_600.jpg?lastupdated=2021-11-13T10%3A06%3A12%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2025-04-15"
+}

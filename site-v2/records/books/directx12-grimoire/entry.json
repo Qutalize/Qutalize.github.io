@@ -1,0 +1,29 @@
+{
+  "id": "directx12-grimoire",
+  "title": "DirectX 12の魔導書",
+  "subtitle": "3Dレンダリングの基礎からMMDモデルを踊らせるまで",
+  "author": "川野竜一",
+  "isbn": "9784798161938",
+  "publicationDate": "2020-02-13",
+  "publisher": "翔泳社",
+  "tags": [
+    "C++",
+    "3D",
+    "ゲーム"
+  ],
+  "description": "DirectX 12による3Dレンダリングの基礎から、MMDモデルの描画・アニメーションまでを扱う技術書。",
+  "url": "https://www.hanmoto.com/bd/isbn/9784798161938",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784798161938_600.jpg",
+  "coverRetrievedAt": "2026-11-07",
+  "bibliographySource": "https://www.hanmoto.com/bd/isbn/9784798161938",
+  "meta": "読書メモ準備中",
+  "image": "cover.jpg",
+  "source": "本人提供の書籍一覧（2026年11月追加）",
+  "coverStatus": "取得済み",
+  "collection": "books",
+  "date": "",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784798161938",
+  "imageType": "cover",
+  "urlLabel": "書誌情報を読む",
+  "returnDate": "2026-10-08"
+}

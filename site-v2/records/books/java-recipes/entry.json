@@ -1,0 +1,27 @@
+{
+  "id": "java-recipes",
+  "collection": "books",
+  "title": "Java逆引きレシピ 第2版",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "Java"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "竹添直樹 / 高橋和也 / 島本多可子 / 佐藤聖規",
+  "isbn": "9784798158440",
+  "publicationDate": "2019.4",
+  "edition": "第2版",
+  "publisher": "翔泳社",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I029603466",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I029603466",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784798158440",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784798158440_600.jpg?lastupdated=2019-04-08T16%3A11%3A51%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2025-07-04"
+}

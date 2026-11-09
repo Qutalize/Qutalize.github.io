@@ -1,0 +1,24 @@
+{
+  "id": "eeg",
+  "collection": "works",
+  "title": "学内のAIコンペティション 3位入賞",
+  "description": "2025年12月〜2026年1月に開催された大学機関主催 第1回メディカルAI開発コンペティションにおいて3位入賞しました。題材は脳波データから運動意図の判定を行うもので、データ拡張やアンサンブル学習を行いました。",
+  "tags": [
+    "AI",
+    "脳波解析"
+  ],
+  "image": "icon.png",
+  "url": "./articles/202601.html",
+  "date": "2026-01",
+  "meta": "2026.01",
+  "source": "index.html / Works",
+  "imageType": "pictogram",
+  "fields": [
+    "AI",
+    "脳波解析"
+  ],
+  "techStack": [],
+  "achievements": [
+    "学内AIコンペティション 3位入賞"
+  ]
+}

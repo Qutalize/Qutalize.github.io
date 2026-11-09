@@ -1,0 +1,36 @@
+{
+  "id": "portfolio",
+  "collection": "works",
+  "title": "Quta Portfolio — 制作と学びのアーカイブ",
+  "description": "制作物、読書、趣味などをまとめる個人ポートフォリオ。公開リポジトリにあるHTMLページと資料をもとに、活動の記録を整理するWebサイトです。",
+  "tags": [
+    "HTML",
+    "Web",
+    "デザイン"
+  ],
+  "date": "",
+  "meta": "Webサイト制作",
+  "image": "",
+  "imageType": "pictogram",
+  "url": "https://github.com/Qutalize/Qutalize.github.io",
+  "source": "公開GitHub README / Qutalize.github.io",
+  "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+  "outline": {
+    "purpose": "",
+    "role": "",
+    "highlights": [],
+    "results": "",
+    "nextSteps": ""
+  },
+  "links": [],
+  "hidden": true,
+  "repositoryUpdatedAt": "2026-02-19",
+  "fields": [
+    "Web",
+    "デザイン"
+  ],
+  "techStack": [
+    "HTML"
+  ],
+  "achievements": []
+}

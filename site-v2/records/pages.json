@@ -1,0 +1,769 @@
+{
+  "aboutHtml": "\n            <h3>Quta</h3>\n            <p>慶應義塾大学理工学部情報工学科の大学4年生です。</p>\n            <p>現在は近藤正章研究室にてコンピュータアーキテクチャの研究をしています。</p>\n            <p>低レイヤやインフラ技術を中心に、AIやゲーム・グラフィックス等、幅広く興味があります。</p>\n            <h3>基本情報</h3>\n            <p><strong>出身地</strong>: 富山</p>\n            <p><strong>使用言語</strong>: Python, C, Java（2年以上使用） &gt; HTML, SQL, C#, Verilog（1年程度） &gt; JavaScript, CSS, C++, Rust, Go, OCaml, Pascal（場面に応じて調べて使用、勉強中）</p>\n            <p><strong></strong>: 3週間の留学経験有, フランス語サークル学生代表（1年間）, 5教科指導の塾講師（約3年間）</p>\n            <h3>資格</h3>\n            <p>2025.10 <strong>TOEIC L&amp;R Score: 730</strong>（1年前から点数が下がったため、現在英語を再度勉強中）</p>\n            <p>2025.08 <strong>CG-ARTS検定 CGエンジニア検定エキスパート合格、画像処理エンジニア検定エキスパート合格</strong></p>\n            <p>2025.10 <strong>応用情報技術者試験</strong> 午前試験83.75%, 午後試験59.00% <strong>不合格</strong>（午後試験の1%差で不合格だったため、次回は必ず受かるように勉強中）</p>\n          ",
+  "hobbies": [
+    {
+      "title": "ゲーム",
+      "description": "主にPlayStation 4/5でRPGやアクションゲームを楽しんでいます。 現在プレイ中：ドラクエ3リメイク、モンハンワイルズ 過去プレイ：FF10, 15, 16, 7Remake, タクティクス, DQ1, 5, 8, 11, オクトラ, モンハンWorld, APEX, Horizon, Elden Ring, スーパーマリオ など プレイしたい：DQ7 Remake",
+      "cardSummary": "PS4/5でRPGやアクションを楽しんでいます。",
+      "image": "./images/hobby/games/dragon-quest.jpg",
+      "photos": [
+        {
+          "src": "./images/hobby/games/dragon-quest.jpg",
+          "caption": "ドラゴンクエストのプレイ風景",
+          "group": "ドラゴンクエスト"
+        },
+        {
+          "src": "./images/hobby/games/elden-ring.jpg",
+          "caption": "ELDEN RING — マレニア撃破時の記録",
+          "group": "ELDEN RING"
+        },
+        {
+          "src": "./images/hobby/games/monster-hunter.jpg",
+          "caption": "モンスターハンターのプレイ風景",
+          "group": "モンスターハンター"
+        },
+        {
+          "src": "./images/hobby/games/monster-hunter-02.png",
+          "caption": "モンスターハンター — クエストクリア時の記録",
+          "group": "モンスターハンター"
+        }
+      ]
+    },
+    {
+      "title": "海外旅行",
+      "description": "フランス留学（2024.02）\nフランス・リヨンの大学に3週間ほど留学しました。文化交流やフィールドワーク、低電力通信に関する講義を受け、週末はパリ観光などを楽しみました。\n\n台湾旅行（2025.03）\n家族と2泊3日の台湾旅行に行きました。料理が特に美味しくて、好物のルーロー飯は4回も食べました。\n\n留学中は美術館巡りやエッフェル塔の観光も楽しみました。留学先や移動中の風景とあわせて、写真を掲載しています。",
+      "cardSummary": "フランス・リヨンへの短期留学と、台湾旅行の様子です。",
+      "photos": [
+        {
+          "src": "./images/hobby/france/france-01.jpg",
+          "caption": "フランス留学中の美術館巡り — 絵画の展示",
+          "group": "フランス留学"
+        },
+        {
+          "src": "./images/hobby/france/france-02.jpg",
+          "caption": "フランス留学中の美術館巡り — 夜景を描いた絵画",
+          "group": "フランス留学"
+        },
+        {
+          "src": "./images/hobby/france/france-03.jpg",
+          "caption": "フランス留学中の美術館巡り — 自画像の展示",
+          "group": "フランス留学"
+        },
+        {
+          "src": "./images/hobby/france/france-04-mosaic.png",
+          "caption": "ルーヴル美術館の彫刻展示",
+          "group": "フランス留学"
+        },
+        {
+          "src": "./images/hobby/france/france-05.jpg",
+          "caption": "ルーヴル美術館でモナ・リザを鑑賞",
+          "group": "フランス留学"
+        },
+        {
+          "src": "./images/hobby/france/france-06-mosaic.png",
+          "caption": "エッフェル塔での記念写真",
+          "group": "フランス留学"
+        },
+        {
+          "src": "./images/hobby/france/france-07-mosaic.png",
+          "caption": "留学先のINSA Lyonにて",
+          "group": "フランス留学"
+        },
+        {
+          "src": "./images/hobby/france/france-08-mosaic.png",
+          "caption": "留学の移動中に撮影した空港の風景",
+          "group": "フランス留学"
+        },
+        {
+          "src": "./images/hobby/taiwan/taiwan-01-mosaic.png",
+          "caption": "台湾旅行 — 赤い提灯が並ぶ九份の街並み",
+          "group": "台湾旅行"
+        },
+        {
+          "src": "./images/hobby/taiwan/taiwan-02.jpg",
+          "caption": "台湾旅行 — 現地で楽しんだ餃子とスープ",
+          "group": "台湾旅行"
+        },
+        {
+          "src": "./images/hobby/taiwan/taiwan-03.jpg",
+          "caption": "台湾旅行 — 好物のルーロー飯",
+          "group": "台湾旅行"
+        },
+        {
+          "src": "./images/hobby/taiwan/taiwan-04.jpg",
+          "caption": "台湾旅行 — 食事とともに楽しんだ台湾ビールとお茶",
+          "group": "台湾旅行"
+        }
+      ],
+      "image": "./images/hobby/france/france-07-mosaic.png"
+    },
+    {
+      "title": "ハッカソン参加",
+      "description": "AI・ゲームなどのハッカソンに参加した記録です。CodeX開発祭り、UPoC2026、Progate Hackathon powered by AWS、zen agentic aiミニハッカソン with Google Cloud、SPAJAM 第一回予選での写真をまとめています。",
+      "href": "#collection/works",
+      "cardSummary": "AI・ゲームなどのハッカソンへの参加を、写真とともに振り返ります。"
+    },
+    {
+      "title": "イベント参加",
+      "description": "東京ゲームショウなどのゲーム関連イベントにも足を運んでいます。会場の展示やブースの写真をまとめました。\n\n技育博への出展や、国際学会APCCAS26でのポスター発表など、制作・研究を通じたイベントにも参加しています。活動の詳細はWorksにまとめています。\n\nArchitecture Challenge（SRE・パブリッククラウド設計チャレンジ）にも参加しました。複数のサービスを支えるマルチテナントなプラットフォームの設計をテーマとしたイベントです。会場のAbema Towersで撮影した写真も掲載しています。\n\n2026年10月17日にJSAI デジタルゲームAI研究会サマースクールで東京藝術大学を訪問。10月11日には技育祭2026 秋に参加しました。\n\n2026年8月2日にInnovative crosstalk Jamboree・Geeks’26、4月7日にTEAMZ SUMMIT 2026（9:00–18:00）に参加しました。",
+      "href": "#collection/works",
+      "cardSummary": "ゲーム展示から技術イベントまで、幅広く参加しています。",
+      "photos": [
+        {
+          "src": "./images/hobby/events/event-01.jpg",
+          "caption": "Grand Theft Auto VIの展示パネル",
+          "group": "東京ゲームショウ2026"
+        },
+        {
+          "src": "./images/hobby/events/event-02-mosaic.png",
+          "caption": "東京ゲームショウ2026の会場入口",
+          "group": "東京ゲームショウ2026"
+        },
+        {
+          "src": "./images/hobby/events/event-03.jpg",
+          "caption": "ACE COMBAT 8の展示ブース",
+          "group": "東京ゲームショウ2026"
+        },
+        {
+          "src": "./images/hobby/events/event-04-mosaic.png",
+          "caption": "Grand Theft Auto VIの展示と会場の様子",
+          "group": "東京ゲームショウ2026"
+        },
+        {
+          "src": "./images/hobby/events/event-05-mosaic.png",
+          "caption": "ASTRO BOTの展示パネル",
+          "group": "東京ゲームショウ2026"
+        },
+        {
+          "src": "./images/hobby/events/event-06-mosaic.png",
+          "caption": "hololiveの展示パネル",
+          "group": "東京ゲームショウ2026"
+        },
+        {
+          "src": "./images/hobby/events/geekhaku-exchange-mosaic.png",
+          "caption": "技育博での学生交流会の様子",
+          "group": "技育博"
+        },
+        {
+          "src": "./images/hobby/events/geekhaku-view.jpg",
+          "caption": "技育博の会場から見た夕景",
+          "group": "技育博"
+        },
+        {
+          "src": "./images/hobby/events/architecture-challenge.jpg",
+          "caption": "Architecture Challenge — SRE・パブリッククラウド設計チャレンジ",
+          "group": "Architecture Challenge"
+        },
+        {
+          "src": "./images/hobby/events/cyberagent-venue.jpg",
+          "caption": "サイバーエージェントの会場にて",
+          "group": "Architecture Challenge"
+        },
+        {
+          "src": "./images/hobby/events/abema-towers.jpg",
+          "caption": "会場のAbema Towers",
+          "group": "Architecture Challenge"
+        },
+        {
+          "src": "./images/hobby/events/jsai-summer-school-geidai.jpg",
+          "caption": "JSAI デジタルゲームAI研究会サマースクールで訪れた東京藝術大学",
+          "group": "JSAI デジタルゲームAI研究会サマースクール"
+        },
+        {
+          "src": "./images/hobby/events/geeksai-2026-banners.jpg",
+          "caption": "技育祭2026 秋 — 会場の装飾",
+          "group": "技育祭2026 秋"
+        },
+        {
+          "src": "./images/hobby/events/geeksai-2026-venue-mosaic.png",
+          "caption": "技育祭2026 秋 — 会場の様子（顔は加工済み）",
+          "group": "技育祭2026 秋"
+        },
+        {
+          "src": "./images/hobby/events/geeksai-2026-stage-mosaic.png",
+          "caption": "技育祭2026 秋 — ステージの様子（顔は加工済み）",
+          "group": "技育祭2026 秋"
+        },
+        {
+          "src": "./images/hobby/events/jamboree-geeks-2026-university.jpg",
+          "caption": "東京大学・安田講堂",
+          "group": "Innovative crosstalk Jamboree・Geeks’26"
+        },
+        {
+          "src": "./images/hobby/events/jamboree-geeks-2026-session.jpg",
+          "caption": "Innovative crosstalk Jamboree・Geeks’26の会場",
+          "group": "Innovative crosstalk Jamboree・Geeks’26"
+        },
+        {
+          "src": "./images/hobby/events/teamz-2026-photospot.jpg",
+          "caption": "会場のフォトスポット",
+          "group": "TEAMZ SUMMIT 2026",
+          "dateLabel": "2026.04.07（火）9:00–18:00"
+        },
+        {
+          "src": "./images/hobby/events/teamz-2026-screen-mosaic.png",
+          "caption": "会場スクリーンに映るステージの様子",
+          "group": "TEAMZ SUMMIT 2026"
+        },
+        {
+          "src": "./images/hobby/events/teamz-2026-talk-mosaic.png",
+          "caption": "セッションの様子",
+          "group": "TEAMZ SUMMIT 2026"
+        },
+        {
+          "src": "./images/hobby/events/teamz-2026-garden.jpg",
+          "caption": "会場から見た庭園",
+          "group": "TEAMZ SUMMIT 2026"
+        },
+        {
+          "src": "./images/hobby/events/teamz-2026-entrance-mosaic.png",
+          "caption": "八芳園の入口",
+          "group": "TEAMZ SUMMIT 2026"
+        },
+        {
+          "src": "./images/hobby/events/teamz-2026-venue-mosaic.png",
+          "caption": "TEAMZ SUMMIT 2026の会場",
+          "group": "TEAMZ SUMMIT 2026"
+        }
+      ],
+      "image": "./images/hobby/events/event-02-mosaic.png"
+    },
+    {
+      "title": "美術館/展覧会巡り",
+      "description": "日本とフランスで訪れた美術館の記録です。訪問先ごとに、絵画や彫刻の写真をまとめています。",
+      "cardSummary": "見に行った美術館や展覧会の画像を載せています",
+      "image": "./images/hobby/france/france-02.jpg",
+      "photos": [
+        {
+          "src": "./images/hobby/museums/artizon-2026-05-01.jpg",
+          "caption": "アーティゾン美術館 — 「クロード・モネ — 風景への問いかけ」展",
+          "group": "アーティゾン美術館",
+          "date": "2026-05"
+        },
+        {
+          "src": "./images/hobby/museums/artizon-2026-05-02.jpg",
+          "caption": "アーティゾン美術館 — 旗で彩られた街を描いた絵画",
+          "group": "アーティゾン美術館",
+          "date": "2026-05"
+        },
+        {
+          "src": "./images/hobby/museums/artizon-2026-05-03.jpg",
+          "caption": "アーティゾン美術館 — 日傘を持つ女性の絵画",
+          "group": "アーティゾン美術館",
+          "date": "2026-05"
+        },
+        {
+          "src": "./images/hobby/museums/artizon-2026-05-04.jpg",
+          "caption": "アーティゾン美術館 — モネ展の展示案内",
+          "group": "アーティゾン美術館",
+          "date": "2026-05"
+        },
+        {
+          "src": "./images/hobby/museums/artizon-2026-05-05.jpg",
+          "caption": "アーティゾン美術館 — 睡蓮の池と橋を描いた絵画",
+          "group": "アーティゾン美術館",
+          "date": "2026-05"
+        },
+        {
+          "src": "./images/hobby/museums/sompo-2024-05-01-mosaic.png",
+          "caption": "SOMPO美術館 — 美術館の外観",
+          "group": "SOMPO美術館",
+          "date": "2024-05"
+        },
+        {
+          "src": "./images/hobby/museums/sompo-2024-05-02.jpg",
+          "caption": "SOMPO美術館 — 北欧の風景を描いた絵画",
+          "group": "SOMPO美術館",
+          "date": "2024-05"
+        },
+        {
+          "src": "./images/hobby/museums/sompo-2024-05-03.jpg",
+          "caption": "SOMPO美術館 — ひまわりの絵画",
+          "group": "SOMPO美術館",
+          "date": "2024-05"
+        },
+        {
+          "src": "./images/hobby/museums/sompo-2024-05-04-mosaic.png",
+          "caption": "SOMPO美術館 — 「北欧の神秘」展の入口",
+          "group": "SOMPO美術館",
+          "date": "2024-05"
+        },
+        {
+          "src": "./images/hobby/france/france-01.jpg",
+          "caption": "フランス留学中の美術館巡り — 絵画の展示",
+          "group": "フランスでの美術館巡り",
+          "date": "2024-02"
+        },
+        {
+          "src": "./images/hobby/france/france-02.jpg",
+          "caption": "フランス留学中の美術館巡り — 夜景を描いた絵画",
+          "group": "フランスでの美術館巡り",
+          "date": "2024-02"
+        },
+        {
+          "src": "./images/hobby/france/france-03.jpg",
+          "caption": "フランス留学中の美術館巡り — 自画像の展示",
+          "group": "フランスでの美術館巡り",
+          "date": "2024-02"
+        },
+        {
+          "src": "./images/hobby/france/france-04-mosaic.png",
+          "caption": "ルーヴル美術館の彫刻展示",
+          "group": "フランスでの美術館巡り",
+          "date": "2024-02"
+        },
+        {
+          "src": "./images/hobby/france/france-05.jpg",
+          "caption": "ルーヴル美術館でモナ・リザを鑑賞",
+          "group": "フランスでの美術館巡り",
+          "date": "2024-02"
+        },
+        {
+          "src": "./images/hobby/museums/meguro-2023-06-01.jpg",
+          "caption": "目黒区美術館 — 牛を描いた絵画",
+          "group": "目黒区美術館",
+          "date": "2023-06"
+        },
+        {
+          "src": "./images/hobby/museums/meguro-2023-06-02.jpg",
+          "caption": "目黒区美術館 — 着物姿の人物を描いた絵画",
+          "group": "目黒区美術館",
+          "date": "2023-06"
+        },
+        {
+          "src": "./images/hobby/museums/meguro-2023-06-03.jpg",
+          "caption": "目黒区美術館 — 紫陽花を描いた絵画",
+          "group": "目黒区美術館",
+          "date": "2023-06"
+        },
+        {
+          "src": "./images/hobby/museums/nact-2023-05-01.jpg",
+          "caption": "ルーヴル美術館展 愛を描く — 展覧会のタイトル展示",
+          "group": "国立新美術館「ルーヴル美術館展 愛を描く」",
+          "date": "2023-05"
+        },
+        {
+          "src": "./images/hobby/museums/nact-2023-05-02.jpg",
+          "caption": "ルーヴル美術館展 愛を描く — 会場の展示メッセージ",
+          "group": "国立新美術館「ルーヴル美術館展 愛を描く」",
+          "date": "2023-05"
+        },
+        {
+          "src": "./images/hobby/museums/nact-2023-05-03.jpg",
+          "caption": "ルーヴル美術館展 愛を描く — 絵画の展示 1",
+          "group": "国立新美術館「ルーヴル美術館展 愛を描く」",
+          "date": "2023-05"
+        },
+        {
+          "src": "./images/hobby/museums/nact-2023-05-04.jpg",
+          "caption": "ルーヴル美術館展 愛を描く — 絵画の展示 2",
+          "group": "国立新美術館「ルーヴル美術館展 愛を描く」",
+          "date": "2023-05"
+        },
+        {
+          "src": "./images/hobby/museums/nact-2023-05-05.jpg",
+          "caption": "ルーヴル美術館展 愛を描く — 絵画の展示 3",
+          "group": "国立新美術館「ルーヴル美術館展 愛を描く」",
+          "date": "2023-05"
+        },
+        {
+          "src": "./images/hobby/museums/nact-2023-05-06.jpg",
+          "caption": "ルーヴル美術館展 愛を描く — 絵画の展示 4",
+          "group": "国立新美術館「ルーヴル美術館展 愛を描く」",
+          "date": "2023-05"
+        },
+        {
+          "src": "./images/hobby/museums/nezu-2026-05-01.jpg",
+          "caption": "根津美術館の入口",
+          "group": "根津美術館",
+          "date": "2026-05"
+        },
+        {
+          "src": "./images/hobby/museums/nezu-2026-05-02.jpg",
+          "caption": "光琳派の展示案内",
+          "group": "根津美術館",
+          "date": "2026-05"
+        },
+        {
+          "src": "./images/hobby/museums/nezu-2026-05-03.jpg",
+          "caption": "根津美術館の庭園",
+          "group": "根津美術館",
+          "date": "2026-05"
+        },
+        {
+          "src": "./images/hobby/museums/hosoda-2026-07-01.jpg",
+          "caption": "細田守の原点展の入口",
+          "group": "細田守の原点展",
+          "date": "2026-07"
+        },
+        {
+          "src": "./images/hobby/museums/hosoda-2026-07-02.jpg",
+          "caption": "「バケモノの子」の展示ポスター",
+          "group": "細田守の原点展",
+          "date": "2026-07"
+        },
+        {
+          "src": "./images/hobby/museums/hosoda-2026-07-03-mosaic.png",
+          "caption": "キング・カズマの展示",
+          "group": "細田守の原点展",
+          "date": "2026-07"
+        },
+        {
+          "src": "./images/hobby/museums/pearl-earring-2026-09-01.jpg",
+          "caption": "美術館の外観",
+          "group": "真珠の耳飾りの少女展",
+          "date": "2026-09"
+        },
+        {
+          "src": "./images/hobby/museums/pearl-earring-2026-09-02.jpg",
+          "caption": "「真珠の耳飾りの少女展」の展示案内",
+          "group": "真珠の耳飾りの少女展",
+          "date": "2026-09"
+        },
+        {
+          "src": "./images/hobby/museums/pearl-earring-2026-09-03.jpg",
+          "caption": "「真珠の耳飾りの少女」の展示",
+          "group": "真珠の耳飾りの少女展",
+          "date": "2026-09"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "title": "GitHub",
+      "url": "https://github.com/Qutalize",
+      "image": "./images/links/github-profile.png",
+      "imageAlt": "QutalizeのGitHubプロフィールとリポジトリ・活動記録のスクリーンショット",
+      "description": "制作物のソースコードと個人開発のリポジトリをご覧いただけます"
+    },
+    {
+      "title": "AtCoder",
+      "url": "https://atcoder.jp/users/quta",
+      "image": "./images/links/atcoder-profile.png",
+      "imageAlt": "QutaのAtCoderプロフィールとレーティング推移のスクリーンショット",
+      "description": "競技プログラミングの参加記録と成績がご覧いただけます"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com/in/%E7%A9%BA%E5%A4%A7-%E5%B1%B1%E6%9D%91-4a0a84425/",
+      "description": "プロフィールをご覧いただけます"
+    },
+    {
+      "title": "X",
+      "url": "https://x.com/gs9_s4",
+      "description": "日々の投稿をご覧いただけます"
+    }
+  ],
+  "research": {
+    "title": "TEE × Hardware",
+    "summary": "機密データを守る実行環境を、ソフトウェアとハードウェアの両面から効率化する研究。",
+    "updatedAt": "2026-11",
+    "sections": [
+      {
+        "title": "研究の問い",
+        "text": "TEE（Trusted Execution Environment）の受入、権限照合、計算、割込み・退避、復帰、退出といった段階に着目し、保護のためにどこで追加の処理負荷が生じるかを調べています。ソフトウェアで削減しきれないボトルネックを特定し、ハードウェア支援につなげることを目指しています。",
+        "cardSummary": "TEEの処理を段階ごとに分析し、保護のための追加負荷とHW支援の必要性を調べています。"
+      },
+      {
+        "title": "現在の取り組み",
+        "text": "RISC-V環境でのTEE要求処理と、RVV（ベクトル拡張）の状態管理を調査しています。ソフトウェア変更の比較と実装・トレースの分析を進め、保護条件を維持した比較方法を整理しています。専用HWの方式や性能向上はまだ確定していません。",
+        "cardSummary": "RISC-VのTEE要求処理とRVVの状態管理を調査。SW変更の比較・トレース分析を進めています。"
+      },
+      {
+        "title": "想定する用途",
+        "text": "機密データを用いたLLMのファインチューニングと、個人情報を含む写真のマスク処理を評価用途として検討しています。処理中のデータ保護と、公開されるモデル・画像から情報が漏れるリスクは別々に評価します。",
+        "cardSummary": "機密データによるLLMの学習と写真のマスク処理を検討。処理中と公開後のリスクを分けて評価します。"
+      },
+      {
+        "title": "これから",
+        "text": "同じ仕事をする非TEE・基準TEE・SW最適化TEEを比較し、段階別の時間と保護条件を確認します。その結果をもとに、HW支援の必要性、面積・電力・タイミングとの兼ね合いを検討します。",
+        "cardSummary": "非TEE・基準TEE・SW最適化TEEを比較し、HW支援の効果と面積・電力などの兼ね合いを検討します。"
+      }
+    ]
+  },
+  "homeHighlights": {
+    "about": {
+      "title": "自己紹介",
+      "description": "留学・活動経験と、制作・研究での受賞や発表をまとめています。"
+    },
+    "works": {
+      "title": "制作・開発",
+      "description": "2026年通年の自作ゲームエンジン開発。11月の内容更新に加え、ことばリンクのCodeX開発祭り入賞や、Samether.ioのハッカソン最優秀賞などを紹介しています。"
+    },
+    "research": {
+      "title": "TEEとハードウェアの研究",
+      "description": "機密データを守る実行環境を、ソフトウェアとハードウェアの両面から効率化する研究。 現在は処理段階ごとの負荷分析と、HW支援の必要性を検討しています。"
+    },
+    "books": {
+      "title": "読書記録",
+      "description": "最新の記録はDirectX 12、GPU、Go、SRE、データ指向設計。読書月・返却日を手がかりに、技術書から文学まで56冊をたどれます。"
+    },
+    "hobby": {
+      "title": "趣味・活動",
+      "description": "フランスや台湾での海外経験、好きなゲーム、ハッカソンへの参加。研究や制作の外側にある好奇心もまとめています。"
+    },
+    "links": {
+      "title": "外部リンク",
+      "description": "GitHubの制作物やAtCoderの参加記録へ。公開している活動の場所をまとめています。"
+    }
+  },
+  "pagePicks": {
+    "about": [
+      {
+        "title": "経歴・活動",
+        "description": "2024年2月：フランス・リヨンに3週間留学。フランス語サークル学生代表を1年間、塾講師を約3年間経験。2026年はSecHack365に参加。",
+        "image": "./images/topics/about.png",
+        "href": "#profile/about"
+      },
+      {
+        "title": "受賞・発表",
+        "description": "2026年：Samether.ioがハッカソン最優秀賞、ことばリンクがCodeX開発祭り入賞、UECPort SamezarioがUPoCでCRESCO賞。AgileX Chip Design ContestでOutstanding Design Prizeを受賞し、APCCAS26でポスター発表。",
+        "image": "./images/works/award.png",
+        "href": "#collection/works"
+      }
+    ],
+    "research": [
+      {
+        "title": "処理段階ごとの負荷分析",
+        "description": "TEEの受入・権限照合・計算・退避・退出を切り分け、追加費用が生じる箇所を調べています。",
+        "image": "./images/topics/research.png"
+      },
+      {
+        "title": "RISC-V・RVVの状態管理",
+        "description": "ソフトウェア比較とトレース分析を進めています。専用HWの必要性と方式は検討中です。",
+        "image": "./images/topics/research.png"
+      },
+      {
+        "title": "評価用途の検討",
+        "description": "機密データによるLLM微調整と写真のマスク処理を想定し、同じ保護条件での性能比較を計画しています。",
+        "image": "./images/topics/research.png"
+      }
+    ],
+    "hobby": [
+      {
+        "title": "ハッカソン参加",
+        "description": "ことばリンク、Samether.io、UPoCなどを開発。作品とイベントでの成果はWorksに掲載しています。",
+        "href": "#collection/works",
+        "image": "./records/works/visual-speech/video-thumb.jpg",
+        "imageType": "photo"
+      },
+      {
+        "title": "海外旅行",
+        "description": "2025年3月は台湾へ家族旅行。2024年2月にはフランス・リヨンで3週間の留学を経験しました。",
+        "image": "./images/topics/gallery.png"
+      },
+      {
+        "title": "ゲーム・UI制作",
+        "description": "RPGやアクションゲームを楽しみながら、Webでのインタラクションやアニメーションも制作しています。",
+        "image": "./images/works/game.png"
+      }
+    ],
+    "links": [
+      {
+        "title": "GitHub",
+        "url": "https://github.com/Qutalize",
+        "description": "制作物のソースコードと個人開発のリポジトリ。"
+      },
+      {
+        "title": "AtCoder",
+        "url": "https://atcoder.jp/users/quta",
+        "description": "競技プログラミングの参加記録と成績。"
+      }
+    ]
+  },
+  "profileCard": {
+    "title": "About",
+    "description": "情報工学を学び、コンピュータアーキテクチャを研究しています。セキュリティ、インフラ、AI、ゲーム制作を横断して、仕組みから体験までつくることが好きです。",
+    "image": "./images/profile/avatar.jpeg",
+    "heading": "情報工学・コンピュータアーキテクチャ",
+    "detail": "情報工学専攻の大学4年生。現在はコンピュータアーキテクチャ分野の研究室に所属しています。",
+    "href": "#profile/about"
+  },
+  "aboutDetails": [
+    {
+      "title": "プロフィール",
+      "paragraphs": [
+        "富山出身。関東の大学で情報工学を専攻する大学4年生です。現在はコンピュータアーキテクチャ分野の研究室に所属しています。",
+        "セキュリティ、インフラ、AI、ゲーム制作に取り組んでいます。研究では、TEEの処理負荷を分析し、ソフトウェアとハードウェアの協調による効率化を検討しています。",
+        "使用言語はPython・C・Javaを中心に、C++・C#・Go・Rust・JavaScriptなど。用途に合わせて学びながら開発しています。"
+      ],
+      "highlights": [
+        "富山出身・情報工学専攻の大学4年生。",
+        "コンピュータアーキテクチャを研究。",
+        "セキュリティ・AI・ゲーム制作に取り組んでいます。"
+      ]
+    },
+    {
+      "title": "経歴・活動",
+      "paragraphs": [
+        "2023年から3年間、小学生・中学生・高校生を対象に5教科を指導する塾講師として勤務しました。",
+        "2026年から現在まで、都内のIT・コンテンツ企業の研究開発チームで長期インターンに取り組んでいます。",
+        "2024年2月：フランス・リヨンの大学に約3週間留学。文化交流、フィールドワーク、低電力通信の講義を経験しました。",
+        "フランス語サークルの学生代表を1年間務めました。",
+        "2026年：SecHack365に通年参加し、自作ゲームエンジンを開発。8月にはセキュリティ・キャンプ ネクストに参加しました。"
+      ],
+      "highlights": [
+        "2023〜2026｜塾講師・小中高の5教科を担当",
+        "2026〜現在｜都内IT・コンテンツ企業の研究開発チームで長期インターン",
+        "フランス留学・SecHack365・セキュリティキャンプ"
+      ]
+    },
+    {
+      "title": "制作・研究の実績",
+      "paragraphs": [
+        "Samether.io：Progate Hackathon powered by AWS 2026.4 最優秀賞。技育博にも出展しました。",
+        "ことばリンク：CodeX開発祭り入賞。",
+        "UECPort Samezario — 写真で街を解放するゲーム：UPoCでCRESCO賞を受賞。",
+        "AgileX Chip Design Contest：2026年7月にOutstanding Design Prizeを受賞。その成果を10月のAPCCAS26（福岡）でポスター発表しました。"
+      ],
+      "highlights": [
+        "Samether.io｜ハッカソン最優秀賞",
+        "ことばリンク｜CodeX開発祭り入賞",
+        "UECPort Samezario｜UPoC CRESCO賞",
+        "AgileX Chip Design Contest｜Outstanding Design Prize"
+      ],
+      "links": [
+        {
+          "title": "UECPort Samezario — 写真で街を解放するゲーム",
+          "href": "#detail/uecport"
+        }
+      ]
+    },
+    {
+      "title": "資格・学習",
+      "paragraphs": [
+        "2025年8月：CG-ARTS CGエンジニア検定エキスパート、画像処理エンジニア検定エキスパートに合格。",
+        "2025年10月：TOEIC L&R 730点。英語は継続して学習しています。",
+        "2025年10月：応用情報技術者試験は午前83.75％、午後59.00％で不合格。合格に向けて学習しています。"
+      ],
+      "highlights": [
+        "CGエンジニア・画像処理エキスパート合格",
+        "TOEIC L&R 730点（2025年10月）",
+        "応用情報技術者試験に向けて学習中"
+      ]
+    }
+  ],
+  "pageDescriptions": {
+    "About": "プロフィールや、これまでの活動を紹介します。",
+    "Works": "制作した作品と、開発・受賞の記録を掲載しています。",
+    "Research": "コンピュータアーキテクチャの研究を紹介します。",
+    "Books": "これまで読んだ本を掲載しています。",
+    "Hobby": "旅行・ゲーム・イベントなど、趣味の記録です。",
+    "Links": "SNSや、外部サービスのプロフィールへのリンクです。"
+  },
+  "careerTimeline": [
+    {
+      "period": "2023–2026",
+      "title": "塾講師",
+      "description": "小・中・高校生の5教科を3年間担当。"
+    },
+    {
+      "period": "2024.02",
+      "title": "フランス留学",
+      "description": "リヨンで3週間、文化交流と低電力通信を学ぶ。"
+    },
+    {
+      "period": "2026–現在",
+      "title": "研究開発インターン",
+      "description": "都内のIT・コンテンツ企業の研究開発チーム。"
+    },
+    {
+      "period": "2026 通年",
+      "title": "SecHack365",
+      "description": "セキュアな自作ゲームエンジンを開発。"
+    },
+    {
+      "period": "2026.08",
+      "title": "セキュリティ・キャンプ ネクスト",
+      "description": "開発・研究に参加。"
+    }
+  ],
+  "albumDates": {
+    "フランス留学": "2024-02",
+    "台湾旅行": "2025-03",
+    "東京ゲームショウ2026": "2026",
+    "Architecture Challenge": "2026-06-27",
+    "技育博": "2026-05-30",
+    "JSAI デジタルゲームAI研究会サマースクール": "2026-10-17",
+    "技育祭2026 秋": "2026-10-11",
+    "Innovative crosstalk Jamboree・Geeks’26": "2026-08-02",
+    "TEAMZ SUMMIT 2026": "2026-04-07"
+  },
+  "hackathonAlbums": [
+    {
+      "title": "Progate Hackathon powered by AWS 3月回",
+      "date": "2026-03",
+      "photos": [
+        {
+          "src": "./images/hobby/events/progate-aws-2026-03-venue-mosaic.png",
+          "caption": "ハッカソンでの開発の様子"
+        },
+        {
+          "src": "./images/hobby/events/progate-aws-2026-03-logo.jpg",
+          "caption": "Amazonのロゴがある会場"
+        },
+        {
+          "src": "./images/hobby/events/progate-aws-2026-03-loft.jpg",
+          "caption": "Startup Loft AWSの会場"
+        },
+        {
+          "src": "./images/hobby/events/progate-aws-2026-03-meal.jpg",
+          "caption": "参加当日の食事"
+        }
+      ]
+    },
+    {
+      "title": "zen agentic aiミニハッカソン with Google Cloud",
+      "date": "2026-09-05",
+      "photos": [
+        {
+          "src": "./images/hobby/events/zen-google-reception-mosaic.png",
+          "caption": "Googleの受付"
+        },
+        {
+          "src": "./images/hobby/events/zen-google-food.jpg",
+          "caption": "当日の食事"
+        },
+        {
+          "src": "./images/hobby/events/zen-google-cafe-mosaic.png",
+          "caption": "会場のカフェスペース"
+        },
+        {
+          "src": "./images/hobby/events/zen-google-view.jpg",
+          "caption": "会場からの眺め"
+        },
+        {
+          "src": "./images/hobby/events/zen-google-mcp.jpg",
+          "caption": "MCPについてのセッション"
+        }
+      ]
+    },
+    {
+      "recordId": "samezario",
+      "title": "Progate Hackathon powered by AWS",
+      "date": "2026-04"
+    },
+    {
+      "recordId": "visual-speech",
+      "title": "CodeX開発祭り",
+      "date": "2026-09-15"
+    },
+    {
+      "recordId": "uecport",
+      "title": "UPoC2026",
+      "date": "2026-08-28"
+    },
+    {
+      "title": "SPAJAM 第一回予選",
+      "date": "2026-08-08",
+      "dateLabel": "2026.08.08–09",
+      "photos": [
+        {
+          "src": "./images/hobby/events/spajam-2026-gifts-masked.png",
+          "caption": "SPAJAM 第一回予選の参加賞"
+        }
+      ]
+    }
+  ]
+}

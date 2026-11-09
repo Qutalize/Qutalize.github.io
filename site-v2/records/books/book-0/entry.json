@@ -1,0 +1,29 @@
+{
+  "id": "book-0",
+  "collection": "books",
+  "title": "コンビニ人間",
+  "description": "最後の講評の部分で、作品の文学的な深みに気付かずに読み通していたと感じ、そのまま2周目に入った。",
+  "tags": [
+    "小説"
+  ],
+  "image": "cover.jpg",
+  "date": "2023-12-20",
+  "meta": "2023.12.20 読了",
+  "author": "村田沙耶香",
+  "source": "index.html / Book History",
+  "imageType": "cover",
+  "isbn": "9784167911300",
+  "publicationDate": "2018.9",
+  "edition": "",
+  "publisher": "文藝春秋",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I029161151",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I029161151",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "editionNote": "版の指定がないため、2018年の文春文庫版を仮選定。",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784167911300",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784167911300_600.jpg?lastupdated=2026-03-30T17%3A11%3A51%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "readDate": "2024-11",
+  "review": "最後の講評の部分で、作品の文学的な深みに気付かずに読み通していたと感じ、そのまま2周目に入った。"
+}

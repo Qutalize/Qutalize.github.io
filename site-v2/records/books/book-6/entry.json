@@ -1,0 +1,29 @@
+{
+  "id": "book-6",
+  "collection": "books",
+  "title": "図解AWSの仕組みとサービスがたった1日でよくわかる",
+  "description": "まとめ作成中",
+  "tags": [
+    "技術書",
+    "AWS",
+    "インフラ"
+  ],
+  "image": "cover.jpg",
+  "date": "2026-02-01",
+  "meta": "2026.02 読書中",
+  "author": "上野史瑛 / 小林恭平 / 尾澤公亮 / 高梨友之",
+  "source": "index.html / Book History",
+  "imageType": "cover",
+  "isbn": "9784815612818",
+  "publicationDate": "2022.2",
+  "edition": "",
+  "publisher": "SBクリエイティブ",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I031933016",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I031933016",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784815612818",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784815612818_600.jpg?lastupdated=2022-01-14T10%3A09%3A05%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2026-05-07"
+}

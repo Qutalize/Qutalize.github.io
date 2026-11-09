@@ -1,0 +1,27 @@
+{
+  "id": "toeic-mock2",
+  "collection": "books",
+  "title": "世界一わかりやすいTOEIC L&Rテスト総合模試 2 — 800点突破レベル",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "英語"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "関正生",
+  "isbn": "9784046022066",
+  "publicationDate": "2019.1",
+  "edition": "",
+  "publisher": "KADOKAWA",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I029426452",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I029426452",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784046022066",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784046022066_600.jpg?lastupdated=2026-09-04T11%3A17%3A58%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2024-04-18"
+}

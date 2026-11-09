@@ -1,0 +1,79 @@
+{
+  "id": "poster-paper",
+  "collection": "works",
+  "title": "APCCAS26 — 国際学会ポスター発表",
+  "description": "AgileX Chip Design ContestでOutstanding Design Prizeを受賞した○×判定回路について、2026年10月に福岡で開催されたAPCCAS26でポスター発表。固定テンプレートによる回路の簡素化と、設計・検証の取り組みを紹介しました。",
+  "achievements": [
+    "APCCAS26 ポスター発表"
+  ],
+  "fields": [
+    "半導体",
+    "チップ開発",
+    "学術発表"
+  ],
+  "techStack": [
+    "Verilog HDL",
+    "RTLシミュレーション",
+    "Cadence Innovus",
+    "Calibre"
+  ],
+  "tags": [
+    "半導体",
+    "チップ開発",
+    "研究",
+    "学術発表"
+  ],
+  "date": "2026-10",
+  "period": "2026年10月 · 福岡",
+  "meta": "国際学会・ポスター発表",
+  "image": "conference-poster-mosaic.png",
+  "imageType": "photo",
+  "url": "",
+  "source": "AgileX_chipathonプロジェクトの提出サマリと2026-10-20の実機調査記録。受賞名・時期・学会発表は本人提供。",
+  "article": {
+    "sections": [
+      {
+        "heading": "受賞成果を国際学会で紹介",
+        "paragraphs": [
+          "2026年7月にAgileX Chip Design ContestでOutstanding Design Prizeを受賞した成果をもとに、10月に福岡で開催された国際学会APCCAS26でポスター発表を行いました。"
+        ]
+      },
+      {
+        "heading": "発表の対象となった回路",
+        "paragraphs": [
+          "対象は4×3画素の○×入力を分類する小規模回路です。固定テンプレートとの一致度で判定し、相補的なパターンを利用して計数処理を共通化する設計を採用しています。"
+        ]
+      },
+      {
+        "heading": "設計検証と実機評価を区別する",
+        "paragraphs": [
+          "プロジェクト資料では、RTLと最終ネットリストのシミュレーション、配置配線・設計ルールの確認が記録されています。",
+          "一方、2026年10月20日の実機調査では、設計上の期待値とCPUから読み出す値の不一致が残っています。クロック供給や信号の経路を切り分けており、シミュレーションでの確認を実機動作の完成とは区別しています。"
+        ]
+      },
+      {
+        "heading": "論文タイトル・発表資料",
+        "paragraphs": []
+      }
+    ]
+  },
+  "links": [
+    "agilex"
+  ],
+  "graphGroup": "半導体・回路設計",
+  "imageFit": "contain",
+  "photos": [
+    {
+      "file": "conference-venue-mosaic.png",
+      "caption": "APCCAS 2026の会場案内"
+    },
+    {
+      "file": "conference-demo.jpg",
+      "caption": "基板とPCを使った展示・デモの様子"
+    },
+    {
+      "file": "conference-poster-mosaic.png",
+      "caption": "ポスター展示の様子"
+    }
+  ]
+}

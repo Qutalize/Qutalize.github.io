@@ -1,0 +1,27 @@
+{
+  "id": "french5",
+  "collection": "books",
+  "title": "完全予想仏検5級 改訂版",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "フランス語"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "富田正二",
+  "isbn": "9784411005441",
+  "publicationDate": "2017.6",
+  "edition": "改訂版",
+  "publisher": "駿河台出版社",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000136-I1970023484917142300",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000136-I1970023484917142300",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784411005441",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784411005441_600.jpg?lastupdated=2025-07-14T16%3A50%3A54%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2023-10-30"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "curves-differential",
+  "collection": "books",
+  "title": "曲線と曲面 — 微分幾何的アプローチ 改訂版",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "数学"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "梅原雅顕/ 山田光太郎",
+  "isbn": "9784785315634",
+  "publicationDate": "2015.2",
+  "edition": "改訂版",
+  "publisher": "裳華房",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I026107232",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I026107232",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784785315634",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784785315634_600.jpg?lastupdated=2015-08-13T15%3A40%3A48%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2025-01-24"
+}

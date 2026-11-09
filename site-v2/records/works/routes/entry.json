@@ -1,0 +1,24 @@
+{
+  "id": "routes",
+  "collection": "works",
+  "title": "経路探索アルゴリズムの比較システム",
+  "description": "アルゴリズムの授業の課題を拡張する形で、最短経路探索アルゴリズムの性質の比較を行いました。",
+  "tags": [
+    "アルゴリズム"
+  ],
+  "image": "screenshot.png",
+  "url": "https://github.com/Qutalize/Emergency_Route_Planner/tree/main",
+  "date": "2026-01",
+  "meta": "2026.01 更新",
+  "source": "index.html / Works",
+  "imageType": "photo",
+  "repositoryUrl": "https://github.com/Qutalize/Emergency_Route_Planner",
+  "imageFit": "contain",
+  "imageSource": "本人提供の画像・動画（2026-11-07）",
+  "repositoryUpdatedAt": "2026-02-10",
+  "fields": [
+    "アルゴリズム"
+  ],
+  "techStack": [],
+  "achievements": []
+}

@@ -1,0 +1,27 @@
+{
+  "id": "toeic-gold",
+  "collection": "books",
+  "title": "TOEIC L&R TEST出る単特急金のフレーズ",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "英語"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "TEX加藤",
+  "isbn": "9784023315686",
+  "publicationDate": "2017.1",
+  "edition": "",
+  "publisher": "朝日新聞出版",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I027796902",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I027796902",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.kinokuniya.co.jp/f/dsg-01-9784023315686",
+  "coverImageUrl": "https://www.kinokuniya.co.jp/images/goods/ar2/web/imgdata2/large/40233/4023315680.jpg",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2026-01-21"
+}

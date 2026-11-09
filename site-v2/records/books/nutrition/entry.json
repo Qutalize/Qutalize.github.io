@@ -1,0 +1,27 @@
+{
+  "id": "nutrition",
+  "collection": "books",
+  "title": "本当に役立つ栄養学",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "科学"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "佐藤成美",
+  "isbn": "9784065280805",
+  "publicationDate": "2022.5",
+  "edition": "",
+  "publisher": "講談社",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I032121254",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032121254",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784065280805",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784065280805_600.jpg?lastupdated=2026-03-11T11%3A17%3A02%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2024-10-01"
+}

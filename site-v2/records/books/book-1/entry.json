@@ -1,0 +1,29 @@
+{
+  "id": "book-1",
+  "collection": "books",
+  "title": "ソフトウェア開発のワークスタイル2030",
+  "description": "学内の講演会で配られたため読んだが、生成AIがIT業界の今後にどう影響していくかの見通しがより明確になった。",
+  "tags": [
+    "ビジネス",
+    "AI"
+  ],
+  "image": "cover.jpg",
+  "date": "2025-12-05",
+  "meta": "2025.12.05 読了",
+  "author": "斎藤忍",
+  "source": "index.html / Book History",
+  "imageType": "cover",
+  "isbn": "9784757104099",
+  "publicationDate": "2025.12",
+  "edition": "",
+  "publisher": "NTT出版",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I034432972",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034432972",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784757104099",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784757104099_600.jpg?lastupdated=2025-12-22T11%3A11%3A54%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "readDate": "2025-12",
+  "review": "学内の講演会で配られたため読んだが、生成AIがIT業界の今後にどう影響していくかの見通しがより明確になった。"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "book-5",
+  "collection": "books",
+  "title": "プログラミングコンテストチャレンジブック 第2版",
+  "description": "まとめ作成中",
+  "tags": [
+    "技術書",
+    "アルゴリズム"
+  ],
+  "image": "cover.jpg",
+  "date": "2026-02-01",
+  "meta": "2026.02 読書中",
+  "author": "秋葉拓哉 / 岩田陽一 / 北川宜稔",
+  "source": "index.html / Book History",
+  "imageType": "cover",
+  "isbn": "9784839941062",
+  "publicationDate": "2012.1",
+  "edition": "第2版",
+  "publisher": "マイナビ",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I023344289",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I023344289",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784839941062",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784839941062_600.jpg?lastupdated=2016-08-21T18%3A28%3A25%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "readDate": "2025-09"
+}

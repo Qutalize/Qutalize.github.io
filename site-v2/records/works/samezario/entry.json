@@ -1,0 +1,64 @@
+{
+  "id": "samezario",
+  "collection": "works",
+  "title": "Samether.io — 位置情報と連動するサメのゲーム",
+  "description": "現実世界の移動とサメの成長・進化を組み合わせたマルチプレイヤーゲーム。Phaser / TypeScriptの画面、Go / WebSocketのゲーム同期、RedisとAWSの基盤で構成されています。",
+  "tags": [
+    "TypeScript",
+    "Go",
+    "ゲーム",
+    "AWS"
+  ],
+  "date": "2026-04",
+  "meta": "ゲーム制作",
+  "image": "preview.png",
+  "imageType": "photo",
+  "url": "https://samezario.pages.dev/",
+  "source": "公開GitHub README / Samether.io",
+  "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+  "outline": {
+    "purpose": "",
+    "role": "",
+    "highlights": [],
+    "results": "",
+    "nextSteps": ""
+  },
+  "links": [],
+  "imageSource": "https://github.com/Qutalize/Samether.io/blob/main/images/AllinOne.png",
+  "repositoryUpdatedAt": "2026-07-18",
+  "achievements": [
+    "Progate Hackathon powered by AWS 2026.4 最優秀賞",
+    "技育博 出展"
+  ],
+  "period": "2026年4月（ハッカソン）／技育博出展時期は追記予定",
+  "fields": [
+    "位置情報ゲーム",
+    "リアルタイム通信"
+  ],
+  "techStack": [
+    "Phaser 3",
+    "TypeScript",
+    "Go",
+    "WebSocket",
+    "Redis",
+    "AWS",
+    "Terraform"
+  ],
+  "repositoryUrl": "https://github.com/Qutalize/Samether.io",
+  "urlLabel": "公開サイトを開く",
+  "publicUrl": "https://samezario.pages.dev/",
+  "photos": [
+    {
+      "file": "team-mosaic.png",
+      "caption": "開発チームの記念写真（顔にモザイク加工）"
+    },
+    {
+      "file": "award-mosaic.png",
+      "caption": "Progateハッカソン最優秀賞の記念写真（顔にモザイク加工）"
+    },
+    {
+      "file": "venue-mosaic.png",
+      "caption": "会場での記念写真（顔にモザイク加工）"
+    }
+  ]
+}

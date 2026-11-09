@@ -1,0 +1,27 @@
+{
+  "id": "quantum",
+  "collection": "books",
+  "title": "量子技術入門",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "量子技術"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "長田有登 / やまざきれきしゅう / 野口篤史",
+  "isbn": "9784130626279",
+  "publicationDate": "2023.4",
+  "edition": "",
+  "publisher": "東京大学出版会",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I032748899",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032748899",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784130626279",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784130626279_600.jpg?lastupdated=2023-04-24T13%3A24%3A05%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2024-11-21"
+}

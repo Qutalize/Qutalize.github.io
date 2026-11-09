@@ -1,0 +1,27 @@
+{
+  "id": "curves-basics",
+  "collection": "books",
+  "title": "曲線と曲面の基礎・基本",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "数学"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "福井敏純",
+  "isbn": "9784434206306",
+  "publicationDate": "2015.6",
+  "edition": "",
+  "publisher": "牧野書店 / 星雲社 (発売)",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I026411723",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I026411723",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784434206306",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784434206306_600.jpg?lastupdated=2016-09-12T23%3A01%3A13%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2024-12-11"
+}

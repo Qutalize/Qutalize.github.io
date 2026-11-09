@@ -1,0 +1,27 @@
+{
+  "id": "arduino",
+  "collection": "books",
+  "title": "Arduinoをはじめよう 第4版",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "電子工作"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "Massimo Banzi / Michael Shiloh / 船田巧 訳",
+  "isbn": "9784814400232",
+  "publicationDate": "2023.2",
+  "edition": "第4版",
+  "publisher": "オライリー・ジャパン / オーム社",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I032655608",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032655608",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784814400232",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784814400232_600.jpg?lastupdated=2024-01-24T00%3A38%3A59%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2024-05-07"
+}

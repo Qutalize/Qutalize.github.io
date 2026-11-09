@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quta's Portfolio</title>
+<meta name="description" content="Qutaのポートフォリオ。About / Works / Research / Book History / Picture Gallery / Hobby / Links をアイコンで切り替えて閲覧できます。">
+<style>
+  /* =========================================================================
+     COLOR TOKENS  ―  旧サイトの配色を踏襲
+     背景 = 淡い水色 (#e0f2f7) / カード = 半透明の白 / 文字・差し色 = ネイビー
+     ========================================================================= */
+  :root{
+    --bg-color:#e0f2f7;         /* ページ地色（背景アニメの下地）           */
+    --bg-tint:#e9f5f9;          /* 背景canvasのベース（bgより気持ち明るく） */
+    --main-navy:#1a3a5f;        /* 見出し・アクティブ差し色                 */
+    --accent-blue:#4682b4;      /* リンク・ホバー                           */
+    --text-color:#2c3e50;       /* 本文                                     */
+    --white:#ffffff;
+    --card:rgba(255,255,255,0.85);   /* カード背景（墨流し背景でも読めるよう不透明度高め） */
+    --card-solid:#ffffff;
+    --line:rgba(26,58,95,0.14);
+
+    /* カテゴリ／タグ色（旧サイトから継承） */
+    --tag-development:#ff7f50;
+    --tag-web:#3f8ac0;
+    --tag-ml:#7c5cbf;
+    --tag-network:#2e8b8b;
+    --tag-award:#daa520;
+    --tag-study:#6b8e23;
+    --tag-tech:#4b0082;
+    --tag-biz:#2e8b57;
+    --tag-novel:#db7093;
+    --tag-game:#ee6c4d;
+    --tag-travel:#3d5a80;
+    --tag-other:#98c1d9;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+
+  body{
+    font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+    background:var(--bg-color);
+    color:var(--text-color);
+    line-height:1.75;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+
+  /* =========================================================================
+     BACKGROUND  ―  墨流し / マーブル（紺・白・黒・灰・金・水色）
+     低解像度canvasに domain-warp した value noise を色ランプで描画し、
+     金のヴェイン(筋)を重ねる。CSSで全画面に引き伸ばして滑らかに。
+     JS: "flowing background" in <script>.
+     ========================================================================= */
+  #flow-wrap{position:fixed;inset:0;z-index:-2;overflow:hidden;background:#12395f;}
+  #flow{position:absolute;inset:0;width:100%;height:100%;}
+  #flow-veil{
+    position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(95% 60% at 50% 40%,rgba(255,255,255,.18),rgba(255,255,255,0) 70%),
+      linear-gradient(180deg,rgba(240,246,250,.42),rgba(240,246,250,0) 20%,rgba(240,246,250,0) 82%,rgba(240,246,250,.28));
+  }
+
+  .wrap{max-width:1000px;margin:0 auto;padding:34px 20px 70px;}
+
+  /* =========================================================================
+     HEADER
+     ========================================================================= */
+  header.site{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:24px;}
+  header.site .titles{flex:1;min-width:240px;}
+  header.site h1{
+    margin:0;font-size:2.7rem;font-weight:800;color:var(--main-navy);letter-spacing:.01em;
+    text-shadow:0 1px 14px rgba(255,255,255,.7),0 1px 3px rgba(255,255,255,.6);
+  }
+  header.site p{margin:2px 0 0;color:#33506a;font-size:.98rem;text-shadow:0 1px 8px rgba(255,255,255,.6);}
+  header.site .avatar{
+    width:82px;height:82px;border-radius:20px;object-fit:cover;
+    box-shadow:0 10px 20px rgba(10,25,45,.28);border:2px solid rgba(255,255,255,.65);
+  }
+
+  /* =========================================================================
+     TOPIC ICON ROW  ―  横スクロールのアイコン列（手描き画像 or 写真を入れる）
+     切替: クリック / ← → キー / スワイプ / ゲームパッド
+     ========================================================================= */
+  .topics-outer{position:relative;margin-bottom:10px;}
+  nav.topics{
+    display:flex;gap:16px;overflow-x:auto;padding:14px 4px 16px;
+    scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;-ms-overflow-style:none;
+  }
+  nav.topics::-webkit-scrollbar{display:none;width:0;height:0;}
+
+  .topic{
+    scroll-snap-align:center;flex:0 0 auto;width:100px;
+    background:none;border:none;cursor:pointer;padding:0;font-family:inherit;
+    display:flex;flex-direction:column;align-items:center;gap:9px;
+    transition:transform .25s cubic-bezier(.2,.7,.3,1);
+  }
+  .topic .badge{
+    width:78px;height:78px;border-radius:20px;background:var(--white);
+    box-shadow:0 8px 18px rgba(26,58,95,.16);
+    overflow:hidden;padding:7px;transition:box-shadow .25s ease;
+  }
+  .topic .badge img{width:100%;height:100%;object-fit:contain;display:block;}
+  .topic .cap{
+    font-size:.8rem;font-weight:700;color:var(--main-navy);text-align:center;line-height:1.25;
+    text-shadow:0 1px 8px rgba(255,255,255,.75);
+  }
+  .topic:hover{transform:translateY(-3px) scale(1.05);}
+  .topic:focus-visible{outline:none;}
+  .topic:focus-visible .badge{box-shadow:0 0 0 3px var(--accent-blue);}
+  .topic.is-active{transform:translateY(-4px) scale(1.13);}
+  .topic.is-active .badge{box-shadow:0 0 0 3px var(--accent-blue),0 12px 22px rgba(26,58,95,.22);}
+
+  .hint{color:#33506a;font-size:.82rem;text-align:center;margin:0 0 24px;text-shadow:0 1px 8px rgba(255,255,255,.6);}
+  .hint kbd{
+    background:var(--main-navy);color:#fff;border-radius:5px;padding:1px 6px;
+    font-size:.74rem;font-family:inherit;font-weight:700;
+  }
+  .hint .gp-on{color:var(--tag-study);font-weight:700;}
+
+  /* =========================================================================
+     PANELS  ―  トピックごとの中身。1つだけ .is-active
+     ========================================================================= */
+  main{position:relative;}
+  .panel{display:none;}
+  .panel.is-active{display:block;animation:rise .42s cubic-bezier(.2,.7,.3,1);}
+  @keyframes rise{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+
+  .card-surface{
+    background:var(--card);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    border-radius:15px;padding:34px;box-shadow:0 10px 30px rgba(26,58,95,.10);
+  }
+  @media(max-width:600px){.card-surface{padding:22px 18px;}}
+
+  .panel h2{
+    margin:0 0 20px;font-size:1.5rem;color:var(--main-navy);
+    border-left:6px solid var(--main-navy);padding-left:14px;line-height:1.3;
+  }
+  .panel h3{color:var(--main-navy);margin:22px 0 6px;font-size:1.15rem;}
+  .panel .lead{font-size:1rem;color:#3a5568;margin-top:0;}
+  .panel a{color:var(--accent-blue);font-weight:600;}
+  .muted{color:#6a808d;font-size:.9rem;}
+  .todo{
+    display:inline-block;background:rgba(26,58,95,.07);border:1px dashed rgba(26,58,95,.32);
+    color:#5a7385;border-radius:8px;padding:2px 9px;font-size:.76rem;font-weight:700;
+  }
+
+  /* about */
+  .about-flex{display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;}
+  .about-flex .bio{flex:1;min-width:260px;}
+  .about-flex .portrait{flex:0 0 auto;text-align:center;}
+  .about-flex .portrait img{width:190px;height:190px;border-radius:20px;object-fit:cover;box-shadow:0 12px 26px rgba(26,58,95,.16);}
+  .about-flex .portrait video{width:150px;margin-top:14px;background:#fff;border-radius:14px;mix-blend-mode:multiply;}
+  .about-flex p{text-align:justify;}
+
+  /* tag chips */
+  .tag{
+    display:inline-block;padding:2px 10px;border-radius:6px;font-size:.72rem;color:#fff;
+    font-weight:700;width:fit-content;margin-bottom:12px;letter-spacing:.02em;
+  }
+  .bg-development{background:var(--tag-development);}
+  .bg-web{background:var(--tag-web);}
+  .bg-ml{background:var(--tag-ml);}
+  .bg-network{background:var(--tag-network);}
+  .bg-award{background:var(--tag-award);}
+  .bg-study{background:var(--tag-study);}
+  .bg-tech{background:var(--tag-tech);}
+  .bg-biz{background:var(--tag-biz);}
+  .bg-novel{background:var(--tag-novel);}
+  .bg-game{background:var(--tag-game);}
+  .bg-travel{background:var(--tag-travel);}
+  .bg-other{background:var(--tag-other);}
+
+  /* sort bar */
+  .sortbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;align-items:center;}
+  .sortbar .lbl{font-size:.8rem;color:#5a7385;font-weight:700;margin-right:2px;}
+  .sortbar button{
+    font-family:inherit;font-size:.82rem;font-weight:700;border:1px solid var(--line);
+    background:rgba(255,255,255,.8);color:var(--main-navy);border-radius:20px;
+    padding:6px 14px;cursor:pointer;transition:.2s;
+  }
+  .sortbar button:hover{background:#fff;}
+  .sortbar button.active{background:var(--main-navy);color:#fff;border-color:var(--main-navy);}
+
+  /* card grids */
+  .grid{display:grid;gap:20px;}
+  .grid.works{grid-template-columns:repeat(auto-fit,minmax(330px,1fr));}
+  .grid.books{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+  .grid.hobby{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+  .grid.links{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+  @media(max-width:600px){
+    .grid.works,.grid.hobby,.grid.links{grid-template-columns:1fr;}
+    .grid.books{grid-template-columns:1fr 1fr;}
+  }
+
+  .item{
+    background:var(--card-solid);border-radius:14px;padding:20px;
+    box-shadow:0 4px 14px rgba(26,58,95,.08);display:flex;flex-direction:column;
+    transition:transform .25s ease,box-shadow .25s ease;
+  }
+  .item.link-hover:hover{transform:translateY(-6px);box-shadow:0 12px 26px rgba(26,58,95,.14);}
+  .item h3{margin:0 0 8px;font-size:1.1rem;color:var(--main-navy);}
+  .item .meta{font-size:.78rem;color:var(--accent-blue);font-weight:700;margin-bottom:8px;}
+  .item .cat{display:flex;align-items:center;gap:7px;margin-bottom:10px;font-size:.78rem;font-weight:700;color:#4a6472;}
+  .item .cat .cat-icon{width:22px;height:22px;object-fit:contain;}
+  .item .summary{font-size:.9rem;color:#556;flex-grow:1;}
+  .item .more{margin-top:14px;text-align:right;font-size:.83rem;font-weight:700;color:var(--accent-blue);text-decoration:none;}
+  .item .more::after{content:" →";display:inline-block;transition:transform .25s;}
+  .item .more:hover::after{transform:translateX(4px);}
+  .item.disabled{opacity:.6;}
+
+  /* book cover (色付きの背表紙プレースホルダ / <img class="book-cover"> に差し替え可) */
+  .book-cover{
+    height:120px;border-radius:8px;margin-bottom:12px;display:flex;align-items:flex-end;padding:10px;
+    color:#fff;font-weight:800;font-size:.9rem;line-height:1.3;text-shadow:0 1px 4px rgba(0,0,0,.4);
+    background:linear-gradient(135deg,var(--c1,#4b0082),var(--c2,#2a0049));object-fit:cover;
+  }
+  img.book-cover{align-items:stretch;padding:0;}
+
+  /* gallery */
+  .gal-modes{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap;}
+  .gal-modes button{
+    font-family:inherit;font-weight:700;font-size:.9rem;cursor:pointer;border:1px solid var(--line);
+    background:rgba(255,255,255,.8);color:var(--main-navy);border-radius:24px;padding:10px 18px;transition:.2s;
+  }
+  .gal-modes button.active{background:var(--main-navy);color:#fff;border-color:var(--main-navy);}
+  .gal-view{display:none;}
+  .gal-view.active{display:block;animation:rise .4s ease;}
+
+  .place-pins{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+  .place-pins button{
+    font-family:inherit;font-size:.8rem;font-weight:700;cursor:pointer;border:1px solid var(--line);
+    background:rgba(255,255,255,.8);color:var(--main-navy);border-radius:16px;padding:5px 12px;
+  }
+  .place-pins button.active{background:var(--accent-blue);color:#fff;border-color:var(--accent-blue);}
+
+  .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;}
+  .photo{
+    aspect-ratio:1/1;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:700;font-size:.82rem;text-align:center;padding:8px;
+    text-shadow:0 1px 4px rgba(0,0,0,.35);
+    background:linear-gradient(135deg,var(--p1,#7c9cbf),var(--p2,#41597a));
+    background-size:cover;background-position:center;
+  }
+  .photo.has-img{color:transparent;text-shadow:none;}
+
+  .timeline{position:relative;padding:10px 6px 14px;overflow-x:auto;}
+  .timeline .rail{display:flex;gap:26px;min-width:min-content;}
+  .tl-year{flex:0 0 auto;width:150px;position:relative;padding-top:52px;}
+  .tl-year::before{content:"";position:absolute;top:34px;left:0;right:-26px;height:2px;background:rgba(26,58,95,.28);}
+  .tl-year::after{content:"";position:absolute;top:29px;left:0;width:12px;height:12px;border-radius:50%;background:var(--accent-blue);border:2px solid #fff;}
+  .tl-year .y{position:absolute;top:8px;left:0;font-weight:800;color:var(--main-navy);font-size:.95rem;}
+  .tl-year .thumb{
+    height:96px;border-radius:8px;margin-bottom:8px;color:#fff;font-size:.78rem;font-weight:700;
+    padding:8px;display:flex;align-items:flex-end;text-shadow:0 1px 4px rgba(0,0,0,.35);
+    background:linear-gradient(135deg,var(--p1),var(--p2));background-size:cover;background-position:center;
+  }
+
+  /* research */
+  .research-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:8px;}
+  .rbox{background:var(--card-solid);border-radius:14px;padding:20px;box-shadow:0 4px 14px rgba(26,58,95,.08);border-top:4px solid var(--accent-blue);}
+  .rbox h4{margin:0 0 8px;color:var(--main-navy);font-size:1.05rem;}
+  .rbox ul{margin:6px 0 0;padding-left:18px;font-size:.88rem;color:#556;}
+  .rbox ul li{margin-bottom:4px;}
+
+  footer.site{text-align:center;color:#5a7b9a;font-size:.8rem;margin-top:44px;}
+  footer.site a{color:var(--accent-blue);}
+
+  @media(max-width:600px){
+    header.site h1{font-size:2rem;}
+    .hint{font-size:.75rem;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .panel.is-active,.gal-view.active{animation:none;}
+    .topic{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- 背景アニメ（多色の墨流し）。中身は <script> の "flowing background" を参照 -->
+<div id="flow-wrap"><canvas id="flow"></canvas></div>
+<div id="flow-veil"></div>
+
+<div class="wrap">
+
+  <header class="site">
+    <div class="titles">
+      <h1>Quta's Portfolio</h1>
+      <p><strong>Quta</strong>のポートフォリオへようこそ！ / Welcome to Quta's portfolio.</p>
+      <p>Bienvenue sur les pages du portfolio de Quta !</p>
+    </div>
+    <img class="avatar" src="images/profile/avatar.jpeg" alt="Quta">
+  </header>
+
+  <!-- ===== TOPIC ICON ROW =====
+       各ボタンの data-topic が #ハッシュ・パネルID(panel-XXX) と対応。
+       アイコン画像は images/topics/<topic>.png を差し替えるだけでOK。 -->
+  <div class="topics-outer">
+    <nav class="topics" role="tablist" aria-label="トピック">
+      <button class="topic" role="tab" data-topic="about" aria-controls="panel-about">
+        <span class="badge"><img src="images/topics/about.png" alt=""></span><span class="cap">About</span>
+      </button>
+      <button class="topic" role="tab" data-topic="works" aria-controls="panel-works">
+        <span class="badge"><img src="images/topics/works.png" alt=""></span><span class="cap">Works</span>
+      </button>
+      <button class="topic" role="tab" data-topic="research" aria-controls="panel-research">
+        <span class="badge"><img src="images/topics/research.png" alt=""></span><span class="cap">Research</span>
+      </button>
+      <button class="topic" role="tab" data-topic="books" aria-controls="panel-books">
+        <span class="badge"><img src="images/topics/books.png" alt=""></span><span class="cap">Book History</span>
+      </button>
+      <button class="topic" role="tab" data-topic="gallery" aria-controls="panel-gallery">
+        <span class="badge"><img src="images/topics/gallery.png" alt=""></span><span class="cap">Picture Gallery</span>
+      </button>
+      <button class="topic" role="tab" data-topic="hobby" aria-controls="panel-hobby">
+        <span class="badge"><img src="images/topics/hobby.png" alt=""></span><span class="cap">Hobby</span>
+      </button>
+      <button class="topic" role="tab" data-topic="links" aria-controls="panel-links">
+        <span class="badge"><img src="images/topics/links.png" alt=""></span><span class="cap">Links</span>
+      </button>
+    </nav>
+  </div>
+
+  <p class="hint">
+    <kbd>←</kbd> <kbd>→</kbd> キー・スワイプ・コントローラーで切り替えできます
+    <span id="gp-status"></span>
+  </p>
+
+  <main>
+
+    <!-- ================= ABOUT ================= -->
+    <section id="panel-about" class="panel" role="tabpanel">
+      <div class="card-surface">
+        <h2>About</h2>
+        <div class="about-flex">
+          <div class="bio">
+            <h3>Quta</h3>
+            <p>関東の大学に通う、情報工学専攻の大学4年生です。</p>
+            <p>現在はコンピュータアーキテクチャ分野の研究室に所属しています。</p>
+            <p>低レイヤの技術やインフラ技術を中心に、AIやゲーム制作等、幅広く学んでいます。</p>
+            <h3>基本情報</h3>
+            <p><strong>出身地</strong>: 富山</p>
+            <p><strong>使用言語</strong>: Python, C, Java（2年以上使用） &gt; HTML, SQL, C#（ある程度使用） &gt; JavaScript, CSS, C++, Rust, Go, OCaml, Pascal（場面に応じて調べて使用、勉強中）</p>
+            <p><strong>アピールポイント</strong>: 3週間の留学経験有, フランス語サークル学生代表（1年間）, 5教科指導の塾講師（約3年間）</p>
+            <h3>資格・戦歴</h3>
+            <p>2025.10 <strong>TOEIC L&amp;R Score: 730</strong>（1年前から点数が下がったため、現在英語を再度勉強中）</p>
+            <p>2025.08 <strong>CG-ARTS検定 CGエンジニア検定エキスパート合格、画像処理エンジニア検定エキスパート合格</strong></p>
+            <p>2025.10 <strong>応用情報技術者試験</strong> 午前試験83.75%, 午後試験59.00% <strong>不合格</strong>（午後試験の1%差で不合格だったため、次回は必ず受かるように勉強中）</p>
+          </div>
+          <div class="portrait">
+            <img src="images/profile/avatar.jpeg" alt="Quta">
+            <video src="images/profile/slim.mp4" autoplay loop muted playsinline></video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= WORKS ================= -->
+    <section id="panel-works" class="panel" role="tabpanel">
+      <div class="card-surface">
+        <h2>Works</h2>
+        <p class="lead">制作物・研究の一覧です。カテゴリのアイコンと日付を付けています。解説内のリンクはそのまま押せます。</p>
+        <div class="sortbar" id="works-sort">
+          <span class="lbl">並び替え</span>
+          <button data-sort="new" class="active">新着順</button>
+          <button data-sort="category">カテゴリ順</button>
+          <button data-sort="reco">Qutaのおすすめ</button>
+        </div>
+        <div class="grid works" id="works-grid">
+
+          <div class="item link-hover" data-date="2026-01" data-category="Algorithm" data-reco="5">
+            <div class="cat"><img class="cat-icon" src="images/works/algorithm.png" alt="">Algorithm</div>
+            <h3>経路探索アルゴリズムの比較システム</h3>
+            <div class="meta">2026.01 更新</div>
+            <p class="summary">アルゴリズムの授業の課題を拡張する形で、最短経路探索アルゴリズムの性質の比較を行いました。</p>
+            <a class="more" href="https://github.com/Qutalize/Emergency_Route_Planner/tree/main" target="_blank" rel="noopener">GitHub で見る</a>
+          </div>
+
+          <div class="item link-hover" data-date="2026-11" data-category="Web" data-reco="4">
+            <div class="cat"><img class="cat-icon" src="images/works/web.png" alt="">Web Application</div>
+            <h3>AWSを用いた「SNSでバズった飲食店マップ」Webアプリケーション</h3>
+            <div class="meta">2026.11</div>
+            <p class="summary">大学の授業の一環として、AWSとSNSのAPIを用いて、最近SNSでバズった飲食店の位置を地図上に表示するWebアプリケーションを開発しました。</p>
+            <a class="more" href="folder/cloud_jikken.pdf" target="_blank" rel="noopener">レポートを見る</a>
+          </div>
+
+          <div class="item link-hover" data-date="2026-01" data-category="Award" data-reco="1">
+            <div class="cat"><img class="cat-icon" src="images/works/award.png" alt="">Award</div>
+            <h3>学内のAIコンペティション 3位入賞</h3>
+            <div class="meta">2026.01</div>
+            <p class="summary">2025年12月〜2026年1月に開催された大学機関主催 第1回メディカルAI開発コンペティションにおいて3位入賞しました。題材は脳波データから運動意図の判定を行うもので、データ拡張やアンサンブル学習を行いました。</p>
+            <a class="more" href="folder/202601.html">詳しく解説を見る</a>
+          </div>
+
+          <div class="item link-hover" data-date="2026-02" data-category="Machine Learning" data-reco="2">
+            <div class="cat"><img class="cat-icon" src="images/works/ml.png" alt="">Machine Learning</div>
+            <h3>アイスホッケーゲームにおける、強化学習と反実仮想機械学習の比較</h3>
+            <div class="meta">2026.02</div>
+            <p class="summary">古典の助動詞でしか「反実仮想」という単語を知らなかったが、機械学習分野にもこの語を含む単語が存在していると知り、その手法を学ぶとともに、聞きなじみのある強化学習と比較してみた。</p>
+            <a class="more" href="folder/202602ai.html" target="_blank" rel="noopener">詳しく解説を見る</a>
+          </div>
+
+          <div class="item link-hover" data-date="2026-02" data-category="Network" data-reco="3">
+            <div class="cat"><img class="cat-icon" src="images/works/network.png" alt="">Network</div>
+            <h3>ソケット通信を活用した2者間チャットシステム</h3>
+            <div class="meta">2026.02</div>
+            <p class="summary">Socket通信、Raw Socket通信を学習してC言語で実装し、同じ機能をGo言語でも実装して比較しました。</p>
+            <a class="more" href="https://github.com/Qutalize/Simple_P2P_chatsystem_C_Go/tree/main" target="_blank" rel="noopener">GitHub で見る</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RESEARCH ================= -->
+    <section id="panel-research" class="panel" role="tabpanel">
+      <div class="card-surface">
+        <h2>Research</h2>
+        <p class="lead">
+          自分がどうやって研究の分野やテーマを決めているのか、今なにを学んでいるのかを整理するページです。
+          自分自身が「なにに興味があって、なにをしているのか」を理解するための場所でもあります。
+        </p>
+        <h3>いまの立ち位置</h3>
+        <p>
+          所属：コンピュータアーキテクチャ分野の研究室。低レイヤ／インフラ技術を軸に、
+          そこから派生してグラフィックス・セキュリティ・ネットワークへ関心を広げています。
+          「授業で触れて面白かったもの」→「本や資料で深掘り」→「小さく実装して確かめる」という順で興味を固めています。
+        </p>
+        <div class="research-grid">
+          <div class="rbox">
+            <h4>Graphics</h4>
+            <p class="muted">CG-ARTS検定（CGエンジニア／画像処理）で基礎を固めた分野。</p>
+            <ul>
+              <li>読んだ論文・資料：<span class="todo">追記予定</span></li>
+              <li>気になっているテーマ：<span class="todo">追記予定</span></li>
+            </ul>
+          </div>
+          <div class="rbox">
+            <h4>Architecture</h4>
+            <p class="muted">研究室の主分野。ハードウェアとソフトウェアの境界に興味。</p>
+            <ul>
+              <li>読んでいる本：コンピュータの構成と設計 第6版 上</li>
+              <li>次に読む：<span class="todo">追記予定</span></li>
+            </ul>
+          </div>
+          <div class="rbox">
+            <h4>Security</h4>
+            <p class="muted">最近知って面白かった用語・概念を書き留める場所。</p>
+            <ul>
+              <li>最近知った用語：<span class="todo">追記予定</span></li>
+            </ul>
+          </div>
+          <div class="rbox">
+            <h4>Network / Infra</h4>
+            <p class="muted">ソケット通信の実装やAWSの学習から広がった関心。</p>
+            <ul>
+              <li>読んでいる本：図解TCP/IP ／ 図解AWS</li>
+              <li>作ったもの：C/Go による2者間チャット（Works 参照）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BOOK HISTORY ================= -->
+    <section id="panel-books" class="panel" role="tabpanel">
+      <div class="card-surface">
+        <h2>Book History</h2>
+        <p class="lead">読んだ本の記録です。コメントは「学んだこと」や「読んで感じたこと」。分量が多いものは別ページにする予定です。<span class="todo">書影は準備中</span></p>
+        <div class="sortbar" id="books-sort">
+          <span class="lbl">並び替え</span>
+          <button data-sort="date" class="active">日付順</button>
+          <button data-sort="kind">種類順</button>
+        </div>
+        <div class="grid books" id="books-grid">
+
+          <div class="item" data-date="2023-12-20" data-kind="1">
+            <div class="book-cover" style="--c1:#db7093;--c2:#8a2d55;">コンビニ人間</div>
+            <span class="tag bg-novel">小説</span>
+            <div class="meta">2023.12.20 読了</div>
+            <h3>コンビニ人間</h3>
+            <div class="cat">村田沙耶香</div>
+            <p class="summary">最後の講評の部分で、作品の文学的な深みに気付かずに読み通していたと感じ、そのまま2周目に入った。</p>
+          </div>
+
+          <div class="item" data-date="2025-12-05" data-kind="2">
+            <div class="book-cover" style="--c1:#2e8b57;--c2:#1c5637;">ソフトウェア開発の<br>ワークスタイル2030</div>
+            <span class="tag bg-biz">ビジネス</span>
+            <div class="meta">2025.12.05 読了</div>
+            <h3>ソフトウェア開発のワークスタイル2030</h3>
+            <div class="cat">斎藤忍</div>
+            <p class="summary">学内の講演会で配られたため読んだが、生成AIがIT業界の今後にどう影響していくかの見通しがより明確になった。</p>
+          </div>
+
+          <div class="item" data-date="2026-02-01" data-kind="3">
+            <div class="book-cover" style="--c1:#4b0082;--c2:#2a0049;">図解TCP/IP</div>
+            <span class="tag bg-tech">技術書</span>
+            <div class="meta">2026.02 読書中</div>
+            <h3>図解TCP/IP</h3>
+            <p class="summary"><span class="todo">まとめ作成中</span></p>
+          </div>
+
+          <div class="item" data-date="2026-02-01" data-kind="3">
+            <div class="book-cover" style="--c1:#3a5a9c;--c2:#1f3564;">リーダブルコード</div>
+            <span class="tag bg-tech">技術書</span>
+            <div class="meta">2026.02 読書中</div>
+            <h3>リーダブルコード</h3>
+            <p class="summary"><span class="todo">まとめ作成中</span></p>
+          </div>
+
+          <div class="item" data-date="2026-02-01" data-kind="3">
+            <div class="book-cover" style="--c1:#5a3a1c;--c2:#33200f;">コンピュータの構成と設計<br>第6版 上</div>
+            <span class="tag bg-tech">技術書</span>
+            <div class="meta">2026.02 読書中</div>
+            <h3>コンピュータの構成と設計 第6版 上</h3>
+            <p class="summary"><span class="todo">まとめ作成中</span></p>
+          </div>
+
+          <div class="item" data-date="2026-02-01" data-kind="3">
+            <div class="book-cover" style="--c1:#1c6e6e;--c2:#0f4141;">プログラミングコンテスト<br>チャレンジブック 第2版</div>
+            <span class="tag bg-tech">技術書</span>
+            <div class="meta">2026.02 読書中</div>
+            <h3>プログラミングコンテストチャレンジブック 第2版</h3>
+            <p class="summary"><span class="todo">まとめ作成中</span></p>
+          </div>
+
+          <div class="item" data-date="2026-02-01" data-kind="3">
+            <div class="book-cover" style="--c1:#b06a1e;--c2:#6e3f10;">図解AWS</div>
+            <span class="tag bg-tech">技術書</span>
+            <div class="meta">2026.02 読書中</div>
+            <h3>図解AWS 仕組みとサービスがたった1日でよくわかる</h3>
+            <p class="summary"><span class="todo">まとめ作成中</span></p>
+          </div>
+
+          <div class="item" data-date="2026-02-15" data-kind="1">
+            <div class="book-cover" style="--c1:#222b45;--c2:#0c1024;">三体</div>
+            <span class="tag bg-novel">小説</span>
+            <div class="meta">2026.02 読書中</div>
+            <h3>三体</h3>
+            <div class="cat">劉慈欣</div>
+            <p class="summary"><span class="todo">読書中</span></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PICTURE GALLERY ================= -->
+    <section id="panel-gallery" class="panel" role="tabpanel">
+      <div class="card-surface">
+        <h2>Picture Gallery</h2>
+        <p class="lead">
+          白い部屋の3D GUI版は将来の実装予定。まずは2D版です。
+          机の上の「地球儀」＝撮った<strong>場所</strong>で見る、「木」＝<strong>時系列</strong>で見る、という2つの入り口です。
+          <span class="todo">写真は準備中</span>
+        </p>
+        <div class="gal-modes" id="gal-modes">
+          <button data-view="globe" class="active">🌍 場所で見る</button>
+          <button data-view="tree">🌳 時系列で見る</button>
+        </div>
+
+        <div class="gal-view active" id="gv-globe">
+          <div class="place-pins" id="place-pins">
+            <button data-place="all" class="active">すべて</button>
+            <button data-place="toyama">富山</button>
+            <button data-place="kanto">関東</button>
+            <button data-place="lyon">リヨン</button>
+            <button data-place="paris">パリ</button>
+            <button data-place="taiwan">台湾</button>
+          </div>
+          <div class="photo-grid" id="photo-grid"></div>
+        </div>
+
+        <div class="gal-view" id="gv-tree">
+          <div class="timeline">
+            <div class="rail">
+              <div class="tl-year"><span class="y">2015</span><div class="thumb" style="--p1:#7c9cbf;--p2:#41597a;">富山の風景</div></div>
+              <div class="tl-year"><span class="y">2017</span><div class="thumb" style="--p1:#6ea9a9;--p2:#3a6b6b;">高校時代</div></div>
+              <div class="tl-year"><span class="y">2019</span><div class="thumb" style="--p1:#b48ac0;--p2:#6e4b7a;">大学入学</div></div>
+              <div class="tl-year"><span class="y">2022</span><div class="thumb" style="--p1:#c0a36a;--p2:#7a6438;">研究室配属前後</div></div>
+              <div class="tl-year"><span class="y">2024</span><div class="thumb" style="--p1:#c98a6a;--p2:#7a4b38;">フランス留学</div></div>
+              <div class="tl-year"><span class="y">2025</span><div class="thumb" style="--p1:#6a8ac9;--p2:#38517a;">台湾旅行</div></div>
+              <div class="tl-year"><span class="y">2026</span><div class="thumb" style="--p1:#8ac96a;--p2:#4b7a38;">いま</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOBBY ================= -->
+    <section id="panel-hobby" class="panel" role="tabpanel">
+      <div class="card-surface">
+        <h2>Hobby</h2>
+        <p class="lead">趣味の一覧です。</p>
+        <div class="grid hobby">
+
+          <div class="item">
+            <span class="tag bg-game">Game</span>
+            <h3>ゲーム</h3>
+            <p class="summary">
+              主にPlayStation 4/5でRPGやアクションゲームを楽しんでいます。<br>
+              <strong>現在プレイ中</strong>：ドラクエ3リメイク、モンハンワイルズ<br>
+              <strong>過去プレイ</strong>：FF10, 15, 16, 7Remake, タクティクス, DQ1, 5, 8, 11, オクトラ, モンハンWorld, APEX, Horizon, Elden Ring, スーパーマリオ など<br>
+              <strong>プレイしたい</strong>：DQ7 Remake
+            </p>
+          </div>
+
+          <div class="item">
+            <span class="tag bg-travel">Studying in France</span>
+            <h3>フランス留学（2024.02）</h3>
+            <p class="summary">フランス・リヨンの大学に3週間ほど留学しました。文化交流やフィールドワーク、低電力通信に関する講義を受け、週末はパリ観光などを楽しみました。</p>
+          </div>
+
+          <div class="item">
+            <span class="tag bg-travel">Trip to Taiwan</span>
+            <h3>台湾旅行（2025.03）</h3>
+            <p class="summary">家族と2泊3日の台湾旅行に行きました。料理が特に美味しくて、好物のルーロー飯は4回も食べました。</p>
+          </div>
+
+          <div class="item">
+            <span class="tag bg-other">Programming</span>
+            <h3>面白いUIづくり（2026.02）</h3>
+            <p class="summary">
+              Web技術を使ったゲームやインタラクションを作っています。ホーム背景の墨流し風アニメーションや、旧サイトの「鬼ごっこ」ゲームなどはその一例です。<br>
+              ホーム画面のスライムの映像は、手描きしたスライムをSoraにアニメ化してもらいました（※足が生えて蛙みたいになる沼にはまり、想像通りの動きにするのが難しかった）。
+            </p>
+          </div>
+
+          <div class="item disabled">
+            <span class="tag bg-other">Cooking</span>
+            <h3>料理</h3>
+            <p class="summary"><span class="todo">準備中</span></p>
+          </div>
+
+          <div class="item disabled">
+            <span class="tag bg-other">Movie</span>
+            <h3>映画</h3>
+            <p class="summary"><span class="todo">準備中</span></p>
+          </div>
+
+          <div class="item disabled">
+            <span class="tag bg-other">YouTube</span>
+            <h3>YouTube</h3>
+            <p class="summary"><span class="todo">準備中</span></p>
+          </div>
+
+          <div class="item disabled">
+            <span class="tag bg-other">Music</span>
+            <h3>音楽</h3>
+            <p class="summary"><span class="todo">準備中</span></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LINKS ================= -->
+    <section id="panel-links" class="panel" role="tabpanel">
+      <div class="card-surface">
+        <h2>Links</h2>
+        <div class="grid links">
+
+          <a class="item link-hover" href="https://github.com/Qutalize" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+            <span class="tag" style="background:#24292e;">GitHub</span>
+            <h3>GitHub</h3>
+            <div class="meta">github.com/Qutalize</div>
+            <p class="summary">これまでに開発したプロジェクトのソースコードや、個人開発のリポジトリを公開しています。</p>
+          </a>
+
+          <a class="item link-hover" href="https://atcoder.jp/users/quta" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+            <span class="tag" style="background:#333;">AtCoder</span>
+            <h3>AtCoder</h3>
+            <div class="meta">atcoder.jp/users/quta</div>
+            <p class="summary">競技プログラミングのコンテストにほぼ毎週参加しています。現在のレートや回答履歴はこちら。</p>
+          </a>
+
+          <div class="item disabled">
+            <span class="tag" style="background:#111;">X</span>
+            <h3>X (Twitter)</h3>
+            <p class="summary"><span class="todo">準備中</span></p>
+          </div>
+
+          <div class="item disabled">
+            <span class="tag" style="background:var(--accent-blue);">Lab</span>
+            <h3>研究室</h3>
+            <p class="summary"><span class="todo">準備中</span></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site">© <span id="year"></span> Quta — 旧サイトは <a href="old_site/index.html">old_site/</a> に保管しています。</footer>
+
+</div>
+
+<script>
+/* ===========================================================================
+   全体構成は STRUCTURE.md を参照。以下は 6 ブロック:
+   (1) flowing background  (2) topic switching  (3) keyboard / swipe
+   (4) gamepad  (5) sort (works / books)  (6) gallery
+   =========================================================================== */
+(function(){
+  "use strict";
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ---------- (1) flowing background : 墨流し / マーブル -------------------
+     低解像度 canvas に per-pixel で描画:
+       ・domain-warp した value noise (fbm) を「紺→黒→灰→水色→白」ランプへ
+       ・別の ridged noise で「金の筋(ヴェイン)」を上乗せ
+     CSS で全画面へ引き伸ばすことで滑らかに見せる。時間で warp をずらして流動。
+     色みは RAMP と GOLD、流れる速さは draw() 内の t 係数で調整。            */
+  var cv = document.getElementById('flow');
+  var ctx = cv.getContext('2d');
+  var W, H, imgData, buf;
+
+  var RAMP = [               /* [位置0-1, r, g, b] : 紺黒 → 紺 → 灰 → 水色 → 白 */
+    [0.00,   6,  14,  28],
+    [0.20,  14,  40,  74],
+    [0.40,  68,  99, 127],
+    [0.58, 140, 175, 203],
+    [0.76, 205, 223, 236],
+    [1.00, 248, 250, 252]
+  ];
+  var GOLD = [193, 152, 66], GOLD_HI = [244, 223, 150];
+
+  function hash2(x, y){
+    var n = (x * 374761393 + y * 668265263) | 0;
+    n = ((n ^ (n >>> 13)) * 1274126177) | 0;
+    return ((n ^ (n >>> 16)) >>> 0) / 4294967295;
+  }
+  function vnoise(x, y){
+    var xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi;
+    var u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+    var a = hash2(xi, yi), b = hash2(xi + 1, yi), c = hash2(xi, yi + 1), d = hash2(xi + 1, yi + 1);
+    return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
+  }
+  function fbm(x, y){
+    var s = 0, amp = 0.5, f = 1;
+    for (var i = 0; i < 4; i++){ s += amp * vnoise(x * f, y * f); f *= 2; amp *= 0.5; }
+    return s;
+  }
+  function sstep(a, b, x){ x = (x - a) / (b - a); return x < 0 ? 0 : x > 1 ? 1 : x * x * (3 - 2 * x); }
+  function ramp(t){
+    for (var i = 1; i < RAMP.length; i++){
+      if (t <= RAMP[i][0]){
+        var p = RAMP[i - 1], q = RAMP[i], k = (t - p[0]) / (q[0] - p[0]);
+        return [p[1] + (q[1] - p[1]) * k, p[2] + (q[2] - p[2]) * k, p[3] + (q[3] - p[3]) * k];
+      }
+    }
+    return [247, 250, 252];
+  }
+
+  function resize(){
+    W = cv.width  = Math.max(60, Math.min(170, Math.round(window.innerWidth / 11)));
+    H = cv.height = Math.max(40, Math.round(W * window.innerHeight / window.innerWidth));
+    imgData = ctx.createImageData(W, H);
+    buf = imgData.data;
+  }
+  function draw(now){
+    var t = now / 1000;
+    var sc = 2.3 / W;
+    var p = 0;
+    for (var y = 0; y < H; y++){
+      for (var x = 0; x < W; x++){
+        var xs = x * sc, ys = y * sc;
+        var wx = fbm(xs * 0.8 + 11.2 + t * 0.045, ys * 0.8 + 3.1);
+        var wy = fbm(xs * 0.8 - 7.4, ys * 0.8 - 2.0 + t * 0.037);
+        var dx = xs + wx * 2.2, dy = ys + wy * 2.2 - dx * 0.35;   /* 斜め方向の流れ */
+        var n = fbm(dx + t * 0.020, dy - t * 0.015);
+        n = n * 0.94 + 0.05; n = n < 0 ? 0 : n > 1 ? 1 : n;
+        var col = ramp(n);
+        var r = fbm(dx * 1.3 - t * 0.028, dy * 1.3 + 9.0);
+        var ridge = 1 - Math.abs(2 * r - 1);
+        ridge = ridge * ridge;                                   /* 筋を細く */
+        var streak = 0.32 + 0.68 * sstep(0.38, 0.74, fbm(xs * 0.45 - 3.0, ys * 0.45 + 5.0 + t * 0.012));
+        var g = sstep(0.70, 0.97, ridge) * sstep(0.30, 0.66, n) * streak;
+        if (g > 0){
+          var hi = sstep(0.88, 1.0, ridge);
+          var gr = GOLD[0] + (GOLD_HI[0] - GOLD[0]) * hi;
+          var gg = GOLD[1] + (GOLD_HI[1] - GOLD[1]) * hi;
+          var gb = GOLD[2] + (GOLD_HI[2] - GOLD[2]) * hi;
+          col[0] += (gr - col[0]) * g; col[1] += (gg - col[1]) * g; col[2] += (gb - col[2]) * g;
+        }
+        buf[p++] = col[0] | 0; buf[p++] = col[1] | 0; buf[p++] = col[2] | 0; buf[p++] = 255;
+      }
+    }
+    ctx.putImageData(imgData, 0, 0);
+  }
+  var running = true, lastFrame = 0;
+  function loop(now){
+    if (!running) return;
+    if (now - lastFrame >= 70){ lastFrame = now; draw(now); }   /* ≒14fps */
+    requestAnimationFrame(loop);
+  }
+  resize();
+  draw(0);   /* 初回フレームを即描画（rAF待ちの一瞬の単色を防ぐ） */
+  window.addEventListener('resize', function(){ resize(); draw(performance.now()); });
+  document.addEventListener('visibilitychange', function(){
+    running = !document.hidden && !reduce;
+    if (running) requestAnimationFrame(loop);
+  });
+  if (reduce){ draw(1200); } else { requestAnimationFrame(loop); }
+
+  /* ---------- (2) topic switching --------------------------------------- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.topic'));
+  var order = tabs.map(function(t){ return t.dataset.topic; });
+  var panels = {};
+  order.forEach(function(id){ panels[id] = document.getElementById('panel-' + id); });
+  var current = 0;
+
+  function activate(idx, opts){
+    opts = opts || {};
+    idx = (idx + order.length) % order.length;
+    current = idx;
+    var id = order[idx];
+    tabs.forEach(function(t, i){
+      var on = i === idx;
+      t.classList.toggle('is-active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.setAttribute('tabindex', on ? '0' : '-1');
+    });
+    order.forEach(function(pid){ panels[pid].classList.toggle('is-active', pid === id); });
+
+    var nav = document.querySelector('nav.topics');
+    var t = tabs[idx];
+    nav.scrollTo({ left: t.offsetLeft - (nav.clientWidth - t.clientWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+    if (!opts.initial){
+      var anchor = document.querySelector('.topics-outer').offsetTop - 14;
+      if (Math.abs(window.scrollY - anchor) > 4) window.scrollTo({ top: anchor, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    if (opts.focus) t.focus({ preventScroll: true });
+    if (history.replaceState) history.replaceState(null, '', '#' + id); else location.hash = id;
+  }
+
+  tabs.forEach(function(t, i){ t.addEventListener('click', function(){ activate(i); }); });
+
+  /* ---------- (3) keyboard / swipe ------------------------------------- */
+  document.addEventListener('keydown', function(e){
+    var tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || e.target.isContentEditable) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown'){ e.preventDefault(); activate(current + 1, {focus:true}); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp'){ e.preventDefault(); activate(current - 1, {focus:true}); }
+    else if (e.key === 'Home'){ e.preventDefault(); activate(0, {focus:true}); }
+    else if (e.key === 'End'){ e.preventDefault(); activate(order.length - 1, {focus:true}); }
+  });
+
+  var mainEl = document.querySelector('main');
+  var tsx = 0, tsy = 0;
+  mainEl.addEventListener('touchstart', function(e){ tsx = e.changedTouches[0].clientX; tsy = e.changedTouches[0].clientY; }, {passive:true});
+  mainEl.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - tsx, dy = e.changedTouches[0].clientY - tsy;
+    if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.6) activate(current + (dx < 0 ? 1 : -1));
+  }, {passive:true});
+
+  function fromHash(initial){
+    var i = order.indexOf((location.hash || '').replace('#', ''));
+    activate(i >= 0 ? i : 0, { initial: !!initial });
+  }
+  window.addEventListener('hashchange', function(){ fromHash(false); });
+  fromHash(true);
+
+  /* ---------- (4) gamepad (PS5 など) ---------------------------------- */
+  var gpStatus = document.getElementById('gp-status');
+  var gpIndex = null, gpCooldown = 0;
+  window.addEventListener('gamepadconnected', function(e){
+    gpIndex = e.gamepad.index;
+    gpStatus.innerHTML = ' &nbsp;<span class="gp-on">🎮 コントローラー接続中</span>';
+    requestAnimationFrame(pollGamepad);
+  });
+  window.addEventListener('gamepaddisconnected', function(){ gpIndex = null; gpStatus.textContent = ''; });
+  function pollGamepad(){
+    if (gpIndex === null) return;
+    var gp = (navigator.getGamepads ? navigator.getGamepads() : [])[gpIndex];
+    if (gp){
+      var now = performance.now(), ax = gp.axes[0] || 0;
+      var left  = (gp.buttons[14] && gp.buttons[14].pressed) || ax < -0.6;
+      var right = (gp.buttons[15] && gp.buttons[15].pressed) || ax > 0.6;
+      if (now > gpCooldown){
+        if (right){ activate(current + 1); gpCooldown = now + 320; }
+        else if (left){ activate(current - 1); gpCooldown = now + 320; }
+      }
+    }
+    requestAnimationFrame(pollGamepad);
+  }
+
+  /* ---------- (5) sort : works / books ------------------------------- */
+  var catOrder = ['Award','Machine Learning','Network','Algorithm','Web'];
+  function reorder(gridId, barId, keyFns){
+    var grid = document.getElementById(gridId), bar = document.getElementById(barId);
+    var items = Array.prototype.slice.call(grid.children);
+    function apply(k){ items.slice().sort(keyFns[k]).forEach(function(el){ grid.appendChild(el); }); }
+    bar.addEventListener('click', function(e){
+      var btn = e.target.closest('button'); if (!btn) return;
+      bar.querySelectorAll('button').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      apply(btn.dataset.sort);
+    });
+    var act = bar.querySelector('button.active');
+    if (act) apply(act.dataset.sort);
+  }
+  reorder('works-grid', 'works-sort', {
+    'new':      function(a,b){ return b.dataset.date.localeCompare(a.dataset.date); },
+    'category': function(a,b){ return catOrder.indexOf(a.dataset.category) - catOrder.indexOf(b.dataset.category); },
+    'reco':     function(a,b){ return (+a.dataset.reco) - (+b.dataset.reco); }
+  });
+  reorder('books-grid', 'books-sort', {
+    'date': function(a,b){ return b.dataset.date.localeCompare(a.dataset.date); },
+    'kind': function(a,b){ return (+a.dataset.kind) - (+b.dataset.kind) || b.dataset.date.localeCompare(a.dataset.date); }
+  });
+
+  /* ---------- (6) gallery -------------------------------------------- */
+  /* photo: {p:場所キー, t:キャプション, c1/c2:プレースホルダ色, img?:'images/gallery/xxx.jpg'} */
+  var photos = [
+    {p:'toyama', t:'富山の実家周辺', c1:'#7c9cbf', c2:'#41597a'},
+    {p:'toyama', t:'立山連峰',       c1:'#8fb0c9', c2:'#4a6e8a'},
+    {p:'kanto',  t:'大学キャンパス', c1:'#b48ac0', c2:'#6e4b7a'},
+    {p:'kanto',  t:'研究室',         c1:'#9a86c0', c2:'#5a4b7a'},
+    {p:'lyon',   t:'リヨンの街並み', c1:'#c98a6a', c2:'#7a4b38'},
+    {p:'lyon',   t:'大学での講義',   c1:'#c0a36a', c2:'#7a6438'},
+    {p:'paris',  t:'エッフェル塔',   c1:'#6a8ac9', c2:'#38517a'},
+    {p:'paris',  t:'ルーヴル',       c1:'#6ea9a9', c2:'#3a6b6b'},
+    {p:'taiwan', t:'台北の夜市',     c1:'#c9736a', c2:'#7a3a38'},
+    {p:'taiwan', t:'ルーロー飯',     c1:'#c0906a', c2:'#7a5638'}
+  ];
+  var photoGrid = document.getElementById('photo-grid');
+  function renderPhotos(place){
+    photoGrid.innerHTML = '';
+    photos.filter(function(ph){ return place === 'all' || ph.p === place; }).forEach(function(ph){
+      var d = document.createElement('div');
+      d.className = 'photo';
+      if (ph.img){ d.style.backgroundImage = 'url(' + ph.img + ')'; d.classList.add('has-img'); }
+      else { d.style.setProperty('--p1', ph.c1); d.style.setProperty('--p2', ph.c2); }
+      d.textContent = ph.t;
+      photoGrid.appendChild(d);
+    });
+  }
+  renderPhotos('all');
+  document.getElementById('place-pins').addEventListener('click', function(e){
+    var btn = e.target.closest('button'); if (!btn) return;
+    this.querySelectorAll('button').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    renderPhotos(btn.dataset.place);
+  });
+  document.getElementById('gal-modes').addEventListener('click', function(e){
+    var btn = e.target.closest('button'); if (!btn) return;
+    this.querySelectorAll('button').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById('gv-globe').classList.toggle('active', btn.dataset.view === 'globe');
+    document.getElementById('gv-tree').classList.toggle('active', btn.dataset.view === 'tree');
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

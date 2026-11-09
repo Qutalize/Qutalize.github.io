@@ -1,0 +1,27 @@
+{
+  "id": "vector-exercises",
+  "collection": "books",
+  "title": "ベクトル解析 — 演習と応用",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "数学"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "寺田文行 / 福田隆",
+  "isbn": "9784781909509",
+  "publicationDate": "2000.5",
+  "edition": "",
+  "publisher": "サイエンス社",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I000002898697",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000002898697",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://saiensu.co.jp/search/?isbn=978-4-7819-0950-9&y=2000",
+  "coverImageUrl": "https://saiensu.co.jp/bookImages/2000-978-4-7819-0950-9.jpg",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2025-01-25"
+}

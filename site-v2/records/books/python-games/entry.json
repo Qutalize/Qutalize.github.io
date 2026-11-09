@@ -1,0 +1,27 @@
+{
+  "id": "python-games",
+  "collection": "books",
+  "title": "はじめるPython!",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "Python"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "金宏和實",
+  "isbn": "9784822254568",
+  "publicationDate": "2018.9",
+  "edition": "",
+  "publisher": "日経BP社 / 日経BPマーケティング (発売)",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I029203042",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I029203042",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784822254568",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784822254568_600.jpg?lastupdated=2018-09-10T16%3A42%3A45%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2024-10-02"
+}

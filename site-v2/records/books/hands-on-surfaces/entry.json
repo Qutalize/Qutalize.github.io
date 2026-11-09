@@ -1,0 +1,27 @@
+{
+  "id": "hands-on-surfaces",
+  "collection": "books",
+  "title": "手を動かしてまなぶ曲線と曲面",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "数学"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "藤岡敦",
+  "isbn": "9784785315986",
+  "publicationDate": "2023.9",
+  "edition": "",
+  "publisher": "裳華房",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I033025267",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I033025267",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784785315986",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784785315986_600.jpg?lastupdated=2023-12-26T15%3A01%3A57%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2025-01-25"
+}

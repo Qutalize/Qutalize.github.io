@@ -1,0 +1,38 @@
+{
+  "id": "partnerbot",
+  "collection": "works",
+  "title": "パートナーBot — 声と記憶のある日常の相棒",
+  "description": "AWS Summit Japan 2026 AI-DLCハッカソンのテーマから生まれた企画。会話と記憶、キャラクター表現、食事の提案や朝の声かけを組み合わせる構想です。公開リポジトリのREADMEと設計資料をもとにした概要で、各機能の実装完了を示すものではありません。",
+  "tags": [
+    "AI",
+    "AWS",
+    "企画",
+    "ハッカソン"
+  ],
+  "date": "",
+  "meta": "企画・設計資料",
+  "image": "",
+  "imageType": "pictogram",
+  "url": "https://github.com/Qutalize/PartnerBot",
+  "source": "公開GitHub README / PartnerBot",
+  "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+  "outline": {
+    "purpose": "",
+    "role": "",
+    "highlights": [],
+    "results": "",
+    "nextSteps": ""
+  },
+  "links": [],
+  "hidden": true,
+  "repositoryUpdatedAt": "2026-05-08",
+  "fields": [
+    "AI",
+    "企画",
+    "ハッカソン"
+  ],
+  "techStack": [
+    "AWS"
+  ],
+  "achievements": []
+}

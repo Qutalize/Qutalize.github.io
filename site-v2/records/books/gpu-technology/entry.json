@@ -1,0 +1,29 @@
+{
+  "id": "gpu-technology",
+  "title": "GPUを支える技術［増補改訂版］",
+  "author": "Hisa Ando",
+  "isbn": "9784297119546",
+  "publicationDate": "2021-03-18",
+  "edition": "増補改訂版",
+  "publisher": "技術評論社",
+  "tags": [
+    "GPU",
+    "3D",
+    "アーキテクチャ"
+  ],
+  "description": "GPUの超並列処理を支えるハードウェア構成と、グラフィックス・汎用計算の仕組みを学ぶ技術書。",
+  "url": "https://gihyo.jp/book/2021/978-4-297-11954-6",
+  "coverImageUrl": "https://gihyo.jp/assets/images/cover/2021/thumb/TH800_9784297119546.jpg",
+  "coverRetrievedAt": "2026-11-07",
+  "bibliographySource": "https://gihyo.jp/book/2021/978-4-297-11954-6",
+  "meta": "読書メモ準備中",
+  "image": "cover.jpg",
+  "source": "本人提供の書籍一覧（2026年11月追加）",
+  "coverStatus": "取得済み",
+  "collection": "books",
+  "date": "",
+  "coverSource": "https://gihyo.jp/book/2021/978-4-297-11954-6",
+  "imageType": "cover",
+  "urlLabel": "書誌情報を読む",
+  "returnDate": "2026-10-08"
+}

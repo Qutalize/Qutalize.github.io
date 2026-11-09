@@ -1,0 +1,29 @@
+{
+  "id": "chat",
+  "collection": "works",
+  "title": "ソケット通信を活用した2者間チャットシステム",
+  "description": "Socket通信、Raw Socket通信を学習してC言語で実装し、同じ機能をGo言語でも実装して比較しました。",
+  "tags": [
+    "ネットワーク",
+    "C",
+    "Go"
+  ],
+  "image": "screenshot.png",
+  "url": "https://github.com/Qutalize/Simple_P2P_chatsystem_C_Go/tree/main",
+  "date": "2026-02",
+  "meta": "2026.02",
+  "source": "index.html / Works",
+  "imageType": "photo",
+  "repositoryUrl": "https://github.com/Qutalize/Simple_P2P_chatsystem_C_Go",
+  "imageFit": "contain",
+  "imageSource": "本人提供の画像・動画（2026-11-07）",
+  "repositoryUpdatedAt": "2026-03-29",
+  "fields": [
+    "ネットワーク"
+  ],
+  "techStack": [
+    "C",
+    "Go"
+  ],
+  "achievements": []
+}

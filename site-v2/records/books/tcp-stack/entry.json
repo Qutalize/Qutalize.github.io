@@ -1,0 +1,27 @@
+{
+  "id": "tcp-stack",
+  "collection": "books",
+  "title": "ゼロからのTCP/IPプロトコルスタック自作入門",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "ネットワーク"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "山本雅也",
+  "isbn": "9784839981242",
+  "publicationDate": "2025.11",
+  "edition": "",
+  "publisher": "マイナビ出版",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I034407051",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I034407051",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784839981242",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784839981242_600.jpg?lastupdated=2025-11-13T11%3A28%3A57%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "readDate": "2026-07"
+}

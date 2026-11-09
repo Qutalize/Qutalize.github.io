@@ -1,0 +1,27 @@
+{
+  "id": "digital-games",
+  "collection": "books",
+  "title": "Understanding digital games",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "ゲーム"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "Jason Rutter / Jo Bryce 編",
+  "isbn": "9781412900348",
+  "publicationDate": "2006",
+  "edition": "",
+  "publisher": "Sage Publications",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000136-I1970304959872919724",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000136-I1970304959872919724",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverImageUrl": "https://cmn-cdn-001.sagepub.com/books/titles/226476/cov_sb1_156213.jpg",
+  "coverSource": "https://www.sagepub.com/shop/buy-a-book/understanding-digital-games-1-226476",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2023-10-26"
+}

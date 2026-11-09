@@ -1,0 +1,29 @@
+{
+  "id": "sre-knowledge-map",
+  "title": "SREの知識地図",
+  "subtitle": "基礎知識から現場での実践まで",
+  "author": "北野勝久・近藤健司・小林良太郎・渡部龍一・齊藤拓朗・柘植翔太・横山達男",
+  "isbn": "9784297150723",
+  "publicationDate": "2025-09-10",
+  "publisher": "技術評論社",
+  "tags": [
+    "SRE",
+    "インフラ",
+    "設計"
+  ],
+  "description": "サービスの信頼性を支えるSREの基礎知識から、現場への導入・実践までを整理する技術書。",
+  "url": "https://gihyo.jp/book/2025/978-4-297-15072-3",
+  "coverImageUrl": "https://gihyo.jp/assets/images/cover/2025/9784297150723.jpg",
+  "coverRetrievedAt": "2026-11-07",
+  "bibliographySource": "https://gihyo.jp/book/2025/978-4-297-15072-3",
+  "meta": "読書メモ準備中",
+  "image": "cover.jpg",
+  "source": "本人提供の書籍一覧（2026年11月追加）",
+  "coverStatus": "取得済み",
+  "collection": "books",
+  "date": "",
+  "coverSource": "https://gihyo.jp/book/2025/978-4-297-15072-3",
+  "imageType": "cover",
+  "urlLabel": "書誌情報を読む",
+  "returnDate": "2026-10-07"
+}

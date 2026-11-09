@@ -1,0 +1,27 @@
+{
+  "id": "toefl-listening",
+  "collection": "books",
+  "title": "完全攻略!TOEFL ITPテストリスニング 改訂版",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "英語"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "岩村圭南 監修・解説 / ICU TOEFLテスト問題研究会 問題作成",
+  "isbn": "9784757440098",
+  "publicationDate": "2022.11",
+  "edition": "改訂版",
+  "publisher": "アルク",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I032452092",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I032452092",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.hanmoto.com/bd/isbn/9784757440098",
+  "coverImageUrl": "https://img.hanmoto.com/bd/img/9784757440098_600.jpg?lastupdated=2024-11-15T11%3A05%3A53%2B09%3A00",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2026-05-07"
+}

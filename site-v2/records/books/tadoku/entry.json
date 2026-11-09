@@ -1,0 +1,28 @@
+{
+  "id": "tadoku",
+  "collection": "books",
+  "title": "多聴多読マガジン 2019年11月号別冊 — 海外ドラマで英語をモノにする!",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "英語"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "コスモピア編集部",
+  "isbn": "",
+  "publicationDate": "2019-10-19",
+  "edition": "",
+  "publisher": "コスモピア",
+  "bibliographySource": "https://ci.nii.ac.jp/ncid/BB2941218X",
+  "url": "https://www.cosmopier.com/eio/backnum/backnum_201911_dramadeeigo.html",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverImageUrl": "https://www.cosmopier.com/images/top/mag_doramadeeigo.jpg",
+  "coverSource": "https://www.cosmopier.com/eio/backnum/backnum_201911_dramadeeigo.html",
+  "coverRetrievedAt": "2026-09-14",
+  "issue": "第14巻第2号・通巻86号 / 2019年11月号別冊",
+  "returnDate": "2023-10-10"
+}

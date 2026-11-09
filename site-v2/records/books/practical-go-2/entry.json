@@ -1,0 +1,29 @@
+{
+  "id": "practical-go-2",
+  "title": "実用Go言語 第2版",
+  "author": "渋川よしき・辻大志郎・真野隼記・後藤玲雄",
+  "isbn": "9784814401369",
+  "publicationDate": "2025-12-01",
+  "edition": "第2版",
+  "publisher": "オライリー・ジャパン",
+  "tags": [
+    "Go",
+    "設計",
+    "技術書"
+  ],
+  "description": "Goによるシステム開発の現場で役立つ実装・設計の考え方と、実践的な開発の進め方を扱う。",
+  "url": "https://www.oreilly.co.jp/books/9784814401369/",
+  "coverImageUrl": "https://www.oreilly.co.jp/books/images/picture_large978-4-8144-0136-9.jpeg",
+  "coverRetrievedAt": "2026-11-07",
+  "bibliographySource": "https://www.oreilly.co.jp/books/9784814401369/",
+  "meta": "読書メモ準備中",
+  "image": "cover.jpg",
+  "source": "本人提供の書籍一覧（2026年11月追加）",
+  "coverStatus": "取得済み",
+  "collection": "books",
+  "date": "",
+  "coverSource": "https://www.oreilly.co.jp/books/9784814401369/",
+  "imageType": "cover",
+  "urlLabel": "書誌情報を読む",
+  "returnDate": "2026-10-07"
+}

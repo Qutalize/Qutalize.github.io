@@ -1,0 +1,39 @@
+{
+  "id": "audio-reactive",
+  "collection": "works",
+  "title": "Audio Reactive Live — 音楽連動ライブ演出",
+  "description": "動画の音量・周波数・ビートと映像の代表色を解析し、Unity上の照明、レーザー、LEDパネル、観客の動きへ反映する実験システム。会場の自動生成と、映像を楽しむための演出づくりを扱います。",
+  "tags": [
+    "Unity",
+    "C#",
+    "音楽",
+    "映像"
+  ],
+  "date": "",
+  "meta": "実験・プロトタイプ",
+  "image": "screenshot.png",
+  "imageType": "photo",
+  "url": "https://github.com/Qutalize/AudioReactiveLive",
+  "source": "公開GitHub README / AudioReactiveLive",
+  "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+  "outline": {
+    "purpose": "",
+    "role": "",
+    "highlights": [],
+    "results": "",
+    "nextSteps": ""
+  },
+  "links": [],
+  "imageFit": "contain",
+  "imageSource": "本人提供の画像・動画（2026-11-07）",
+  "repositoryUpdatedAt": "2026-07-20",
+  "fields": [
+    "音楽",
+    "映像"
+  ],
+  "techStack": [
+    "Unity",
+    "C#"
+  ],
+  "achievements": []
+}

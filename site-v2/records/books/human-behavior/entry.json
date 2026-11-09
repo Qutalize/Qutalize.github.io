@@ -1,0 +1,27 @@
+{
+  "id": "human-behavior",
+  "collection": "books",
+  "title": "謎解き・人間行動の不思議",
+  "description": "感想・学んだことは後から追記します。",
+  "tags": [
+    "心理学"
+  ],
+  "image": "cover.jpg",
+  "imageType": "cover",
+  "date": "",
+  "meta": "読書メモ準備中",
+  "source": "本人提供の書籍一覧",
+  "author": "北原義典",
+  "isbn": "9784062576543",
+  "publicationDate": "2009.10",
+  "edition": "",
+  "publisher": "講談社",
+  "bibliographySource": "https://ndlsearch.ndl.go.jp/books/R100000002-I000010593054",
+  "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000010593054",
+  "urlLabel": "書誌情報を読む",
+  "coverStatus": "取得済み",
+  "coverSource": "https://www.kinokuniya.co.jp/f/dsg-01-9784062576543",
+  "coverImageUrl": "https://www.kinokuniya.co.jp/images/goods/ar2/web/imgdata2/large/40625/4062576546.jpg",
+  "coverRetrievedAt": "2026-09-14",
+  "returnDate": "2025-04-15"
+}

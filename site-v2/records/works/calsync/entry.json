@@ -1,0 +1,35 @@
+{
+  "id": "calsync",
+  "collection": "works",
+  "title": "CalSync — フレンドと予定を共有するカレンダー",
+  "description": "Python / Flaskで予定管理とフレンド間の共有を実装。予定の重複を検知し、承認済みフレンドには確定した予定だけを共有する仕組みを備えています。",
+  "tags": [
+    "Python",
+    "Web",
+    "設計"
+  ],
+  "date": "",
+  "meta": "アプリ制作",
+  "image": "",
+  "imageType": "pictogram",
+  "url": "https://github.com/Qutalize/CalSync",
+  "source": "公開GitHub README / CalSync",
+  "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+  "outline": {
+    "purpose": "",
+    "role": "",
+    "highlights": [],
+    "results": "",
+    "nextSteps": ""
+  },
+  "links": [],
+  "repositoryUpdatedAt": "2026-03-14",
+  "fields": [
+    "Web",
+    "設計"
+  ],
+  "techStack": [
+    "Python"
+  ],
+  "achievements": []
+}

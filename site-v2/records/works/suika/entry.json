@@ -1,0 +1,45 @@
+{
+  "id": "suika",
+  "collection": "works",
+  "title": "Suika",
+  "description": "Unityサマーチャレンジ2026に提出した、入れ子構造の3Dスイカ割りゲーム。画面の中の画面へ潜っていく体験を、RenderTextureの多段描画や波のメッシュ変形、実行時生成UIで表現しています。",
+  "tags": [
+    "Unity",
+    "C#",
+    "ゲーム",
+    "3D"
+  ],
+  "date": "",
+  "meta": "Unityサマーチャレンジ2026 提出作品",
+  "image": "preview.png",
+  "imageType": "photo",
+  "videos": [
+    { "title": "プレイ映像", "src": "scene.mp4", "poster": "scene-poster.jpg" },
+    { "title": "通常エンディング", "src": "normal-end.mp4", "poster": "normal-end-poster.jpg" },
+    { "title": "特殊エンディング", "src": "unique-end.mp4", "poster": "unique-end-poster.jpg" }
+  ],
+  "url": "https://github.com/Qutalize/Suika-UnitySummerChallenge2026-",
+  "source": "公開GitHub README / Suika-UnitySummerChallenge2026-",
+  "reviewStatus": "概要下書き・担当範囲と時期は本人確認待ち",
+  "outline": {
+    "purpose": "",
+    "role": "",
+    "highlights": [],
+    "results": "",
+    "nextSteps": ""
+  },
+  "links": [],
+  "imageSource": "https://github.com/Qutalize/Suika-UnitySummerChallenge2026-/blob/main/images/scene.png",
+  "repositoryUpdatedAt": "2026-07-22",
+  "fields": [
+    "ゲーム",
+    "3D"
+  ],
+  "techStack": [
+    "Unity",
+    "C#"
+  ],
+  "achievements": [
+    "Unityサマーチャレンジ2026 提出"
+  ]
+}
