@@ -1,0 +1,57 @@
+name: Publish site-v2 to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - name: Generate and check the publication directory
+        id: build
+        run: |
+          node -e '
+            const fs = require("node:fs");
+            const path = require("node:path");
+            const output = require("./site-v2/build-publish.cjs").publish();
+            if (fs.existsSync(path.join(output, "site-v1"))) {
+              throw new Error("The archived site must stay outside the Pages artifact");
+            }
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, "path=" + output + "\n");
+          '
+          node site-v2/check.cjs
+          node site-v2/check-graph-layout.cjs
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: ${{ steps.build.outputs.path }}
+          include-hidden-files: true
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v5
+        id: deployment

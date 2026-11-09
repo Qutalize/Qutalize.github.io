@@ -14,7 +14,9 @@ node site-v2/check-graph-layout.cjs
 
 最初のコマンドはコンテンツを再生成し、リンクを検査して `.publish/<生成日時>/` を作成します。
 
-**ホスティングには、検査が通った日時フォルダの中身を指定してください。** GitHub Pages ではこの出力を Pages artifact にします。公開時はファイル一式を入れ替えます。
+## GitHub Pages
+
+リポジトリの **Settings → Pages → Build and deployment → Source** に **GitHub Actions** を指定します。[`pages.yml`](../.github/workflows/pages.yml) は `main` への push で `site-v2/` をビルドし、検査が通った `.publish/<生成日時>/` の中身だけを GitHub Pages に配信します。GitHub 上では `site-v1/` と `site-v2/` を参照できます。
 
 ## 公開されるもの
 
